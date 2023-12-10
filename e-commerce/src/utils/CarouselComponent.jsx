@@ -70,23 +70,27 @@ export function CarouselTop() {
           alt="image 2"
           className="h-screen w-full object-cover"
         />
-        <div className="absolute inset-0 grid h-full w-full items-center">
-          <div className="w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32">
-            <Typography
-              variant="h1"
-              color="white"
-              className="mb-4 text-3xl md:text-4xl lg:text-5xl"
-            >
+        <div className="absolute inset-0 grid h-full w-full items-center justify-center  ">
+          <div className="flex flex-col justify-center items-center text-center w-[600px] ">
+            <Typography variant="h1" color="white" className="mb-4 text-6xl">
               <p>BLACK FRIDAY</p>
             </Typography>
-            <Typography variant="lead" color="white" className="mb-12 ">
+            <Typography
+              variant="lead"
+              color="white"
+              className="mb-12 font-montserrat tracking-wider font-normal text-xl my-5 "
+            >
               <p>
-                We know how large objects will act, but things on a small scale.
+                We know how large objects will act, but things on a small scale
+                just do not act that way.
               </p>
             </Typography>
             <div className="flex gap-2">
-              <Button size="lg" color="white">
-                <p>Explore</p>
+              <Button
+                size="lg"
+                className="bg-prBlue rounded transform scale-105 hover:scale-110  py-4 px-8 text-xl "
+              >
+                Start Now
               </Button>
             </div>
           </div>
