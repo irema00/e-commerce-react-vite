@@ -22,7 +22,11 @@ export function CarouselTop() {
       )}
     >
       <div className="relative h-full w-full">
-        <img src={slide1} alt="image1" className="h-full w-full object-cover" />
+        <img
+          src={slide1}
+          alt="image1"
+          className="h-screen w-full object-cover"
+        />
         <div className="absolute inset-0 grid h-full w-full items-center pl-[10%]">
           <div className="w-3/4 text-left md:w-2/4">
             <Typography
@@ -64,7 +68,7 @@ export function CarouselTop() {
         <img
           src={slide2}
           alt="image 2"
-          className="h-full w-full object-cover"
+          className="h-screen w-full object-cover"
         />
         <div className="absolute inset-0 grid h-full w-full items-center">
           <div className="w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32">
