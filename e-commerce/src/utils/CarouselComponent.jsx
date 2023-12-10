@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 import { Carousel, Typography, Button } from "@material-tailwind/react";
-import slide1 from "../assets/Carousel/slide1.svg";
-import slide2 from "../assets/Carousel/slide2.svg";
+import slide1 from "../assets/Carousel/slide1.jpg";
+import slide2 from "../assets/Carousel/slide2.jpg";
 export function CarouselCustomNavigation() {
   return (
     <Carousel
