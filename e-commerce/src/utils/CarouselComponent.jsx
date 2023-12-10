@@ -27,7 +27,7 @@ export function CarouselTop() {
           alt="image1"
           className="h-screen w-full object-cover"
         />
-        <div className="absolute inset-0 grid h-full w-full items-center pl-[10%]">
+        <div className="absolute inset-0 flex flex-col justify-center items-start pl-[10%]">
           <div className="w-3/4 text-left md:w-2/4">
             <Typography
               variant="h5"
@@ -70,7 +70,7 @@ export function CarouselTop() {
           alt="image 2"
           className="h-screen w-full object-cover"
         />
-        <div className="absolute inset-0 grid h-full w-full items-center justify-center  ">
+        <div className="absolute inset-0 flex flex-col justify-center items-center  ">
           <div className="flex flex-col justify-center items-center text-center w-[600px] ">
             <Typography variant="h1" color="white" className="mb-4 text-7xl">
               <p>BLACK FRIDAY</p>
