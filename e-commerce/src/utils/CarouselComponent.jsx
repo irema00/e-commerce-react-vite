@@ -55,7 +55,7 @@ export function CarouselTop() {
             <div className="flex justify-left">
               <Button
                 size="lg"
-                className="bg-successGreen transform scale-105 hover:scale-110 "
+                className="bg-successGreen rounded transform scale-105 hover:scale-110 "
               >
                 <p className="text-lg">SHOP NOW</p>
               </Button>
