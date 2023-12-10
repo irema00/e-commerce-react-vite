@@ -72,13 +72,13 @@ export function CarouselTop() {
         />
         <div className="absolute inset-0 grid h-full w-full items-center justify-center  ">
           <div className="flex flex-col justify-center items-center text-center w-[600px] ">
-            <Typography variant="h1" color="white" className="mb-4 text-6xl">
+            <Typography variant="h1" color="white" className="mb-4 text-7xl">
               <p>BLACK FRIDAY</p>
             </Typography>
             <Typography
               variant="lead"
               color="white"
-              className="mb-12 font-montserrat tracking-wider font-normal text-xl my-5 "
+              className="mb-12 font-montserrat tracking-wider font-normal text-xl my-6 "
             >
               <p>
                 We know how large objects will act, but things on a small scale
