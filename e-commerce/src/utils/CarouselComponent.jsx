@@ -73,20 +73,17 @@ export function CarouselCustomNavigation() {
               color="white"
               className="mb-4 text-3xl md:text-4xl lg:text-5xl"
             >
-                BLACK FRIDAY
+              <p>BLACK FRIDAY</p>
             </Typography>
-            <Typography
-              variant="lead"
-              color="white"
-              className="mb-12 "
-            >
-            We know how large objects will act, but things on a small scale.
+            <Typography variant="lead" color="white" className="mb-12 ">
+              <p>
+                We know how large objects will act, but things on a small scale.
+              </p>
             </Typography>
             <div className="flex gap-2">
               <Button size="lg" color="white">
-                Explore
+                <p>Explore</p>
               </Button>
-         
             </div>
           </div>
         </div>
