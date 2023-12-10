@@ -22,42 +22,44 @@ export function CarouselCustomNavigation() {
       )}
     >
       <div className="relative h-full w-full">
-        <img
-          src={slide1}
-          alt="image1"
-          className="h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 grid h-full w-full place-items-center ">
-          <div className="w-3/4 text-center md:w-2/4">
-          <Typography
-              variant="h1"
+        <img src={slide1} alt="image1" className="h-full w-full object-cover" />
+        <div className="absolute inset-0 grid h-full w-full items-center pl-[10%]">
+          <div className="w-3/4 text-left md:w-2/4">
+            <Typography
+              variant="h5"
               color="white"
-              className="mb-4 text-3xl md:text-4xl lg:text-5xl"
+              className="mb-12 text-sm font-montserrat  tracking-widest "
             >
-              Summer 2020
+              <p>SUMMER 2020</p>
             </Typography>
             <Typography
               variant="h1"
               color="white"
-              className="mb-4 text-3xl md:text-4xl lg:text-5xl"
+              className=" font-montserrat font-semibold text-5xl tracking-normal leading-custom mb-12 "
             >
-               NEW COLLECTION 
+              <p>NEW COLLECTION</p>
             </Typography>
             <Typography
-              variant="lead"
+              variant="h4"
               color="white"
-              className="mb-12 opacity-80"
+              className=" font-montserrat tracking-wide font-normal text-lg leading-5 mb-12"
             >
-             We know how large objects will act, but things on a small scale.
+              <p>
+                We know how large objects will act, but things on a small scale.
+              </p>
             </Typography>
-            <div className="flex justify-center gap-2">
-              <Button size="lg" className="bg-successGreen">
-               SHOP NOW
+            <div className="flex justify-left">
+              <Button
+                size="lg"
+                className="bg-successGreen transform scale-105 hover:scale-110 "
+              >
+                <p className="text-lg">SHOP NOW</p>
               </Button>
-                         </div>
+            </div>
           </div>
         </div>
       </div>
+
       <div className="relative h-full w-full">
         <img
           src={slide2}
