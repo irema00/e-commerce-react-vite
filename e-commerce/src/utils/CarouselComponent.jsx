@@ -32,21 +32,21 @@ export function CarouselTop() {
             <Typography
               variant="h5"
               color="white"
-              className="mb-12 text-sm font-montserrat  tracking-widest "
+              className="mb-12 text-md font-montserrat  tracking-widest "
             >
               <p>SUMMER 2020</p>
             </Typography>
             <Typography
               variant="h1"
               color="white"
-              className=" font-montserrat font-semibold text-5xl tracking-normal leading-custom mb-12 "
+              className=" font-montserrat font-semibold text-6xl tracking-normal leading-custom mb-12 "
             >
               <p>NEW COLLECTION</p>
             </Typography>
             <Typography
               variant="h4"
               color="white"
-              className=" font-montserrat tracking-wide font-normal text-lg leading-5 mb-12"
+              className=" font-montserrat tracking-wide font-normal text-xl leading-5 mb-12"
             >
               <p>
                 We know how large objects will act, but things on a small scale.
@@ -95,4 +95,3 @@ export function CarouselTop() {
     </Carousel>
   );
 }
-
