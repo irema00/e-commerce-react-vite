@@ -38,6 +38,7 @@ export default function Header() {
     }`;
 
   return (
+    <div className="">
       <div className="bg-darkBg text-whiteText flex justify-between items-center flex-wrap gap-2 font-montserrat font-semibold text-sm px-10 h-[54px]">
         <div className="flex items-center gap-7 font-semibold ">
           <div className="flex items-center gap-1">
@@ -87,6 +88,11 @@ export default function Header() {
         </div>
       </div>
 
+      <div className="flex flex-row justify-between font-montserrat gap- px-10 h-[68px]">
+        <div className=" flex flex-row items-center flex-wrap gap-16">
+          <div className="text-2xl font-bold tracking-tight font-montserrat">
+            <p>BrandName</p>
+          </div>
           <div className="flex flex-row gap-2 text-hdGrey text-sm font-semibold font-monserrat leading-normal tracking-tight">
             <ul className="flex flex-row gap-4 list-none p-0 m-0">
               {menuItems.map((item) => (
@@ -105,8 +111,41 @@ export default function Header() {
               ))}
             </ul>
           </div>
+        </div>
+
+        <div className="flex flex-row items-center gap-4">
+          <div className="text-prBlue flex-row flex items-center gap-2 text-sm font-bold font-monserrat ">
+            <FontAwesomeIcon
+              icon={faUser}
+              bg-prBlue
+              style={{ color: "rgba(35, 166, 240, 1)" }}
+            />
+            <div className="flex flex-row text-sm font-bold">
+              <p>Login</p>
+              <span>/</span> <p>Register</p>
+            </div>
+          </div>
+
+          <div className="flex flex-row gap-2 items-center text-prBlue ">
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              style={{
+                color: "rgba(35, 166, 240, 1)",
+              }}
+            />
+            <FontAwesomeIcon
+              icon={faCartShopping}
+              style={{ color: "rgba(35, 166, 240, 1)" }}
+            />
+            <span>1</span>
+            <FontAwesomeIcon
+              icon={faHeart}
+              style={{ color: "rgba(35, 166, 240, 1)" }}
+            />
+            <span>1</span>
+          </div>
+        </div>
+      </div>
     </div>
-    
-    </>
-  )
+  );
 }
