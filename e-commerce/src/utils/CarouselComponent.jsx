@@ -4,21 +4,22 @@ import slide1 from "../assets/Carousel/slide1.svg";
 import slide2 from "../assets/Carousel/slide2.svg";
 export function CarouselCustomNavigation() {
   return (
-    <Carousel transition={{ duration: 2 }}
-    className=""
-    navigation={({ setActiveIndex, activeIndex, length }) => (
-      <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
-        {new Array(length).fill("").map((_, i) => (
-          <span
-            key={i}
-            className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
-              activeIndex === i ? "w-8 bg-white" : "w-4 bg-white/50"
-            }`}
-            onClick={() => setActiveIndex(i)}
-          />
-        ))}
-      </div>
-    )}
+    <Carousel
+      transition={{ duration: 2 }}
+      className=""
+      navigation={({ setActiveIndex, activeIndex, length }) => (
+        <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 ">
+          {new Array(length).fill("").map((_, i) => (
+            <span
+              key={i}
+              className={`block h-2 cursor-pointer  transition-all content-[''] ${
+                activeIndex === i ? "w-16 bg-white" : "w-14 bg-white/50"
+              }`}
+              onClick={() => setActiveIndex(i)}
+            />
+          ))}
+        </div>
+      )}
     >
       <div className="relative h-full w-full">
         <img
