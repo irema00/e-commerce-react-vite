@@ -41,7 +41,7 @@ export default function Header() {
     <div className="">
       <div className="bg-darkBg text-whiteText flex justify-between items-center flex-wrap gap-2 font-montserrat font-semibold text-sm px-10 h-[54px]">
         <div className="flex items-center gap-7 font-semibold ">
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-2 tracking-wider ">
             <FontAwesomeIcon
               icon={faPhone}
               size="lg"
@@ -49,18 +49,18 @@ export default function Header() {
             />
             <p>(225) 555-0118 </p>
           </div>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-2 tracking-wider ">
             <FontAwesomeIcon size="lg" icon={faEnvelope} />
             <p>michelle.rivera@example.com</p>
           </div>
         </div>
 
-        <div className="font-semibold text-sm ">
+        <div className="font-semibold text-sm tracking-wide ">
           Follow Us and get a chance to win 80% off
         </div>
 
         <div className="flex gap-4 justify-center items-center">
-          <div className="text-white text-sm font-bold font-monserrat leading-normal tracking-tight flex flex-row gap-2 ">
+          <div className="text-white text-sm font-bold font-monserrat leading-normal tracking-wide flex flex-row gap-2 ">
             <p>Follow Us</p> <span>:</span>
           </div>
           <div className="flex gap-4">
@@ -90,11 +90,11 @@ export default function Header() {
 
       <div className="flex flex-row justify-between font-montserrat gap- px-10 h-[68px]">
         <div className=" flex flex-row items-center flex-wrap gap-16">
-          <div className="text-2xl font-bold tracking-tight font-montserrat">
-            <p>BrandName</p>
+          <div className="text-2xl font-bold  font-montserrat">
+            <p>Bandage</p>
           </div>
-          <div className="flex flex-row gap-2 text-hdGrey text-sm font-semibold font-monserrat leading-normal tracking-tight">
-            <ul className="flex flex-row gap-4 list-none p-0 m-0">
+          <div className="flex flex-row gap-2 text-hdGrey text-sm font-bold font-monserrat leading-normal pl-16 ">
+            <ul className="flex flex-row tracking-wider gap-3 list-none p-0 m-0">
               {menuItems.map((item) => (
                 <li
                   key={item.name}
@@ -118,31 +118,37 @@ export default function Header() {
             <FontAwesomeIcon
               icon={faUser}
               bg-prBlue
+              size="sm"
               style={{ color: "rgba(35, 166, 240, 1)" }}
             />
-            <div className="flex flex-row text-sm font-bold">
+            <div className="flex flex-row text-sm font-bold tracking-wider gap-1">
               <p>Login</p>
-              <span>/</span> <p>Register</p>
+              <span>/</span>
+              <p>Register</p>
             </div>
           </div>
 
-          <div className="flex flex-row gap-2 items-center text-prBlue ">
+          <div className="flex flex-row gap-8 items-center text-prBlue ">
             <FontAwesomeIcon
               icon={faMagnifyingGlass}
               style={{
                 color: "rgba(35, 166, 240, 1)",
               }}
             />
-            <FontAwesomeIcon
-              icon={faCartShopping}
-              style={{ color: "rgba(35, 166, 240, 1)" }}
-            />
-            <span>1</span>
-            <FontAwesomeIcon
-              icon={faHeart}
-              style={{ color: "rgba(35, 166, 240, 1)" }}
-            />
-            <span>1</span>
+            <div>
+              <FontAwesomeIcon
+                icon={faCartShopping}
+                style={{ color: "rgba(35, 166, 240, 1)" }}
+              />
+              <span>1</span>
+            </div>
+            <div>
+              <FontAwesomeIcon
+                icon={faHeart}
+                style={{ color: "rgba(35, 166, 240, 1)" }}
+              />
+              <span>1</span>
+            </div>
           </div>
         </div>
       </div>
