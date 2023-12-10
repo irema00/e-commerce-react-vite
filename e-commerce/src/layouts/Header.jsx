@@ -1,6 +1,21 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPhone,
+  faEnvelope,
+  faMagnifyingGlass,
+  faCartShopping,
+  faHeart,
+  faUser,
+  faChevronDown,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faInstagram,
+  faYoutube,
+  faFacebook,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
 
