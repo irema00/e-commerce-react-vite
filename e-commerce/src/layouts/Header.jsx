@@ -2,6 +2,26 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 export default function Header() {
+  const [activeMenu, setActiveMenu] = useState(null);
+
+  const menuItems = [
+    { name: "home", label: "Home" },
+    { name: "shop", label: "Shop" },
+    { name: "about", label: "About" },
+    { name: "blog", label: "Blog" },
+    { name: "contact", label: "Contact" },
+    { name: "pages", label: "Pages" },
+  ];
+
+  const handleMenuClick = (menuName) => {
+    setActiveMenu(activeMenu === menuName ? null : menuName);
+  };
+
+  const menuItemClass = (menuName) =>
+    `cursor-pointer ${
+      activeMenu === menuName ? "text-darkBg font-light" : "text-neutral-500"
+    }`;
+
   return (
       <div className="bg-darkBg text-whiteText flex justify-between items-center flex-wrap gap-2 font-montserrat font-semibold text-sm px-10 h-[54px]">
         <div className="flex items-center gap-7 font-semibold ">
@@ -52,6 +72,24 @@ export default function Header() {
         </div>
       </div>
 
+          <div className="flex flex-row gap-2 text-hdGrey text-sm font-semibold font-monserrat leading-normal tracking-tight">
+            <ul className="flex flex-row gap-4 list-none p-0 m-0">
+              {menuItems.map((item) => (
+                <li
+                  key={item.name}
+                  onClick={() => handleMenuClick(item.name)}
+                  className={menuItemClass(item.name)}
+                >
+                  {item.label}
+                  {activeMenu === item.name && (
+                    <span className="ml-2">
+                      <FontAwesomeIcon icon={faChevronDown} size="2xs" />
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
     </div>
     
     </>
