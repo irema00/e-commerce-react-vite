@@ -85,7 +85,7 @@ export const carousel2 = {
   },
 };
 
-export const partOfTheNeuralUniverse = {
+export const containerFluid = {
   title: "SUMMER 2020",
   subTitle: "Part of the Neural Universe",
   description:
@@ -237,7 +237,7 @@ export const footerData = {
 export const data = {
   carousel1,
   carousel2,
-  partOfTheNeuralUniverse,
+  containerFluid,
   bestsellerData,
   editorsPick,
   footerData,
