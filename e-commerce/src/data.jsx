@@ -74,64 +74,68 @@ export const partOfTheNeuralUniverse = {
 
 /*BESTSELLER*/
 
-export const bestsellerProducts = [
-  {
-    title: "Graphic Design",
-    price: "$16.48",
-    newPrice: "$6.48",
-    department: "English Department",
-    imageUrl: bs1,
-  },
-  {
-    title: "Graphic Design",
-    price: "$16.48",
-    newPrice: "$6.48",
-    department: "English Department",
-    imageUrl: bs2,
-  },
-  {
-    title: "Graphic Design",
-    price: "$16.48",
-    newPrice: "$6.48",
-    department: "English Department",
-    imageUrl: bs3,
-  },
-  {
-    title: "Graphic Design",
-    price: "$16.48",
-    newPrice: "$6.48",
-    department: "English Department",
-    imageUrl: bs4,
-  },
-  {
-    title: "Graphic Design",
-    price: "$16.48",
-    newPrice: "$6.48",
-    department: "English Department",
-    imageUrl: bs5,
-  },
-  {
-    title: "Graphic Design",
-    price: "$16.48",
-    newPrice: "$6.48",
-    department: "English Department",
-    imageUrl: bs6,
-  },
-  {
-    title: "Graphic Design",
-    price: "$16.48",
-    newPrice: "$6.48",
-    department: "English Department",
-    imageUrl: bs7,
-  },
-  {
-    title: "Graphic Design",
-    price: "$16.48",
-    newPrice: "$6.48",
-    department: "English Department",
-    imageUrl: bs8,
-  },
-];
+export const bestsellerData = {
+  title: "BESTSELLER PRODUCTS",
+  description: "Problems trying to resolve the conflict between",
+  products: [
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: bs1,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: bs2,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: bs3,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: bs4,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: bs5,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: bs6,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: bs7,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: bs8,
+    },
+  ],
+};
 
 export const editorsPick = {
   title: "EDITOR'S PICK",
@@ -201,7 +205,7 @@ export const data = {
   carousel1,
   carousel2,
   partOfTheNeuralUniverse,
-  bestsellerProducts,
+  bestsellerData,
   editorsPick,
   footerData,
 };
