@@ -66,12 +66,23 @@ export const carousel1 = {
 };
 
 export const carousel2 = {
-  title: "SUMMER 2020",
-  subTitle: "Vita Classic Product",
-  description:
-    "We know how large objects will act, We know how are objects will act, We know",
-  price: "$16.48",
-  imageUrl: slide3,
+  firstSlide: {
+    title: "SUMMER 2020",
+    subTitle: "Vita Classic Product",
+    description:
+      "We know how large objects will act, We know how are objects will act, We know",
+    backgroundImage: slide3,
+    imageUrl: hero2,
+    price: "$16.48",
+    buttonText: "SHOP NOW",
+  },
+  secondSlide: {
+    title: "BLACK FRIDAY",
+    description:
+      "We know how large objects will act, but things on a small scale just do not act that way.",
+    imageUrl: slide2,
+    buttonText: "Start Now",
+  },
 };
 
 export const partOfTheNeuralUniverse = {
