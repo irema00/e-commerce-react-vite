@@ -27,7 +27,7 @@ export function CarouselTop() {
           alt="image1"
           className="h-screen w-full object-cover"
         />
-        <div className="absolute inset-0 flex flex-col justify-center items-start pl-[10%]">
+        <div className="absolute inset-0 flex flex-col justify-center items-start pl-[13%]">
           <div className="w-3/4 text-left md:w-2/4">
             <Typography
               variant="h5"
