@@ -6,13 +6,13 @@ export default function ContainerFluid() {
   const { containerFluid } = useData();
 
   return (
-    <div className="flex flex-wrap justify-evenly lg:flex-nowrap px-[13%] font-montserrat ">
+    <div className="flex flex-wrap lg:flex-nowrap px-[10%] gap-6 font-montserrat ">
       <img
         src={containerFluid.imageUrl}
         alt="Happy Couple Image"
-        className="h-full w-1/2"
+        className=""
       />
-      <div className="flex flex-col w-1/2 justify-center gap-7 px-16">
+      <div className="flex flex-col justify-center gap-6 ">
         <h5 className="text-lg tracking-widest font-bold text-gray-400 ">
           {containerFluid.title}
         </h5>
