@@ -28,6 +28,26 @@ import slide1 from "./assets/Carousel/slide1.jpg";
 
 /* HEADER*/
 
+export const headerData = {
+  brandName: "Bandage",
+  contactNumber: "(225) 555-0118",
+  contactEmail: "michelle.rivera@example.com",
+  followUsText: "Follow Us and get a chance to win 80% off",
+  socialText: "Follow us :",
+  loginText: "Login",
+  registerText: "Register",
+  likeCount: "1",
+  cartProductCount: "1",
+  menuItems: [
+    { name: "home", label: "Home" },
+    { name: "shop", label: "Shop" },
+    { name: "about", label: "About" },
+    { name: "blog", label: "Blog" },
+    { name: "contact", label: "Contact" },
+    { name: "pages", label: "Pages" },
+  ],
+};
+
 /* HERO & CAROUSELS*/
 
 export const carousel1 = {
@@ -136,6 +156,8 @@ export const bestsellerData = {
     },
   ],
 };
+
+/*EDITORS' PICK*/
 
 export const editorsPick = {
   title: "EDITOR'S PICK",

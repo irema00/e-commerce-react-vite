@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useData } from "../contexts/DataContext";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPhone,
@@ -16,17 +17,10 @@ import {
   faFacebook,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
-
-  const menuItems = [
-    { name: "home", label: "Home" },
-    { name: "shop", label: "Shop" },
-    { name: "about", label: "About" },
-    { name: "blog", label: "Blog" },
-    { name: "contact", label: "Contact" },
-    { name: "pages", label: "Pages" },
-  ];
+  const { headerData } = useData();
 
   const handleMenuClick = (menuName) => {
     setActiveMenu(activeMenu === menuName ? null : menuName);
@@ -47,21 +41,21 @@ export default function Header() {
               size="lg"
               style={{ color: "#ffffff" }}
             />
-            <p>(225) 555-0118 </p>
+            <p>{headerData.contactNumber} </p>
           </div>
           <div className="flex items-center gap-2 tracking-wider ">
             <FontAwesomeIcon size="lg" icon={faEnvelope} />
-            <p>michelle.rivera@example.com</p>
+            <p>{headerData.contactEmail}</p>
           </div>
         </div>
 
         <div className="font-semibold text-sm tracking-wide ">
-          Follow Us and get a chance to win 80% off
+          {headerData.followUsText}
         </div>
 
         <div className="flex gap-4 justify-center items-center">
           <div className="text-white text-sm font-bold font-monserrat leading-normal tracking-wide flex flex-row gap-2 ">
-            <p>Follow Us</p> <span>:</span>
+            <p>{headerData.socialText}</p> <span>:</span>
           </div>
           <div className="flex gap-4">
             <FontAwesomeIcon
@@ -91,11 +85,11 @@ export default function Header() {
       <div className="flex flex-row justify-between font-montserrat gap- px-10 h-[68px]">
         <div className=" flex flex-row items-center flex-wrap gap-16">
           <div className="text-2xl font-bold  font-montserrat">
-            <p>Bandage</p>
+            <p>{headerData.brandName}</p>
           </div>
           <div className="flex flex-row gap-2 text-hdGrey text-sm font-bold font-monserrat leading-normal pl-16 ">
             <ul className="flex flex-row tracking-wider gap-3 list-none p-0 m-0">
-              {menuItems.map((item) => (
+              {headerData.menuItems.map((item) => (
                 <li
                   key={item.name}
                   onClick={() => handleMenuClick(item.name)}
@@ -122,9 +116,9 @@ export default function Header() {
               style={{ color: "rgba(35, 166, 240, 1)" }}
             />
             <div className="flex flex-row text-sm font-bold tracking-wider gap-1">
-              <p>Login</p>
+              <p>{headerData.loginText}</p>
               <span>/</span>
-              <p>Register</p>
+              <p>{headerData.registerText}r</p>
             </div>
           </div>
 
@@ -140,14 +134,14 @@ export default function Header() {
                 icon={faCartShopping}
                 style={{ color: "rgba(35, 166, 240, 1)" }}
               />
-              <span>1</span>
+              <span>{headerData.cartProductCount}</span>
             </div>
             <div>
               <FontAwesomeIcon
                 icon={faHeart}
                 style={{ color: "rgba(35, 166, 240, 1)" }}
               />
-              <span>1</span>
+              <span>{headerData.likeCount}</span>
             </div>
           </div>
         </div>
