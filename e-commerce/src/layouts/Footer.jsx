@@ -1,4 +1,5 @@
 import React from "react";
+import { useData } from "../contexts/DataContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,
@@ -7,35 +8,12 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
-  const footerSections = [
-    {
-      title: "Company Info",
-      links: ["About Us", "Carrier", "We are hiring", "Blog"],
-    },
-    {
-      title: "Legal",
-      links: ["About Us", "Carrier", "We are hiring", "Blog"],
-    },
-    {
-      title: "Features",
-      links: [
-        "Business Marketing",
-        "User Analytic",
-        "Live Chat",
-        "Unlimited Support",
-      ],
-    },
-    {
-      title: "Resources",
-      links: ["IOS & Android", "Watch a Demo", "Customers", "API"],
-    },
-  ];
-
+  const { footerData } = useData();
   return (
     <div className=" text-darkBg  font-montserrat ">
       <div className=" bg-ltGrey  px-[13%] items-center">
         <div className="flex justify-between py-6 ">
-          <p className="text-2xl font-bold">Bandage</p>
+          <p className="text-2xl font-bold">{footerData.brandName}</p>
 
           <div className="flex items-center space-x-4 ">
             <FontAwesomeIcon
@@ -53,7 +31,7 @@ export default function Footer() {
       <hr class="border-1 border-solid border-inputBorder mx-[13%] "></hr>
       <div className="bg-white  px-[13%]   py-8  font-montserrat font-bold   ">
         <div className=" bg-white flex flex-wrap justify-between  items-start  ">
-          {footerSections.map((section, index) => (
+          {footerData.footerSections.map((section, index) => (
             <div key={index} className=" mb-4 md:mb-0 md:w-1/5">
               <h5 className="text-lg font-semibold">{section.title}</h5>
               <ul className="mt-4">
@@ -69,7 +47,9 @@ export default function Footer() {
             </div>
           ))}
           <div className="w-full md:w-1/5 mt-8 md:mt-0 flex flex-col">
-            <h5 className="text-lg font-semibold mb-4">Get In Touch</h5>
+            <h5 className="text-lg font-semibold mb-4">
+              {footerData.inputTitle}
+            </h5>
             <form className="flex">
               <input
                 type="email"
@@ -81,17 +61,17 @@ export default function Footer() {
                 type="submit"
                 className="bg-prBlue px-3 text-white text-sm font-light rounded-r-md hover:bg-blue-600"
               >
-                Subscribe
+                {footerData.buttonText}
               </button>
             </form>
             <p className="mt-4 text-sm leading-7 text-hdGrey">
-              Lore imp sum dolor Amit
+              {footerData.inputSubtext}
             </p>
           </div>
         </div>
       </div>
       <p className="text-left font-montserrat font-bold px-[13%] text-hdGrey flex items-center bg-ltGrey py-4">
-        Made With Love By Finland All Right Reserved
+        {footerData.copyright}
       </p>
     </div>
   );
