@@ -111,7 +111,7 @@ export default function Header() {
           <div className="text-prBlue flex-row flex items-center gap-2 text-sm font-bold font-monserrat ">
             <FontAwesomeIcon
               icon={faUser}
-              bg-prBlue
+              className="bg-prBlue"
               size="sm"
               style={{ color: "rgba(35, 166, 240, 1)" }}
             />
