@@ -6,6 +6,7 @@ import EditorsPick from "../layouts/homepage/EditorsPick";
 import Bestseller from "../layouts/homepage/Bestseller";
 import { CarouselBottom } from "../layouts/homepage/CarouselBottom";
 import ContainerFluid from "../layouts/homepage/ContainerFluid";
+import FeaturedPosts from "../layouts/homepage/FeaturedPosts";
 import Footer from "../layouts/Footer";
 
 export default function HomePage() {
@@ -17,6 +18,7 @@ export default function HomePage() {
       <Bestseller />
       <CarouselBottom />
       <ContainerFluid />
+      <FeaturedPosts />
       <Footer />
     </>
   );

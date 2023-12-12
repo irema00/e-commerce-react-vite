@@ -27,6 +27,9 @@ import slide1 from "./assets/Carousel/slide1.jpg";
 
 /*FEATURED*/
 
+import featured1 from "./assets/featured/featured1.jpg";
+import featured2 from "./assets/featured/featured2.jpg";
+import featured3 from "./assets/featured/featured3.jpg";
 /* HEADER*/
 
 export const headerData = {
@@ -236,11 +239,54 @@ export const footerData = {
   ],
 };
 
+export const featuredPostsData = {
+  topTitle: "Practice Advice",
+  title: "Featured Posts",
+  description:
+    "Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics ",
+  posts: [
+    {
+      id: "featured1",
+      title: "Loudest à la Madison #1 (L'integral)",
+      date: "22 April 2021",
+      commentsCount: 10,
+      description:
+        "We focus on ergonomics and meeting you where you work. It's only a keystroke away.",
+      imageUrl: featured1,
+      learnMoreUrl: "#",
+      tags: ["Google", "Trending", "New"],
+    },
+    {
+      id: "featured2",
+      title: "Loudest à la Madison #1 (L'integral)",
+      date: "22 April 2021",
+      commentsCount: 10,
+      description:
+        "We focus on ergonomics and meeting you where you work. It's only a keystroke away.",
+      imageUrl: featured2,
+      learnMoreUrl: "#",
+      tags: ["Google", "Trending", "New"],
+    },
+    {
+      id: "featured3",
+      title: "Loudest à la Madison #1 (L'integral)",
+      date: "22 April 2021",
+      commentsCount: 10,
+      description:
+        "We focus on ergonomics and meeting you where you work. It's only a keystroke away.",
+      imageUrl: featured3,
+      learnMoreUrl: "#",
+      tags: ["Google", "Trending", "New"],
+    },
+  ],
+};
+
 export const data = {
   carousel1,
   carousel2,
   containerFluid,
   bestsellerData,
   editorsPick,
+  featuredPostsData,
   footerData,
 };
