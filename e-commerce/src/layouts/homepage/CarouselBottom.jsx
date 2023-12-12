@@ -23,57 +23,55 @@ export function CarouselBottom() {
       )}
     >
       <div
-        className="flex h-full w-full"
+        className="flex h-screen w-screen gap-8 px-[10%]"
         style={{
           backgroundImage: `url(${carousel2.firstSlide.backgroundImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="flex justify-center items-center px-[10%] flex-wrap lg:no-wrap">
-          <div className="flex flex-wrap lg:no-wrap">
-            <div className=" flex flex-col h-screen justify-center gap-4 items-start">
-              <Typography
-                variant="h5"
-                color="white"
-                className="mb-12 text-md font-montserrat  tracking-widest "
-              >
-                {carousel2.firstSlide.title}
-              </Typography>
-              <Typography
-                variant="h1"
-                color="white"
-                className="font-montserrat font-semibold text-4xl tracking-normal leading-custom  "
-              >
-                {carousel2.firstSlide.subTitle}
-              </Typography>
-              <Typography
-                variant="lead"
-                color="white"
-                className="font-montserrat tracking-wide font-normal text-xl leading-5 mb-12"
-              >
-                {carousel2.firstSlide.description}
-              </Typography>
-              <div className="flex flex-row items-center gap-10 ">
-                <div className="text-white text-3xl font-semibold items-center">
-                  {carousel2.firstSlide.price}
-                </div>
-                <Button
-                  size="lg"
-                  className="bg-successGreen rounded px-16 py-5 textransform scale-105 hover:scale-110"
-                >
-                  {carousel2.firstSlide.buttonText}
-                </Button>
+        <div className="flex items-center md:flex-wrap lg:no-wrap border-4 border-solid border-pink-300">
+          <div className=" flex flex-col border-4 border-solid border-lime-300">
+            <Typography
+              variant="h5"
+              color="white"
+              className="mb-12 text-md font-montserrat  tracking-widest xl:mb-12 lg:mb-12 2xl:mb-12 "
+            >
+              {carousel2.firstSlide.title}
+            </Typography>
+            <Typography
+              variant="h1"
+              color="white"
+              className=" font-montserrat font-semibold text-6xl tracking-normal leading-custom mb-12 xl:text-6xl lg:text-6xl 2xl:text-6xl xl:mb-12 lg:mb-12 2xl:mb-12"
+            >
+              {carousel2.firstSlide.subTitle}
+            </Typography>
+            <Typography
+              variant="h4"
+              color="white"
+              className=" font-montserrat tracking-wide font-normal text-xl leading-5 mb-12 xl:text-xl lg:text-xl 2xl:text-xl"
+            >
+              {carousel2.firstSlide.description}
+            </Typography>
+            <div className="flex flex-row items-center gap-10 ">
+              <div className="text-white text-3xl font-semibold items-center">
+                {carousel2.firstSlide.price}
               </div>
+              <Button
+                size="lg"
+                className="bg-successGreen rounded px-16 py-5 textransform scale-105 hover:scale-110"
+              >
+                {carousel2.firstSlide.buttonText}
+              </Button>
             </div>
           </div>
         </div>
 
-        <div className=" flex lg:justify-center lg:w-1/2 lg:items-end ">
+        <div className=" flex lg:justify-center lg:w-3/4 items-end border-4 border-solid border-blue-300 ">
           <img
             src={carousel2.firstSlide.imageUrl}
             alt="man wearing white sweatshirt"
-            className="  "
+            className="w-[510px] h-[685px] "
           />
         </div>
       </div>
