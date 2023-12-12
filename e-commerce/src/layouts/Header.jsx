@@ -82,7 +82,7 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="flex flex-row justify-between flex-wrap w-full font-montserrat py-5 ">
+      <div className="flex flex-row justify-between flex-wrap w-full font-montserrat py-5 px-10">
         <div className=" flex flex-row items-center flex-wrap gap-16">
           <div className="text-2xl font-bold  font-montserrat">
             <p>{headerData.brandName}</p>
