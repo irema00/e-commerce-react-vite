@@ -23,7 +23,7 @@ export function CarouselBottom() {
       )}
     >
       <div
-        className="flex h-screen w-screen gap-8 px-[10%]"
+        className="flex  gap-8 px-[10%]"
         style={{
           backgroundImage: `url(${carousel2.firstSlide.backgroundImage})`,
           backgroundSize: "cover",
@@ -67,11 +67,11 @@ export function CarouselBottom() {
           </div>
         </div>
 
-        <div className=" flex lg:justify-center lg:w-3/4 items-end ">
+        <div className=" flex items-end h-screen justify-center w-[800px]">
           <img
             src={carousel2.firstSlide.imageUrl}
             alt="man wearing white sweatshirt"
-            className="w-[510px] h-[685px] "
+            className="object-fill w-full "
           />
         </div>
       </div>
