@@ -1,12 +1,12 @@
 import "./App.css";
 import { DataProvider } from "./contexts/DataContext";
-import Home from "./pages/Home";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
     <>
       <DataProvider>
-        <Home />
+        <HomePage />
       </DataProvider>
     </>
   );
