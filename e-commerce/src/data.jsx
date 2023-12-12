@@ -19,6 +19,7 @@ import bs7 from "./assets/bestseller/bs7.png";
 import bs8 from "./assets/bestseller/bs8.png";
 
 /*CAROUSEL & HERO*/
+
 import hero2 from "./assets/Carousel/hero2.png";
 import slide3 from "./assets/Carousel/slide3.jpg";
 import slide2 from "./assets/Carousel/slide2.jpg";
@@ -74,7 +75,7 @@ export const carousel2 = {
     backgroundImage: slide3,
     imageUrl: hero2,
     price: "$16.48",
-    buttonText: "SHOP NOW",
+    buttonText: "ADD TO CART",
   },
   secondSlide: {
     title: "BLACK FRIDAY",
