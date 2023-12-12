@@ -107,6 +107,7 @@ export const containerFluid = {
 /*BESTSELLER*/
 
 export const bestsellerData = {
+  topTitle: "Featured Products",
   title: "BESTSELLER PRODUCTS",
   description: "Problems trying to resolve the conflict between",
   products: [
