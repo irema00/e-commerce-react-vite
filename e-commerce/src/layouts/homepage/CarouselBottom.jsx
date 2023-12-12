@@ -30,8 +30,8 @@ export function CarouselBottom() {
           backgroundPosition: "center",
         }}
       >
-        <div className="flex items-center md:flex-wrap lg:no-wrap border-4 border-solid border-pink-300">
-          <div className=" flex flex-col border-4 border-solid border-lime-300">
+        <div className="flex items-center md:flex-wrap lg:no-wrap ">
+          <div className=" flex flex-col">
             <Typography
               variant="h5"
               color="white"
@@ -67,7 +67,7 @@ export function CarouselBottom() {
           </div>
         </div>
 
-        <div className=" flex lg:justify-center lg:w-3/4 items-end border-4 border-solid border-blue-300 ">
+        <div className=" flex lg:justify-center lg:w-3/4 items-end ">
           <img
             src={carousel2.firstSlide.imageUrl}
             alt="man wearing white sweatshirt"
