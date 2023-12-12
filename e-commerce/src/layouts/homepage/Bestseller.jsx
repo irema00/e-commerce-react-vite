@@ -5,7 +5,7 @@ export default function Bestseller() {
   const { bestsellerData } = useData();
 
   return (
-    <div className="flex flex-col py-20 px-[10%] lg:px-[10%] font-monserrat gap-12">
+    <div className="flex flex-col flex-wrap py-20 px-[10%] font-monserrat gap-12 ">
       <div className="flex text-center flex-col py-8 ">
         <div className="text-center text-hdGrey text-xl font-normal leading-loose tracking-tight">
           {bestsellerData.topTitle}
@@ -17,16 +17,13 @@ export default function Bestseller() {
           {bestsellerData.description}
         </p>
       </div>
-      <div className="flex flex-wrap justify-evenly lg:flex-wrap ">
+      <div className="flex flex-wrap justify-evenly gap-3">
         {bestsellerData.products.map((product, index) => (
-          <div
-            key={index}
-            className="flex flex-col items-center  w-1/4 lg:w-1/4 md:w1/4 "
-          >
+          <div key={index} className="flex flex-col  flex-wrap items-center ">
             <img
               src={product.imageUrl}
               alt={product.title}
-              className="object-cover object-center w-[239px] h-[427px] " /* resme sabit genişlik ve yükseklik, değiştirilebilir*/
+              className="object-cover object-center max-w-[240px] max-h-[450px] " /* resme sabit genişlik ve yükseklik, değiştirilebilir*/
             />
             <div className="flex gap-2 flex-col items-center mt-3 mb-5 ">
               <h3 className="w-32 text-center text-darkBg text-base font-bold  leading-normal tracking-tight  mt-2 ">

@@ -10,7 +10,7 @@ import {
 export default function Footer() {
   const { footerData } = useData();
   return (
-    <div className=" text-darkBg flex flex-col font-montserrat ">
+    <div className=" text-darkBg flex flex-col font-montserrat  ">
       <div className=" bg-ltGrey  px-[10%] items-center">
         <div className="flex justify-between py-6 ">
           <p className="text-2xl font-bold">{footerData.brandName}</p>

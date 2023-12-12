@@ -5,7 +5,7 @@ function EditorsPick() {
   const { editorsPick } = useData();
 
   return (
-    <div className="flex md:flex-wrap flex-col items-stretch justify-center font-montserrat  w-full  py-16 px-[10%]  bg-ltGrey">
+    <div className="flex md:flex-wrap flex-col items-stretch justify-center font-montserrat  w-full  py-16 px-[10%]  bg-ltGrey ">
       <div className="text-center font-montserrat mb-12 ">
         <h2 className="font-bold text-2xl tracking-normal mb-2">
           {editorsPick.title}

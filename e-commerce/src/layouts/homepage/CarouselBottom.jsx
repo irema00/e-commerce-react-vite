@@ -23,7 +23,7 @@ export function CarouselBottom() {
       )}
     >
       <div
-        className="flex  gap-8 px-[10%]"
+        className="flex flex-wrap  justify-evenly  md:no-wrap gap-8 px-[10%]"
         style={{
           backgroundImage: `url(${carousel2.firstSlide.backgroundImage})`,
           backgroundSize: "cover",
@@ -31,7 +31,7 @@ export function CarouselBottom() {
         }}
       >
         <div className="flex items-center md:flex-wrap lg:no-wrap ">
-          <div className=" flex flex-col">
+          <div className=" flex flex-col w-[500px]">
             <Typography
               variant="h5"
               color="white"
@@ -42,14 +42,14 @@ export function CarouselBottom() {
             <Typography
               variant="h1"
               color="white"
-              className=" font-montserrat font-semibold text-6xl tracking-normal leading-custom mb-12 xl:text-6xl lg:text-6xl 2xl:text-6xl xl:mb-12 lg:mb-12 2xl:mb-12"
+              className=" font-montserrat font-semibold text-6xl tracking-wide leading-[80px] mb-12"
             >
               {carousel2.firstSlide.subTitle}
             </Typography>
             <Typography
               variant="h4"
               color="white"
-              className=" font-montserrat tracking-wide font-normal text-xl leading-5 mb-12 xl:text-xl lg:text-xl 2xl:text-xl"
+              className=" font-montserrat tracking-wide font-normal text-base leading-7 w-[400px] mb-12 "
             >
               {carousel2.firstSlide.description}
             </Typography>
@@ -59,7 +59,7 @@ export function CarouselBottom() {
               </div>
               <Button
                 size="lg"
-                className="bg-successGreen rounded px-16 py-5 textransform scale-105 hover:scale-110"
+                className="bg-successGreen rounded px-12 py-5 text-base font-semibold tracking-wide textransform scale-105 hover:scale-110"
               >
                 {carousel2.firstSlide.buttonText}
               </Button>
@@ -67,7 +67,7 @@ export function CarouselBottom() {
           </div>
         </div>
 
-        <div className=" flex items-end h-screen justify-center w-[800px]">
+        <div className=" flex items-end ml-[100px] h-screen justify-center max-w-[500px] min-w-[400px]">
           <img
             src={carousel2.firstSlide.imageUrl}
             alt="man wearing white sweatshirt"

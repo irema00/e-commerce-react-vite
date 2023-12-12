@@ -27,12 +27,12 @@ export function CarouselTop() {
           backgroundImage: `url(${carousel1.imageUrl1})`,
         }}
       >
-        <div className="flex w-1/2 px-[10%]  xl:w-1/2 lg:w-1/2 2xl:w-1/2">
-          <div className="w-screen h-screen flex flex-col justify-center  xl:w-screen xl:h-screen lg:w-screen lg:h-screen 2xl:w-screen 2xl:h-screen">
+        <div className="flex px-[10%] w-screen h-screen  ">
+          <div className="flex flex-col justify-center   ">
             <Typography
               variant="h5"
               color="white"
-              className="mb-12 text-md font-montserrat  tracking-widest xl:mb-12 lg:mb-12 2xl:mb-12 "
+              className="mb-12 text-md font-montserrat  tracking-widest  "
             >
               {carousel1.title}
             </Typography>
