@@ -5,8 +5,8 @@ function EditorsPick() {
   const { editorsPick } = useData();
 
   return (
-    <div className="flex md:flex-wrap flex-col items-stretch justify-center font-montserrat  w-full  py-16 px-[10%] border-4 border-solid border-red-600">
-      <div className="text-center font-montserrat mb-12 border-4 border-solid border-purple-600 ">
+    <div className="flex md:flex-wrap flex-col items-stretch justify-center font-montserrat  w-full  py-16 px-[10%]  bg-ltGrey">
+      <div className="text-center font-montserrat mb-12 ">
         <h2 className="font-bold text-2xl tracking-normal mb-2">
           {editorsPick.title}
         </h2>
@@ -15,19 +15,19 @@ function EditorsPick() {
         </p>
       </div>
 
-      <div className="flex flex-row justify-center items-center  font-montserrat sm:flex-wrap md:flex-wrap border-4 border-solid border-pink-200 gap-7 ">
-        <div className="relative border-4 border-solid border-orange-600">
+      <div className="flex flex-row justify-center items-center  font-montserrat sm:flex-wrap md:flex-wrap gap-7 ">
+        <div className="relative w-[510px] h-[500px]">
           <img
             src={editorsPick.categories[0].imageUrl}
             alt="Men"
-            className="object-cover"
+            className="object-cover object-center"
           />
           <button className="absolute bottom-0 mb-4 ml-6 px-16 py-3 font-bold tracking-normal bg-white text-black ">
             {editorsPick.categories[0].buttonText}
           </button>
         </div>
 
-        <div className="relative border-4 border-solid border-green-600">
+        <div className="relative  w-[240px] h-[500px] ">
           <img
             src={editorsPick.categories[1].imageUrl}
             alt="Women"
@@ -38,9 +38,9 @@ function EditorsPick() {
           </button>
         </div>
 
-        <div className="flex flex-col gap-4 border-4 border-solid border-lime-600">
+        <div className="flex flex-col gap-4 ">
           <div>
-            <div className="relative  ">
+            <div className="relative w-[240px] h-[242px] ">
               <img
                 src={editorsPick.categories[2].imageUrl}
                 alt="Accessories"
@@ -52,7 +52,7 @@ function EditorsPick() {
             </div>
           </div>
           <div>
-            <div className="relative">
+            <div className="relative w-[240px] h-[242px] ">
               <img
                 src={editorsPick.categories[3].imageUrl}
                 alt="Kids"
