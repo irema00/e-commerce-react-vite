@@ -26,7 +26,7 @@ export default function Bestseller() {
             <img
               src={product.imageUrl}
               alt={product.title}
-              className="object-cover object-center w-60 h-96 " /* resme sabit genişlik ve yükseklik, değiştirilebilir*/
+              className="object-cover object-center w-[239px] h-[427px] " /* resme sabit genişlik ve yükseklik, değiştirilebilir*/
             />
             <div className="flex gap-2 flex-col items-center mt-3 mb-5 ">
               <h3 className="w-32 text-center text-darkBg text-base font-bold  leading-normal tracking-tight  mt-2 ">
