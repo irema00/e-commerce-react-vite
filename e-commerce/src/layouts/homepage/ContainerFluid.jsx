@@ -6,7 +6,7 @@ export default function ContainerFluid() {
   const { containerFluid } = useData();
 
   return (
-    <div className="flex sm:items-center md:justify-center flex-wrap md:no-wrap  lg:no-wrap lg:justify-evenly flex-row h-full w-full px-[10%] lg:px-[10%]  font-montserrat border-2 border-solid border-red-100 ">
+    <div className="flex sm:items-center md:justify-center flex-wrap md:no-wrap  lg:no-wrap lg:justify-evenly flex-row h-full w-full px-[10%] lg:px-[10%]  font-montserrat ">
       <img
         src={containerFluid.imageUrl}
         alt="Happy Couple Image"
