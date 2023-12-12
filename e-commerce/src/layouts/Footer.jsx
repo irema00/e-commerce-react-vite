@@ -10,8 +10,8 @@ import {
 export default function Footer() {
   const { footerData } = useData();
   return (
-    <div className=" text-darkBg  font-montserrat ">
-      <div className=" bg-ltGrey  px-[13%] items-center">
+    <div className=" text-darkBg flex flex-col font-montserrat ">
+      <div className=" bg-ltGrey  px-[10%] items-center">
         <div className="flex justify-between py-6 ">
           <p className="text-2xl font-bold">{footerData.brandName}</p>
 
@@ -28,8 +28,8 @@ export default function Footer() {
           </div>
         </div>
       </div>{" "}
-      <hr class="border-1 border-solid border-inputBorder mx-[13%] "></hr>
-      <div className="bg-white  px-[13%]   py-8  font-montserrat font-bold   ">
+      <hr className="border-1 border-solid border-inputBorder mx-[10%] "></hr>
+      <div className="bg-white  px-[10%]   py-8  font-montserrat font-bold   ">
         <div className=" bg-white flex flex-wrap justify-between  items-start  ">
           {footerData.footerSections.map((section, index) => (
             <div key={index} className=" mb-4 md:mb-0 md:w-1/5">
@@ -46,7 +46,7 @@ export default function Footer() {
               </ul>
             </div>
           ))}
-          <div className="w-full md:w-1/5 mt-8 md:mt-0 flex flex-col">
+          <div className=" md:w-1/5 mt-8 md:mt-0 flex flex-col">
             <h5 className="text-lg font-semibold mb-4">
               {footerData.inputTitle}
             </h5>
