@@ -27,7 +27,7 @@ export default function Bestseller() {
             />
             <h3 className="mt-2 text-sm">{product.title}</h3>
             <p className="text-xs">{product.department}</p>
-            <span className="text-lg font-bold">{product.price}</span>{" "}
+            <span className="text-lg font-bold">{product.price}</span>
             <span className="text-lg font-bold">{product.newPrice}</span>
           </div>
         ))}
