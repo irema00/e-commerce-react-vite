@@ -1,6 +1,7 @@
 import React from "react";
 import ProductCard from "../../components/ProductCard";
 import { useData } from "../../contexts/DataContext";
+import ProductDetailCarousel from "../productDetailPage/ProductDetailCarousel";
 
 export default function ProductDetail() {
   const { productData } = useData();
@@ -10,17 +11,7 @@ export default function ProductDetail() {
       <div className="container mx-auto my-12 p-8">
         <div className="flex flex-col lg:flex-row">
           <div className="flex-1 flex justify-center items-center">
-            <img
-              src={productData.imageUrl1}
-              alt={productData.productName}
-              className="w-1/2"
-            />
-
-            <img
-              src={productData.imageUrl2}
-              alt={productData.productName}
-              className="w-1/2"
-            />
+            <ProductDetailCarousel />
           </div>
           <div className="flex-1 px-4">
             <h1 className="text-3xl font-bold">{productData.productName}</h1>
