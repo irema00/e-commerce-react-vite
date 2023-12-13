@@ -1,3 +1,11 @@
+/* CLIENTS*/
+import aws from "./assets/clients/aws.png";
+import hooli from "./assets/clients/hooli.png";
+import noname from "./assets/clients/noname.png";
+import lyft from "./assets/clients/lyft.png";
+import piedpiper from "./assets/clients/piedpiper.png";
+import stripe from "./assets/clients/stripe.png";
+
 /*EDITORS' PICK*/
 
 import accessories from "./assets/editorsPick/accessories.jpg";
@@ -30,6 +38,7 @@ import slide1 from "./assets/Carousel/slide1.jpg";
 import featured1 from "./assets/featured/featured1.jpg";
 import featured2 from "./assets/featured/featured2.jpg";
 import featured3 from "./assets/featured/featured3.jpg";
+import { faCommentDots } from "@fortawesome/free-solid-svg-icons";
 /* HEADER*/
 
 export const headerData = {
@@ -279,6 +288,10 @@ export const featuredPostsData = {
   ],
 };
 
+export const clientsData = {
+  logos: [hooli, lyft, piedpiper, stripe, aws, noname],
+};
+
 export const data = {
   carousel1,
   carousel2,
@@ -287,4 +300,5 @@ export const data = {
   editorsPick,
   featuredPostsData,
   footerData,
+  clientsData,
 };
