@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "../../components/ProductCard";
 import { useData } from "../../contexts/DataContext";
-import ProductDetailCarousel from "../productDetailPage/ProductDetailCarousel";
+import ProductDetailCarousel from "../productPage/ProductDetailCarousel";
 
 export default function ProductDetail() {
   const { productData } = useData();
