@@ -27,10 +27,10 @@ export default function Footer() {
             <FontAwesomeIcon icon={faTwitter} className="text-prBlue h-6 w-6" />
           </div>
         </div>
-      </div>{" "}
+      </div>
       <hr className="border-1 border-solid border-inputBorder mx-[10%] "></hr>
-      <div className="bg-white  px-[10%]   py-8  font-montserrat font-bold   ">
-        <div className=" bg-white flex flex-wrap justify-between  items-start  ">
+      <div className="bg-white  px-[10%] py-8  font-montserrat font-bold">
+        <div className=" bg-white flex flex-wrap justify-between  items-start">
           {footerData.footerSections.map((section, index) => (
             <div key={index} className=" mb-4 md:mb-0 md:w-1/5">
               <h5 className="text-lg font-semibold">{section.title}</h5>
@@ -54,12 +54,13 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Your Email"
-                className=" py-3 px-1 border
+                className=" py-3 
+                border
               border-solid border-inputBorder rounded-l-md focus:outline-none focus:border-prBlue bg-ltGrey  text-hdGrey  font-normal "
               />
               <button
                 type="submit"
-                className="bg-prBlue px-3 text-white text-sm font-light rounded-r-md hover:bg-blue-600"
+                className="bg-prBlue px-3 text-white text-xs font-light rounded-r-md hover:bg-blue-600 "
               >
                 {footerData.buttonText}
               </button>
@@ -70,7 +71,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <p className="text-left font-montserrat font-bold px-[13%] text-hdGrey flex items-center bg-ltGrey py-4">
+      <p className="text-left font-montserrat text-sm font-bold px-[10%] text-hdGrey flex items-center bg-ltGrey py-4">
         {footerData.copyright}
       </p>
     </div>
