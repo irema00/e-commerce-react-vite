@@ -46,7 +46,7 @@ export function CarouselTop() {
             <Typography
               variant="h4"
               color="white"
-              className=" font-montserrat tracking-wide font-normal text-xl leading-5 mb-12 xl:text-xl lg:text-xl 2xl:text-xl"
+              className=" max-w-[400px] font-montserrat tracking-wide font-normal text-xl leading-5 mb-12 xl:text-xl lg:text-xl 2xl:text-xl"
             >
               {carousel1.description}
             </Typography>

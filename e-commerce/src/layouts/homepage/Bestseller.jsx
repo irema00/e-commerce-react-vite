@@ -19,7 +19,10 @@ export default function Bestseller() {
       </div>
       <div className="flex flex-wrap justify-evenly gap-3">
         {bestsellerData.products.map((product, index) => (
-          <div key={index} className="flex flex-col  flex-wrap items-center ">
+          <div
+            key={index}
+            className="flex flex-col flex-wrap items-center mb-4 shadow-xl  hover:scale-110 cursor-pointer  "
+          >
             <img
               src={product.imageUrl}
               alt={product.title}

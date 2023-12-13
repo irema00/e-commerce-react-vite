@@ -59,24 +59,24 @@ export default function Header() {
           </div>
           <div className="flex gap-4">
             <FontAwesomeIcon
+              className=" cursor-pointer hover:scale-110 "
               icon={faInstagram}
               size="lg"
-              style={{ color: "#ffffff" }}
             />
             <FontAwesomeIcon
               icon={faYoutube}
+              className=" cursor-pointer hover:scale-110 "
               size="lg"
-              style={{ color: "#ffffff" }}
             />
             <FontAwesomeIcon
               icon={faFacebook}
+              className=" cursor-pointer hover:scale-110 "
               size="lg"
-              style={{ color: "#ffffff" }}
             />
             <FontAwesomeIcon
               icon={faTwitter}
+              className=" cursor-pointer hover:scale-110 "
               size="lg"
-              style={{ color: "#ffffff" }}
             />
           </div>
         </div>
@@ -88,7 +88,7 @@ export default function Header() {
             <p>{headerData.brandName}</p>
           </div>
           <div className="flex flex-row gap-2 text-hdGrey text-sm font-bold font-monserrat leading-normal pl-16 ">
-            <ul className="flex flex-row tracking-wider gap-3 list-none p-0 m-0">
+            <ul className="flex flex-row tracking-wider gap-3 list-none ">
               {headerData.menuItems.map((item) => (
                 <li
                   key={item.name}
@@ -97,7 +97,7 @@ export default function Header() {
                 >
                   {item.label}
                   {activeMenu === item.name && (
-                    <span className="ml-2">
+                    <span className="ml-2 ">
                       <FontAwesomeIcon icon={faChevronDown} size="2xs" />
                     </span>
                   )}
@@ -107,23 +107,23 @@ export default function Header() {
           </div>
         </div>
 
-        <div className="flex flex-row items-center gap-4">
+        <div className="flex flex-row items-center gap-4 ">
           <div className="text-prBlue flex-row flex items-center gap-2 text-sm font-bold font-monserrat ">
-            <FontAwesomeIcon
-              icon={faUser}
-              className="bg-prBlue"
-              size="sm"
-              style={{ color: "rgba(35, 166, 240, 1)" }}
-            />
+            <FontAwesomeIcon icon={faUser} className="text-prBlue " size="sm" />
             <div className="flex flex-row text-sm font-bold tracking-wider gap-1">
-              <p>{headerData.loginText}</p>
+              <p className="hover:scale-110 cursor-pointer">
+                {headerData.loginText}
+              </p>
               <span>/</span>
-              <p>{headerData.registerText}</p>
+              <p className="hover:scale-110 cursor-pointer">
+                {headerData.registerText}
+              </p>
             </div>
           </div>
 
           <div className="flex flex-row gap-8 items-center text-prBlue ">
             <FontAwesomeIcon
+              className="hover:scale-110 cursor-pointer"
               icon={faMagnifyingGlass}
               style={{
                 color: "rgba(35, 166, 240, 1)",
@@ -131,17 +131,19 @@ export default function Header() {
             />
             <div>
               <FontAwesomeIcon
+                className="hover:scale-110 cursor-pointer"
                 icon={faCartShopping}
                 style={{ color: "rgba(35, 166, 240, 1)" }}
               />
-              <span>{headerData.cartProductCount}</span>
+              <span className="ml-2 ">{headerData.cartProductCount}</span>
             </div>
             <div>
               <FontAwesomeIcon
+                className="hover:scale-110 cursor-pointer"
                 icon={faHeart}
                 style={{ color: "rgba(35, 166, 240, 1)" }}
               />
-              <span>{headerData.likeCount}</span>
+              <span className="ml-2 ">{headerData.likeCount}</span>
             </div>
           </div>
         </div>

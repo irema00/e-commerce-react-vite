@@ -22,7 +22,7 @@ function EditorsPick() {
             alt="Men"
             className="object-cover object-center"
           />
-          <button className="absolute bottom-0 mb-4 ml-6 px-16 py-3 font-bold tracking-normal bg-white text-black ">
+          <button className="absolute bottom-0 mb-4 ml-6 px-16 py-3 font-bold tracking-normal bg-white text-black shadow-xl   hover:opacity-75 ">
             {editorsPick.categories[0].buttonText}
           </button>
         </div>
@@ -33,7 +33,7 @@ function EditorsPick() {
             alt="Women"
             className="object-cover"
           />
-          <button className="absolute bottom-0 mb-4 ml-4 px-8 py-3 font-bold text-sm bg-white text-black">
+          <button className="absolute bottom-0 mb-4 ml-4 px-8 py-3 font-bold text-sm bg-white text-black shadow-xl   hover:opacity-75">
             {editorsPick.categories[1].buttonText}
           </button>
         </div>
@@ -46,7 +46,7 @@ function EditorsPick() {
                 alt="Accessories"
                 className="object-cover"
               />
-              <button className="absolute bottom-0 mb-4 ml-4 px-8 py-3 font-bold text-sm bg-white text-black">
+              <button className="absolute bottom-0 mb-4 ml-4 px-8 py-3 font-bold text-sm bg-white text-black shadow-xl hover:opacity-75">
                 {editorsPick.categories[2].buttonText}
               </button>
             </div>
@@ -58,7 +58,7 @@ function EditorsPick() {
                 alt="Kids"
                 className="object-cover"
               />
-              <button className="absolute bottom-0 mb-4 ml-4 px-8 py-3 font-bold text-sm bg-white text-black">
+              <button className="absolute bottom-0 mb-4 ml-4 px-8 py-3 font-bold text-sm bg-white text-black shadow-xl hover:opacity-75">
                 {editorsPick.categories[3].buttonText}
               </button>
             </div>
