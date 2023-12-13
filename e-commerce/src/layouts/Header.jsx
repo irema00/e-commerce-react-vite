@@ -1,23 +1,7 @@
 import React, { useState } from "react";
 import { useData } from "../contexts/DataContext";
 import { Link } from "react-router-dom";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPhone,
-  faEnvelope,
-  faMagnifyingGlass,
-  faCartShopping,
-  faHeart,
-  faUser,
-  faChevronDown,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  faInstagram,
-  faYoutube,
-  faFacebook,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
+import { Icon } from "@iconify/react";
 
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -37,15 +21,12 @@ export default function Header() {
       <div className="bg-darkBg text-whiteText flex justify-between items-center flex-wrap gap-2 font-montserrat font-semibold text-sm px-10 py-4">
         <div className="flex items-center gap-7 font-semibold ">
           <div className="flex items-center gap-2 tracking-wider ">
-            <FontAwesomeIcon
-              icon={faPhone}
-              size="lg"
-              style={{ color: "#ffffff" }}
-            />
+            <Icon icon="bi:telephone" color="white" />
+
             <p>{headerData.contactNumber} </p>
           </div>
           <div className="flex items-center gap-2 tracking-wider ">
-            <FontAwesomeIcon size="lg" icon={faEnvelope} />
+            <Icon icon="bi:envelope" color="white" />
             <p>{headerData.contactEmail}</p>
           </div>
         </div>
@@ -58,26 +39,26 @@ export default function Header() {
           <div className="text-white text-sm font-bold font-monserrat leading-normal tracking-wide flex flex-row gap-2 ">
             <p>{headerData.socialText}</p> <span>:</span>
           </div>
-          <div className="flex gap-4">
-            <FontAwesomeIcon
-              className=" cursor-pointer hover:scale-110 "
-              icon={faInstagram}
-              size="lg"
+          <div className="flex gap-4 items-center">
+            <Icon
+              icon="teenyicons:instagram-outline"
+              color="white"
+              className="cursor-pointer hover:scale-110 "
             />
-            <FontAwesomeIcon
-              icon={faYoutube}
+            <Icon
               className=" cursor-pointer hover:scale-110 "
-              size="lg"
+              icon="bi:youtube"
+              color="white"
             />
-            <FontAwesomeIcon
-              icon={faFacebook}
+            <Icon
+              icon="bi:facebook"
+              color="white"
               className=" cursor-pointer hover:scale-110 "
-              size="lg"
             />
-            <FontAwesomeIcon
-              icon={faTwitter}
+            <Icon
+              icon="mdi:twitter"
+              color="white"
               className=" cursor-pointer hover:scale-110 "
-              size="lg"
             />
           </div>
         </div>
@@ -89,7 +70,7 @@ export default function Header() {
             <p>{headerData.brandName}</p>
           </div>
           <div className="flex flex-row gap-2 text-hdGrey text-sm font-bold font-monserrat leading-normal pl-16 ">
-            <ul className="flex flex-row tracking-wider gap-3 list-none  ">
+            <ul className="flex flex-row tracking-wider gap-6 list-none  ">
               {headerData.menuItems.map((item) => (
                 <li
                   key={item.name}
@@ -99,8 +80,8 @@ export default function Header() {
                   <Link to={item.path}>
                     {item.label}
                     {activeMenu === item.name && (
-                      <span className="ml-2 ">
-                        <FontAwesomeIcon icon={faChevronDown} size="2xs" />
+                      <span className="ml-2 flex flex-row">
+                        <Icon icon="bi:chevron-down" />
                       </span>
                     )}
                   </Link>
@@ -112,7 +93,11 @@ export default function Header() {
 
         <div className="flex flex-row items-center gap-4 ">
           <div className="text-prBlue flex-row flex items-center gap-2 text-sm font-bold font-monserrat ">
-            <FontAwesomeIcon icon={faUser} className="text-prBlue " size="sm" />
+            <Icon
+              className="text-prBlue "
+              icon="mdi:user-outline"
+              color="rgba(35, 166, 240, 1)"
+            />
             <div className="flex flex-row text-sm font-bold tracking-wider gap-1">
               <p className="hover:scale-110 cursor-pointer">
                 {headerData.loginText}
@@ -125,27 +110,27 @@ export default function Header() {
           </div>
 
           <div className="flex flex-row gap-8 items-center text-prBlue ">
-            <FontAwesomeIcon
+            <Icon
               className="hover:scale-110 cursor-pointer"
-              icon={faMagnifyingGlass}
-              style={{
-                color: "rgba(35, 166, 240, 1)",
-              }}
+              icon="streamline:magnifying-glass"
+              color="rgba(35, 166, 240, 1)"
             />
-            <div>
-              <FontAwesomeIcon
+
+            <div className="flex items-center">
+              <Icon
                 className="hover:scale-110 cursor-pointer"
-                icon={faCartShopping}
-                style={{ color: "rgba(35, 166, 240, 1)" }}
+                icon="bi:cart"
+                color="rgba(35, 166, 240, 1)"
               />
               <span className="ml-2 ">{headerData.cartProductCount}</span>
             </div>
-            <div>
-              <FontAwesomeIcon
+            <div className="flex items-center">
+              <Icon
                 className="hover:scale-110 cursor-pointer"
-                icon={faHeart}
-                style={{ color: "rgba(35, 166, 240, 1)" }}
+                icon="ph:heart"
+                color="rgba(35, 166, 240, 1)"
               />
+
               <span className="ml-2 ">{headerData.likeCount}</span>
             </div>
           </div>
