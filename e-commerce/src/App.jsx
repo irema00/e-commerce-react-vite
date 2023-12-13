@@ -1,18 +1,13 @@
 import "./App.css";
 import { DataProvider } from "./contexts/DataContext";
-import HomePage from "./pages/HomePage";
-import ProductDetailPage from "./pages/ProductDetailPage";
-import ProductListPage from "./pages/ProductListPage";
+
+import PageContent from "./layouts/PageContent";
 
 function App() {
   return (
-    <>
-      <DataProvider>
-        <HomePage />
-        <ProductListPage />
-        <ProductDetailPage />
-      </DataProvider>
-    </>
+    <DataProvider>
+      <PageContent />
+    </DataProvider>
   );
 }
 

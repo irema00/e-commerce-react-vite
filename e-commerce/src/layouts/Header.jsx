@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useData } from "../contexts/DataContext";
+import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -95,12 +96,14 @@ export default function Header() {
                   onClick={() => handleMenuClick(item.name)}
                   className={menuItemClass(item.name)}
                 >
-                  {item.label}
-                  {activeMenu === item.name && (
-                    <span className="ml-2 ">
-                      <FontAwesomeIcon icon={faChevronDown} size="2xs" />
-                    </span>
-                  )}
+                  <Link to={item.path}>
+                    {item.label}
+                    {activeMenu === item.name && (
+                      <span className="ml-2 ">
+                        <FontAwesomeIcon icon={faChevronDown} size="2xs" />
+                      </span>
+                    )}
+                  </Link>
                 </li>
               ))}
             </ul>

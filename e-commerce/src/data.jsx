@@ -79,12 +79,12 @@ export const headerData = {
   likeCount: "1",
   cartProductCount: "1",
   menuItems: [
-    { name: "home", label: "Home" },
-    { name: "shop", label: "Shop" },
-    { name: "about", label: "About" },
-    { name: "blog", label: "Blog" },
-    { name: "contact", label: "Contact" },
-    { name: "pages", label: "Pages" },
+    { name: "home", label: "Home", path: "/" },
+    { name: "shop", label: "Shop", path: "/shop" },
+    { name: "about", label: "About", path: "/about" },
+    { name: "blog", label: "Blog", path: "/blog" },
+    { name: "contact", label: "Contact", path: "/contact" },
+    { name: "pages", label: "Pages", path: "/pages" },
   ],
 };
 
