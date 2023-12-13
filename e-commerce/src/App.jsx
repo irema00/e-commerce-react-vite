@@ -1,6 +1,7 @@
 import "./App.css";
 import { DataProvider } from "./contexts/DataContext";
 import HomePage from "./pages/HomePage";
+import ProductDetailPage from "./pages/ProductDetailPage";
 import ProductListPage from "./pages/ProductListPage";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <DataProvider>
         <HomePage />
         <ProductListPage />
+        <ProductDetailPage />
       </DataProvider>
     </>
   );
