@@ -8,27 +8,27 @@ export default function ProductLists() {
 
   return (
     <div className="flex flex-col flex-wrap py-20 px-[10%] font-monserrat gap-12 ">
-      <div className="flex justify-between items-center">
-        <p>
+      <div className="flex px-[2%] justify-between items-center  text-sm font-bold text-hdGrey ">
+        <p clasName="">
           Showing all <span>12</span> results
         </p>
         <div className="flex gap-4 items-center ">
           <p>Views</p>
           <Icon
-            className="border-2 border-solid border-hdGrey hover:scale-110 cursor-pointer rounded"
+            className="border-2 border-solid border-gray-300 hover:scale-110 cursor-pointer rounded p-2"
             icon="mingcute:grid-fill"
             color="black"
             width="35"
           />
           <Icon
-            className="border-2 border-solid border-hdGrey hover:scale-110 cursor-pointer rounded"
+            className="border-2 border-solid border-gray-300  hover:scale-110 cursor-pointer rounded p-2"
             icon="lucide:list"
             color="gray"
             width="35"
           />
         </div>
         <div className="flex justify-between items-center cursor-pointer gap-4">
-          <div className="text-darkBg text-md font-normal font-montserrat leading-normal t bg-ltGreye px-6 py-3  shadow-lg rounded border border-solid border-semiGrey flex items-center cursor-pointer">
+          <div className="text-hdGrey text-sm font-normal font-montserrat leading-normal t bg-ltGreye px-6 py-3  shadow-lg rounded border border-solid border-semiGrey flex items-center cursor-pointer">
             <p className="cursor-pointer">Popularity</p>
             <Icon
               className="cursor-pointer "
@@ -42,11 +42,14 @@ export default function ProductLists() {
           </button>
         </div>
       </div>
-      <div className="flex flex-wrap justify-evenly gap-3">
+      <div className="flex flex-wrap justify-evenly gap-3 py-4">
         {productListData.products.map((product, index) => (
           <ProductCard key={index} product={product} />
         ))}
       </div>
+      <h1 className="bg-red-300 text-5xl flex items-center justify-center">
+        PAGINATION
+      </h1>
     </div>
   );
 }
