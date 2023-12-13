@@ -242,8 +242,9 @@ export const footerData = {
 export const featuredPostsData = {
   topTitle: "Practice Advice",
   title: "Featured Posts",
-  description:
-    "Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics ",
+  description1: "Problems trying to resolve the conflict between",
+  description2:
+    "the two major realms of Classical physics: Newtonian mechanics ",
   posts: [
     {
       id: "featured1",
@@ -254,7 +255,6 @@ export const featuredPostsData = {
         "We focus on ergonomics and meeting you where you work. It's only a keystroke away.",
       imageUrl: featured1,
       learnMoreUrl: "#",
-      tags: ["Google", "Trending", "New"],
     },
     {
       id: "featured2",
@@ -265,7 +265,6 @@ export const featuredPostsData = {
         "We focus on ergonomics and meeting you where you work. It's only a keystroke away.",
       imageUrl: featured2,
       learnMoreUrl: "#",
-      tags: ["Google", "Trending", "New"],
     },
     {
       id: "featured3",
@@ -276,7 +275,6 @@ export const featuredPostsData = {
         "We focus on ergonomics and meeting you where you work. It's only a keystroke away.",
       imageUrl: featured3,
       learnMoreUrl: "#",
-      tags: ["Google", "Trending", "New"],
     },
   ],
 };
