@@ -4,7 +4,7 @@ import Clients from "../layouts/productlistPage/Clients";
 import Footer from "../layouts/Footer";
 import ProductDetail from "../layouts/productPage/productDetail";
 
-export default function ProductDetailPage() {
+export default function ProductPage() {
   return (
     <>
       <Header />
