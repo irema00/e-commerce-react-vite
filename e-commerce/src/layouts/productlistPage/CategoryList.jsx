@@ -6,7 +6,7 @@ const CategoryList = () => {
   const { categoryData } = useData();
 
   return (
-    <div className="flex justify-center items-center gap-5 ">
+    <div className="flex justify-center items-center gap-5 bg-ltGrey">
       {categoryData.map((category) => (
         <CategoryCard
           key={category.id}
