@@ -32,7 +32,7 @@ export default function Header() {
     }`;
 
   return (
-    <div className="w-full flex-wrap border-2 border-solid border-red-100 ">
+    <div className="w-full flex-wrap ">
       <div className="bg-darkBg text-whiteText flex justify-between items-center flex-wrap gap-2 font-montserrat font-semibold text-sm px-10 py-4">
         <div className="flex items-center gap-7 font-semibold ">
           <div className="flex items-center gap-2 tracking-wider ">

@@ -13,7 +13,7 @@ export default function ContainerFluid() {
         className=" object-cover  max-w-[550px] "
       />
 
-      <div className="flex flex-col justify-center gap-6 max-w-[450px]  border-2 border-solid border-blue-100 ">
+      <div className="flex flex-col justify-center gap-6 max-w-[450px]  ">
         <h5 className="text-lg  tracking-widest font-bold text-gray-400 ">
           {containerFluid.title}
         </h5>
