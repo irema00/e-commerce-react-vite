@@ -5,7 +5,7 @@ import { Icon } from "@iconify/react";
 export default function FeaturedPosts() {
   const { featuredPostsData } = useData();
   return (
-    <div className="font-montserrat p-[10%] flex flex-col items-center justify-center cursor-pointer">
+    <div className="font-montserrat px-[10%] py-[5%] flex flex-col items-center justify-center cursor-pointer">
       <div className="flex flex-col text-center mb-20 ">
         <h5 className=" text-prBlue text-sm font-bold leading-normal tracking-wide mb-4">
           {featuredPostsData.topTitle}
