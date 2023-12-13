@@ -6,6 +6,18 @@ import lyft from "./assets/clients/lyft.png";
 import piedpiper from "./assets/clients/piedpiper.png";
 import stripe from "./assets/clients/stripe.png";
 
+/* CATEGORIES */
+import ct1 from "./assets/categories/ct1.jpg";
+import ct2 from "./assets/categories/ct2.jpg";
+import ct3 from "./assets/categories/ct3.jpg";
+import ct4 from "./assets/categories/ct4.jpg";
+import ct5 from "./assets/categories/ct5.jpg";
+
+/* PRODUCT DETAIL*/
+
+import pr1 from "./assets/productDetail/pr1.jpg";
+import pr2 from "./assets/productDetail/pr2.jpg";
+
 /*PRODUCT LIST*/
 
 import pl1 from "./assets/productList/pl1.jpg";
@@ -396,6 +408,52 @@ export const productListData = {
   ],
 };
 
+export const productData = {
+  productName: "Floating Iphone",
+  reviewNumber: "10",
+  availability: "In Stock",
+  description:
+    "Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent door ENIM RELIT Mollie.Excitation venial consequent sent nostrum met.",
+  imageUrl1: pr1,
+  imageUrl2: pr2,
+  price: "$1,139.33",
+};
+
+export const categoryData = [
+  {
+    id: 1,
+    categoryName: "WOMEN",
+    itemCount: 5,
+    imageUrl: ct1,
+  },
+  {
+    id: 2,
+    categoryName: "MEN",
+    itemCount: 5,
+    imageUrl: ct2,
+  },
+  {
+    id: 3,
+    categoryName: "KIDS",
+    itemCount: 5,
+    imageUrl: ct3,
+  },
+  {
+    id: 4,
+    categoryName: "ACCESSORIES",
+    itemCount: 5,
+    imageUrl: ct4,
+  },
+  {
+    id: 5,
+    categoryName: "SALE",
+    itemCount: 5,
+    imageUrl: ct5,
+  },
+];
+
+export default categoryData;
+
 export const data = {
   carousel1,
   carousel2,
@@ -406,4 +464,6 @@ export const data = {
   footerData,
   clientsData,
   productListData,
+  productData,
+  categoryData,
 };
