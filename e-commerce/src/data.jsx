@@ -414,8 +414,9 @@ export const productData = {
   availability: "In Stock",
   description:
     "Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent door ENIM RELIT Mollie.Excitation venial consequent sent nostrum met.",
-  imageUrl1: pr1,
-  imageUrl2: pr2,
+  imageUrl: [pr1, pr1],
+  optionsUrl: [pr1, pr2],
+
   price: "$1,139.33",
 };
 
