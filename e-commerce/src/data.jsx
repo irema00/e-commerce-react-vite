@@ -6,6 +6,21 @@ import lyft from "./assets/clients/lyft.png";
 import piedpiper from "./assets/clients/piedpiper.png";
 import stripe from "./assets/clients/stripe.png";
 
+/*PRODUCT LIST*/
+
+import pl1 from "./assets/productList/pl1.jpg";
+import pl2 from "./assets/productList/pl2.jpg";
+import pl3 from "./assets/productList/pl3.jpg";
+import pl4 from "./assets/productList/pl4.jpg";
+import pl5 from "./assets/productList/pl5.jpg";
+import pl6 from "./assets/productList/pl6.jpg";
+import pl7 from "./assets/productList/pl7.jpg";
+import pl8 from "./assets/productList/pl8.jpg";
+import pl9 from "./assets/productList/pl9.jpg";
+import pla from "./assets/productList/pla.jpg";
+import plb from "./assets/productList/plb.jpg";
+import plc from "./assets/productList/plc.jpg";
+
 /*EDITORS' PICK*/
 
 import accessories from "./assets/editorsPick/accessories.jpg";
@@ -292,6 +307,95 @@ export const clientsData = {
   logos: [hooli, lyft, piedpiper, stripe, aws, noname],
 };
 
+export const productListData = {
+  products: [
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: pl1,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: pl2,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: pl3,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: pl4,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: pl5,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: pl6,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: pl7,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: pl8,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: pl9,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: pla,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: plb,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: plc,
+    },
+  ],
+};
+
 export const data = {
   carousel1,
   carousel2,
@@ -301,4 +405,5 @@ export const data = {
   featuredPostsData,
   footerData,
   clientsData,
+  productListData,
 };

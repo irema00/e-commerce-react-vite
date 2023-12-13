@@ -28,7 +28,7 @@ export default function Header() {
 
   const menuItemClass = (menuName) =>
     `cursor-pointer ${
-      activeMenu === menuName ? "text-darkBg font-light" : "text-neutral-500"
+      activeMenu === menuName ? "text-darkBg font-light " : "text-neutral-500"
     }`;
 
   return (
@@ -88,7 +88,7 @@ export default function Header() {
             <p>{headerData.brandName}</p>
           </div>
           <div className="flex flex-row gap-2 text-hdGrey text-sm font-bold font-monserrat leading-normal pl-16 ">
-            <ul className="flex flex-row tracking-wider gap-3 list-none ">
+            <ul className="flex flex-row tracking-wider gap-3 list-none  ">
               {headerData.menuItems.map((item) => (
                 <li
                   key={item.name}
