@@ -60,7 +60,7 @@ export default function ProductDetail() {
               <div className="w-6 h-6 bg-black rounded-full" />
             </div>
             <div className="flex items-center gap-3">
-              <button className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded">
+              <button className=" bg-blue-500 hover:bg-blue-700 text-white font-bold md:py-3 md:px-4 py-3 px-3 rounded">
                 Select Options
               </button>
               <div className=" items-center flex  w-9 h-9 border-2 border-solid border-semiGrey bg-white rounded-full justify-center">
