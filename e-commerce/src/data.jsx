@@ -65,7 +65,18 @@ import slide1 from "./assets/Carousel/slide1.jpg";
 import featured1 from "./assets/featured/featured1.jpg";
 import featured2 from "./assets/featured/featured2.jpg";
 import featured3 from "./assets/featured/featured3.jpg";
-import { faCommentDots } from "@fortawesome/free-solid-svg-icons";
+
+/* PRODUCT DETAIL BESTSELLER */
+
+import pdb1 from "./assets/productDetailBestseller/pdb1.jpg";
+import pdb2 from "./assets/productDetailBestseller/pdb2.jpg";
+import pdb3 from "./assets/productDetailBestseller/pdb3.jpg";
+import pdb4 from "./assets/productDetailBestseller/pdb4.jpg";
+import pdb5 from "./assets/productDetailBestseller/pdb5.jpg";
+import pdb6 from "./assets/productDetailBestseller/pdb6.jpg";
+import pdb7 from "./assets/productDetailBestseller/pdb7.jpg";
+import pdb8 from "./assets/productDetailBestseller/pdb8.jpg";
+
 /* HEADER*/
 
 export const headerData = {
@@ -453,7 +464,67 @@ export const categoryData = [
   },
 ];
 
-export default categoryData;
+export const productDetailBestsellerData = {
+  title: "BESTSELLER PRODUCTS",
+  products: [
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: pdb1,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: pdb2,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: pdb3,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: pdb4,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: pdb5,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: pdb6,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: pdb7,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: pdb8,
+    },
+  ],
+};
 
 export const data = {
   carousel1,
@@ -467,4 +538,5 @@ export const data = {
   productListData,
   productData,
   categoryData,
+  productDetailBestsellerData,
 };
