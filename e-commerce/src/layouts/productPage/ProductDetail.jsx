@@ -49,10 +49,7 @@ export default function ProductDetail() {
                 <p className="text-prBlue">{productData.availability}</p>
               </span>
             </div>
-            <p
-              className="my-4 text-gray-600 border border-solid border-semiGrey border-b-[3px] border-t-0 border-r-0
-              border-l-0 pb-6 pt-3"
-            >
+            <p className="my-4 text-gray-600 border-solid border-semiGrey border-b pb-6 pt-3">
               {productData.description}
             </p>
 
