@@ -10,9 +10,9 @@ import {
 export default function Footer() {
   const { footerData } = useData();
   return (
-    <div className=" text-darkBg flex flex-col font-montserrat  ">
-      <div className=" bg-ltGrey  px-[10%] items-center">
-        <div className="flex justify-between py-6 ">
+    <div className=" text-darkBg flex flex-col  font-montserrat  ">
+      <div className=" bg-ltGrey  px-[10%] items-center flex-wrap ">
+        <div className="flex flex-wrap flex-col md:flex-row md:no-gap gap-8 justify-between py-6 ">
           <p className="text-2xl font-bold">{footerData.brandName}</p>
 
           <div className="flex items-center space-x-4 ">
@@ -30,15 +30,18 @@ export default function Footer() {
       </div>
       <hr className="border-1 border-solid border-inputBorder mx-[10%] "></hr>
       <div className="bg-white  px-[10%] py-8  font-montserrat font-bold">
-        <div className=" bg-white flex flex-wrap justify-between  items-start">
+        <div className=" bg-white flex flex-wrap justify-between items-start flex-col md:flex-row md:no-wrap">
           {footerData.footerSections.map((section, index) => (
-            <div key={index} className=" mb-4 md:mb-0 md:w-1/5">
+            <div
+              key={index}
+              className=" mb-4 md:mb-0 md:w-1/5 flex flex-col justify-start flex-wrap md:no-wrap"
+            >
               <h5 className="text-lg font-semibold">{section.title}</h5>
-              <ul className="mt-4">
+              <ul className="mt-4 flex items-start justify-start flex-col flex-wrap md:no-wrap">
                 {section.links.map((link, linkIndex) => (
                   <li
                     key={linkIndex}
-                    className="mt-2 text-sm text-hdGrey leading-6 tracking-wide"
+                    className="mt-2 text-sm text-hdGrey leading-6 tracking-wide "
                   >
                     {link}
                   </li>
@@ -50,7 +53,8 @@ export default function Footer() {
             <h5 className="text-lg font-semibold mb-4">
               {footerData.inputTitle}
             </h5>
-            <form className="flex">
+            {/** bu kısım wraplenecek */}
+            <form className="flex  ">
               <input
                 type="email"
                 placeholder="Your Email"
@@ -71,7 +75,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <p className="text-left font-montserrat text-sm font-bold px-[10%] text-hdGrey flex items-center bg-ltGrey py-4">
+      <p className="md:text-left font-montserrat text-sm font-bold md:px-[10%] px-[22%] justify-center text-center md:items-start flex-col text-hdGrey flex items-center bg-ltGrey py-4 ">
         {footerData.copyright}
       </p>
     </div>

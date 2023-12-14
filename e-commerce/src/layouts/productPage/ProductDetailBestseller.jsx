@@ -5,7 +5,7 @@ import ProductCard from "../../components/ProductCard";
 export default function ProductDetailBestseller() {
   const { productDetailBestsellerData } = useData();
   return (
-    <div className="flex flex-col px-[10%]  py-5">
+    <div className="flex flex-col flex-wrap px-[10%]  py-5">
       <div className="flex pt-10 py-6 items-center font-bold text-3xl tracking-tight">
         {productDetailBestsellerData.title}
       </div>
