@@ -7,21 +7,25 @@ import { Icon } from "@iconify/react";
 export default function ProductDetail() {
   const { productData } = useData();
   return (
-    <div className="flex flex-col px-[10%] bg-ltGrey">
-      <div className="flex flex-row justify-between flex-wrap w-full font-montserrat py-6   ">
-        <div className="flex gap-2 text-md tracking-tight font-bold items-center">
-          <div className=" text-darkBg">Home</div>
+    <div className="flex flex-col px-[10%] bg-ltGrey ">
+      <div className="flex flex-row md:justify-between  justify-center flex-wrap w-full font-montserrat py-6   ">
+        <div className="flex gap-2 text-md tracking-tight font-bold   ">
+          <div className=" flex text-darkBg ">
+            <p>Home</p>
+          </div>
           <Icon icon="uiw:right" color="lightgray" />
-          <div className=" text-semiGrey">Shop</div>
+          <div className=" flex text-semiGrey">
+            <p>Shop</p>
+          </div>
         </div>
       </div>
-      <div className="container mx-auto my-12 p-8">
+      <div className="flex mx-auto my-12 md:p-8 ">
         <div className="flex flex-col lg:flex-row">
-          <div className="flex-1 flex justify-center items-center">
+          <div className=" lex justify-center items-center">
             <ProductDetailCarousel />
           </div>
           <div className="flex-1 px-4 pt-2">
-            <h1 className="text-xl font-normal text-darkBg">
+            <h1 className="text-xl font-normal md:pt-0 pt-10 text-darkBg">
               {productData.productName}
             </h1>
             <div className="my-2 flex gap-3 items-center">
