@@ -7,8 +7,8 @@ export default function ProductDetailCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className=" flex flex-col w-[500px] h-[525px] ">
-      <Carousel className="w-[450px] h-[500px]">
+    <div className=" flex flex-col justify-center md:w-[475px] md:h-[525px] ">
+      <Carousel className="md:w-[450px] md:h-[500px] w-[325px] h-[325px] ">
         {productData.imageUrl.map((img, idx) => (
           <div key={idx} className="flex">
             <img
