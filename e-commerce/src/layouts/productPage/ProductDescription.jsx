@@ -30,15 +30,15 @@ export default function ProductDescription() {
           <div className="flex flex-col md:basis-1/3 text-slate-800 text-2xl font-bold  leading-loose tracking-tight">
             <h2>{productData.detailText}</h2>
           </div>
-          <div classNAme="flex text-slate-800 text-2xl font-bold  leading-loose tracking-tight">
+          <div className="flex text-slate-800 text-2xl font-bold  leading-loose tracking-tight">
             <p className="flex">{productData.detailPg}</p>
           </div>
-          <div classNAme="flex text-slate-800 text-2xl font-bold  leading-loose tracking-tight">
+          <div className="flex text-slate-800 text-2xl font-bold  leading-loose tracking-tight">
             <div>
               <p className="flex">{productData.detailPg}</p>{" "}
             </div>
           </div>
-          <div classNAme="flex text-slate-800 text-2xl font-bold  leading-loose tracking-tight">
+          <div className="flex text-slate-800 text-2xl font-bold  leading-loose tracking-tight">
             <p className="flex">{productData.detailPg}</p>
           </div>
         </div>
