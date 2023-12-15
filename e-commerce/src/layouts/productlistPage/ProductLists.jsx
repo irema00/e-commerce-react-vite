@@ -9,7 +9,7 @@ export default function ProductLists() {
   return (
     <div className="flex flex-col flex-wrap py-20 px-[10%]  font-monserrat gap-12 ">
       <div className="flex px-[2%] lg:justify-between justify-center flex-wrap items-center  text-sm md:flex-row md-no-gap gap-8 flex-col font-bold text-hdGrey ">
-        <p clasName="">
+        <p>
           Showing all <span>12</span> results
         </p>
         <div className="flex gap-4 items-center ">
