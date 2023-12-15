@@ -17,6 +17,7 @@ import ct5 from "./assets/categories/ct5.jpg";
 
 import pr1 from "./assets/productDetail/pr1.jpg";
 import pr2 from "./assets/productDetail/pr2.jpg";
+import big from "./assets/productDetail/big.jpg";
 
 /*PRODUCT LIST*/
 
@@ -427,8 +428,12 @@ export const productData = {
     "Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent door ENIM RELIT Mollie.Excitation venial consequent sent nostrum met.",
   imageUrl: [pr1, pr2],
   optionsUrl: [pr1, pr2],
-
   price: "$1,139.33",
+  detailPg:
+    "Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent door ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.",
+  detailImgUrl: big,
+  detailTitle: "the quick fox jumps over",
+  detailText: "the quick fox jumps over the lazy dog",
 };
 
 export const categoryData = [
@@ -472,21 +477,7 @@ export const productDetailBestsellerData = {
       price: "$16.48",
       newPrice: "$6.48",
       department: "English Department",
-      imageUrl: pdb1,
-    },
-    {
-      title: "Graphic Design",
-      price: "$16.48",
-      newPrice: "$6.48",
-      department: "English Department",
       imageUrl: pdb2,
-    },
-    {
-      title: "Graphic Design",
-      price: "$16.48",
-      newPrice: "$6.48",
-      department: "English Department",
-      imageUrl: pdb3,
     },
     {
       title: "Graphic Design",
@@ -514,7 +505,21 @@ export const productDetailBestsellerData = {
       price: "$16.48",
       newPrice: "$6.48",
       department: "English Department",
+      imageUrl: pdb1,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
       imageUrl: pdb7,
+    },
+    {
+      title: "Graphic Design",
+      price: "$16.48",
+      newPrice: "$6.48",
+      department: "English Department",
+      imageUrl: pdb3,
     },
     {
       title: "Graphic Design",
