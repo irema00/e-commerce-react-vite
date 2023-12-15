@@ -1,11 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useData } from "../contexts/DataContext";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Icon } from "@iconify/react";
 
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
   const { headerData } = useData();
+  const location = useLocation();
+
+  useEffect(() => {
+    console.log(location.pathname);
+    const activeItem = headerData.menuItems.find(
+      (item) => item.path === location.pathname
+    );
+    if (activeItem) {
+      setActiveMenu(activeItem.name);
+    }
+  }, [location, headerData.menuItems]);
 
   const handleMenuClick = (menuName) => {
     setActiveMenu(activeMenu === menuName ? null : menuName);
@@ -70,14 +81,14 @@ export default function Header() {
             <p>{headerData.brandName}</p>
           </div>
           <div className="flex flex-row gap-2 text-hdGrey text-sm font-bold font-monserrat leading-normal pl-16 ">
-            <ul className="flex flex-row tracking-wider gap-6 list-none  ">
+            <ul className="flex flex-row flex-wrap tracking-wider gap-6 list-none  ">
               {headerData.menuItems.map((item) => (
                 <li
                   key={item.name}
                   onClick={() => handleMenuClick(item.name)}
                   className={menuItemClass(item.name)}
                 >
-                  <Link to={item.path}>
+                  <Link to={item.path} className="flex items-center">
                     {item.label}
                     {activeMenu === item.name && (
                       <span className="ml-2 flex flex-row">
