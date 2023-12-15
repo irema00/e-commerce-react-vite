@@ -15,19 +15,19 @@ function EditorsPick() {
         </p>
       </div>
 
-      <div className="flex flex-row justify-center items-center  font-montserrat sm:flex-wrap md:flex-wrap gap-7 ">
-        <div className="relative w-[510px] h-[500px]">
+      <div className="flex flex-row justify-center items-center  font-montserrat flex-wrap  gap-7 ">
+        <div className="relative max-w-[510px] max-h-[500px]">
           <img
             src={editorsPick.categories[0].imageUrl}
             alt="Men"
-            className="object-cover object-center"
+            className="object-cover"
           />
           <button className="absolute bottom-0 mb-4 ml-6 px-16 py-3 font-bold tracking-normal bg-white text-black shadow-xl   hover:opacity-75 ">
             {editorsPick.categories[0].buttonText}
           </button>
         </div>
 
-        <div className="relative  w-[240px] h-[500px] ">
+        <div className="relative w-[240px] h-[500px] ">
           <img
             src={editorsPick.categories[1].imageUrl}
             alt="Women"

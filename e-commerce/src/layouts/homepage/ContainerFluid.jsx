@@ -10,7 +10,7 @@ export default function ContainerFluid() {
       <img
         src={containerFluid.imageUrl}
         alt="Happy Couple Image"
-        className=" object-cover  max-w-[550px] "
+        className=" object-cover  m-max-w-[550px] "
       />
 
       <div className="flex flex-col justify-center gap-6 max-w-[450px]  ">
