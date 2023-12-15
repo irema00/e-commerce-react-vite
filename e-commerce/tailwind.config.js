@@ -17,7 +17,7 @@ module.exports = withMT({
         hdTxSelected: "rgba(37, 43, 66, 1)",
         hdGrey: "rgba(115, 115, 115, 1)",
         prBlue: "rgba(35, 166, 240, 1)",
-
+        detailImgBg: "rgba(196, 196, 196, 0.2)",
         inputGrey: "rgba(249, 249, 249, 1)",
         inputBorder: "rgba(230, 230, 230, 1)",
         semiGrey: "rgba(189, 189, 189, 1)",
