@@ -2,11 +2,11 @@ import React from "react";
 
 function ProductCard({ product }) {
   return (
-    <div className="flex flex-col flex-wrap items-center mb-4 shadow-xl hover:scale-110 cursor-pointer">
+    <div className="flex flex-col flex-wrap items-center mb-8 shadow-xl hover:scale-110 cursor-pointer">
       <img
         src={product.imageUrl}
         alt={product.title}
-        className="object-cover object-center max-w-[240px] max-h-[450px] cursor-pointer"
+        className="object-cover w-[350px]  object-center md:w-[250px] md:max-h-[450px] cursor-pointer"
       />
       <div className="flex gap-2 flex-col items-center mt-3 mb-5">
         <h3 className="w-32 text-center text-darkBg text-base font-bold leading-normal tracking-tight mt-2">
