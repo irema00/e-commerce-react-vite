@@ -24,7 +24,9 @@ export default function Header() {
 
   const menuItemClass = (menuName) =>
     `cursor-pointer ${
-      activeMenu === menuName ? "text-darkBg font-light " : "text-neutral-500"
+      activeMenu === menuName
+        ? "text-darkBg font-bold "
+        : "text-neutral-500 font-semibold"
     }`;
 
   return (
