@@ -5,7 +5,7 @@ export default function TeamPage() {
   const { featuredPostsData, teamData } = useData();
 
   return (
-    <div className="font-montserrat px-[15%]  py-[2%] flex flex-col items-center justify-center cursor-pointer">
+    <div className="font-montserrat px-[15%]  py-[5%] flex flex-col items-center justify-center cursor-pointer">
       <div className="flex flex-col text-center  mb-5">
         <h1 className=" text-darkBg text-3xl  tracking-normal font-bold mb-4">
           Meet Our Team
@@ -24,7 +24,7 @@ export default function TeamPage() {
             <img
               src={member.imageURL}
               alt={member.name}
-              className="w-[200px] rounded mb-3 "
+              className="w-[220px] rounded-xl mb-3 "
             />
             <h3 className="font-bold text-darkBg mb-2 ">{member.name}</h3>
             <p className="font-semibold text-hdGrey text-xs">{member.job}</p>
