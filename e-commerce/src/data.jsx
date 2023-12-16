@@ -115,7 +115,7 @@ export const teamData = {
     { name: "Jerome Bell", job: "IBM", imageURL: media1 },
     { name: "Brooklyn Simmons", job: "eBay", imageURL: media2 },
     { name: "Ronald Richards", job: "Starbucks", imageURL: media3 },
-    { name: "Floyd Miles", job: "Facebook", imageURL: media4 },
+    { name: "Floyd Miles", job: "Facebook", imageURL: media8 },
     { name: "Jane Cooper", job: "Mitsubishi", imageURL: media5 },
     { name: "Robert Fox", job: "IBM", imageURL: media6 },
     {
@@ -123,7 +123,7 @@ export const teamData = {
       job: "The Walt Disney Company",
       imageURL: media7,
     },
-    { name: "Jacop Jones", job: "Starbucs", imageURL: media8 },
+    { name: "Jacop Jones", job: "Starbucs", imageURL: media4 },
   ],
 };
 
