@@ -78,6 +78,16 @@ import pdb6 from "./assets/productDetailBestseller/pdb6.jpg";
 import pdb7 from "./assets/productDetailBestseller/pdb7.jpg";
 import pdb8 from "./assets/productDetailBestseller/pdb8.jpg";
 
+/* TEAM */
+import media1 from "./assets/team/media1.png";
+import media2 from "./assets/team/media2.png";
+import media3 from "./assets/team/media3.png";
+import media4 from "./assets/team/media4.png";
+import media5 from "./assets/team/media5.png";
+import media6 from "./assets/team/media6.png";
+import media7 from "./assets/team/media7.png";
+import media8 from "./assets/team/media8.png";
+
 /* HEADER*/
 
 export const headerData = {
@@ -97,6 +107,23 @@ export const headerData = {
     { name: "blog", label: "Blog", path: "/blog" },
     { name: "contact", label: "Contact", path: "/contact" },
     { name: "pages", label: "Pages", path: "/pages" },
+  ],
+};
+
+export const teamData = {
+  members: [
+    { name: "Jerome Bell", job: "IBM", imageURL: media1 },
+    { name: "Brooklyn Simmons", job: "eBay", imageURL: media2 },
+    { name: "Ronald Richards", job: "Starbucks", imageURL: media3 },
+    { name: "Floyd Miles", job: "Facebook", imageURL: media4 },
+    { name: "Jane Cooper", job: "Mitsubishi", imageURL: media5 },
+    { name: "Robert Fox", job: "IBM", imageURL: media6 },
+    {
+      name: "Leslie Alexander",
+      job: "The Walt Disney Company",
+      imageURL: media7,
+    },
+    { name: "Jacop Jones", job: "Starbucs", imageURL: media8 },
   ],
 };
 
@@ -544,4 +571,5 @@ export const data = {
   productData,
   categoryData,
   productDetailBestsellerData,
+  teamData,
 };
