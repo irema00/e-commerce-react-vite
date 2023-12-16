@@ -1,6 +1,6 @@
 const CategoryCard = ({ category, itemCount, imageUrl }) => {
   return (
-    <div className="relative shadow-xl w-[350px] max-h-[500px] md:w-auto md:max-h-58 mb-8 hover:scale-110 cursor-pointer">
+    <div className="relative flex flex-wrap shadow-xl w-[350px] max-h-[500px] lg:w-auto lg:max-h-58 mb-8 hover:scale-110 cursor-pointer">
       <img
         src={imageUrl}
         alt={category}
