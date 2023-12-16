@@ -5,6 +5,7 @@ import HomePage from "../pages/HomePage";
 import ProductPage from "../pages/ProductPage";
 import PageNotFound from "../pages/PageNotFound";
 import ContactPage from "../pages/ContactPage";
+import AboutPage from "../pages/AboutPage";
 
 export default function PageContent() {
   return (
@@ -14,6 +15,7 @@ export default function PageContent() {
         <Route path="/shop" element={<ProductListPage />} />
         <Route path="/product" element={<ProductPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>
