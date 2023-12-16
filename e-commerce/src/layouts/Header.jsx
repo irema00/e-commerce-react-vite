@@ -90,7 +90,10 @@ export default function Header() {
                   onClick={() => handleMenuClick(item.name)}
                   className={menuItemClass(item.name)}
                 >
-                  <Link to={item.path} className="flex items-center">
+                  <Link
+                    to={item.path}
+                    className="flex items-center hover:text-semiGrey cursor-pointer"
+                  >
                     {item.label}
                     {activeMenu === item.name && (
                       <span className="ml-2 flex flex-row">
