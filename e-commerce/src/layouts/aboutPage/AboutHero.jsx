@@ -10,18 +10,36 @@ import technology1 from "../../assets/contact/technology1.png";
 export default function AboutHero() {
   return (
     <div className="flex w-screen h-full justify-between px-[10%] py-[5%]">
-      <div className="flex flex-col w-1/2 justify-center ">
+      <div className="flex flex-col justify-center gap-8 items-start ">
+        <h5 className="text-sm font-bold tracking-tight">ABOUT COMPANY</h5>
         <h1 className="text-5xl font-bold">ABOUT US</h1>
-        <p className="text-lg">
+        <p className="text-lg font-semibold text-hdGrey w-[350px]">
           We know how large objects will act, but things on a small scale
         </p>
-        <button className="bg-blue-600 text-white uppercase text-sm px-6 py-3 rounded">
+        <button className="bg-prBlue text-white  text-sm font-semibold px-8 py-4 rounded">
           Get Quote Now
         </button>
       </div>
-      <div className="flex w-1/2  pl-10 border-2 border-solid border-x-light-green-400 relative  ">
-        <img src={elips4} className="sticky items-center justify-center " />
-        <img src={technology1} className="absolute w-full h-full inset-x-0 " />
+
+      <div className="flex pl-10  relative  ">
+        <img
+          src={elips3}
+          className="flex self-start items-start top-0 bottom-0"
+        />
+        <img src={elips1} className="flex self-end items-end mb-20 pl-" />
+        <img
+          src={elips4}
+          className="flex items-center justify-center w-auto "
+        />
+        <img
+          src={technology1}
+          className="absolute w-auto h-full inset-x-[20%] "
+        />
+        <img src={elips2} className="flex self-center items-start pl-7" />
+        <img
+          src={elips1}
+          className="flex self-center items-start pr-3 pb-[170px]"
+        />
       </div>
     </div>
   );
