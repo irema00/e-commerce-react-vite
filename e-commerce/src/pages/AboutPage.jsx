@@ -8,13 +8,16 @@ import Video from "../layouts/aboutPage/video";
 import Clients from "../layouts/productlistPage/Clients";
 import Footer from "../layouts/Footer";
 import TeamPage from "../layouts/contactPage/TeamPage";
+import Problems from "../layouts/aboutPage/Problems";
 
 export default function AboutPage() {
   return (
     <>
       <Header />
       <AboutHero />
-      <Stats /> <Video />
+      <Problems />
+      <Stats />
+      <Video />
       <TeamPage />
       <ClientTop />
       <Clients />
