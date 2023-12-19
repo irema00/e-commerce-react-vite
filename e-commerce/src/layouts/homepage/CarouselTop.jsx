@@ -32,28 +32,28 @@ export function CarouselTop() {
             <Typography
               variant="h5"
               color="white"
-              className="mb-12 text-md font-montserrat  tracking-widest  "
+              className="mb-12 text-md font-montserrat  tracking-widest lg:text-start text-center "
             >
               {carousel1.title}
             </Typography>
             <Typography
               variant="h1"
               color="white"
-              className=" font-montserrat font-semibold text-6xl tracking-normal leading-custom mb-12 xl:text-6xl lg:text-6xl 2xl:text-6xl xl:mb-12 lg:mb-12 2xl:mb-12 "
+              className=" font-montserrat font-semibold lg:text-6xl lg:items-start lg:text-start text-center tracking-normal leading-custom mb-12 "
             >
               {carousel1.subTitle}
             </Typography>
             <Typography
               variant="h4"
               color="white"
-              className=" max-w-[400px] font-montserrat tracking-wide font-normal text-xl leading-5 mb-12 xl:text-xl lg:text-xl 2xl:text-xl"
+              className=" max-w-[400px] font-montserrat tracking-wide font-normal text-xl leading-5 mb-12  lg:text-start text-center"
             >
               {carousel1.description}
             </Typography>
-            <div className="flex justify-left xl:justify-left lg:justify-left 2xl:justify-left">
+            <div className="flex lg:justify-start justify-center">
               <Button
                 size="lg"
-                className="bg-successGreen rounded transform scale-105 hover:scale-110 text-lg xl:text-lg lg:text-lg 2xl:text-lg "
+                className="bg-successGreen rounded transform scale-105 hover:scale-110 text-lg "
               >
                 {carousel1.buttonText1}
               </Button>
@@ -70,18 +70,18 @@ export function CarouselTop() {
           className="h-screen w-full object-cover xl:h-screen xl:w-full lg:h-screen lg:w-full 2xl:h-screen 2xl:w-full"
         />
         <div className="absolute inset-0 flex flex-col justify-center items-center xl:inset-0 lg:inset-0 2xl:inset-0  ">
-          <div className="flex flex-col justify-center items-center text-center w-[600px] xl:w-[600px] lg:w-[600px] 2xl:w-[600px]  ">
+          <div className="flex flex-col  justify-center items-center text-center w-[300px] xl:w-[600px] lg:w-[600px] 2xl:w-[600px]  ">
             <Typography
               variant="h1"
               color="white"
-              className="mb-4 text-7xl xl:text-7xl lg:text-7xl 2xl:text-7xl"
+              className="mb-4 md:text-7xl text-4xl  text-center"
             >
               {carousel1.title2}
             </Typography>
             <Typography
-              variant="lead"
+              variant="h5"
               color="white"
-              className="mb-12 font-montserrat tracking-wider font-normal text-xl my-6 xl:text-xl lg:text-xl 2xl:text-xl "
+              className="mb-12 font-montserrat tracking-wider font-normal md:text-xl my-6 text-md text-center "
             >
               {carousel1.description2}
             </Typography>
