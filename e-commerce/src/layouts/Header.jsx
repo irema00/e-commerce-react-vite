@@ -37,7 +37,7 @@ export default function Header() {
 
   return (
     <div className="w-full flex-wrap ">
-      <div className="bg-darkBg lg:flex hidden text-whiteText justify-between items-center flex-wrap gap-2 font-montserrat font-semibold text-sm px-10 py-4">
+      <div className="bg-darkBg lg:flex hidden text-whiteText justify-between items-center flex-wrap gap-2 font-montserrat font-semibold text-sm px-10 py-4 ">
         <div className="flex items-center gap-7 font-semibold ">
           <div className="flex items-center gap-2 tracking-wider ">
             <Icon icon="bi:telephone" color="white" />
@@ -85,13 +85,11 @@ export default function Header() {
 
       <div
         className="flex 
-      w-full flex-wrap justify-between font-montserrat py-5 px-10 border-2 border-solid border-green-300"
+      w-full flex-wrap justify-between font-montserrat py-5 px-10 "
       >
-        <div className=" flex flex-row items-center justify-center  flex-wrap gap-16 border-2 border-solid w-full lg:w-auto border-blue-300 ">
-          <div className="flex justify-between w-full lg:w-auto text-2xl font-bold border-2 border-solid border-orange-300 ">
-            <p className="flex border-2 border-solid border-lime-300">
-              {headerData.brandName}
-            </p>
+        <div className=" flex flex-row items-center justify-center  flex-wrap gap-16  w-full lg:w-auto ">
+          <div className="flex justify-between w-full lg:w-auto text-2xl font-bold  ">
+            <p className="flex ">{headerData.brandName}</p>
             <div className="flex lg:hidden items-center border-2 border-solid border-pink-300">
               <Icon icon="bi:search" className="mx-1" />
               <Icon icon="ion:cart-outline" className="mx-1" />
@@ -113,7 +111,7 @@ export default function Header() {
           <div
             className={`${
               isMenuVisible ? "flex" : "hidden"
-            } lg:flex sm:flex-row gap-2 text-hdGrey sm:text-sm   text-xl flex-col font-bold font-monserrat leading-normal`}
+            } lg:flex sm:flex-row gap-2 text-hdGrey sm:text-md lg:text-sm  text-xl flex-col font-bold font-monserrat leading-normal`}
           >
             <ul className="flex sm:flex-row flex-col justify-center items-center flex-wrap  tracking-wider gap-6 list-none  ">
               {headerData.menuItems.map((item) => (
