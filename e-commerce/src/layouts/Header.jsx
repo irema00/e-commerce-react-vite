@@ -5,6 +5,7 @@ import { Icon } from "@iconify/react";
 
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
   const { headerData } = useData();
   const location = useLocation();
 
@@ -21,6 +22,7 @@ export default function Header() {
   const handleMenuClick = (menuName) => {
     setActiveMenu(activeMenu === menuName ? null : menuName);
   };
+
 
   const menuItemClass = (menuName) =>
     `cursor-pointer ${
@@ -77,13 +79,24 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="flex flex-row justify-between flex-wrap w-full font-montserrat py-5 px-10">
-        <div className=" flex flex-row items-center flex-wrap gap-16">
-          <div className="text-2xl font-bold  font-montserrat">
-            <p>{headerData.brandName}</p>
-          </div>
-          <div className="flex flex-row gap-2 text-hdGrey text-sm font-bold font-monserrat leading-normal pl-16 ">
-            <ul className="flex flex-row flex-wrap tracking-wider gap-6 list-none  ">
+              {isMenuVisible ? (
+                <Icon
+                  icon="uiw:close"
+                  className="mx-1"
+                  onClick={toggleMenuVisibility}
+                />
+              ) : (
+                <Icon
+                  icon="tabler:menu-deep"
+                  className="mx-1"
+                  onClick={toggleMenuVisibility}
+                />
+              )}
+          <div
+            className={`${
+              isMenuVisible ? "flex" : "hidden"
+            } lg:flex sm:flex-row gap-2 text-hdGrey sm:text-sm text-xl flex-col font-bold font-monserrat leading-normal`}
+          >
               {headerData.menuItems.map((item) => (
                 <li
                   key={item.name}
