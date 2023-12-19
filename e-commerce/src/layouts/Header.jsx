@@ -90,7 +90,7 @@ export default function Header() {
         <div className=" flex flex-row items-center justify-center  flex-wrap gap-16  w-full lg:w-auto ">
           <div className="flex justify-between w-full lg:w-auto text-2xl font-bold  ">
             <p className="flex ">{headerData.brandName}</p>
-            <div className="flex lg:hidden items-center border-2 border-solid border-pink-300">
+            <div className="flex lg:hidden items-center ">
               <Icon icon="bi:search" className="mx-1" />
               <Icon icon="ion:cart-outline" className="mx-1" />
               {isMenuVisible ? (
