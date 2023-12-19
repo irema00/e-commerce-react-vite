@@ -23,6 +23,9 @@ export default function Header() {
     setActiveMenu(activeMenu === menuName ? null : menuName);
   };
 
+  const toggleMenuVisibility = () => {
+    setIsMenuVisible(!isMenuVisible);
+  };
 
   const menuItemClass = (menuName) =>
     `cursor-pointer ${
@@ -33,7 +36,7 @@ export default function Header() {
 
   return (
     <div className="w-full flex-wrap ">
-      <div className="bg-darkBg text-whiteText flex justify-between items-center flex-wrap gap-2 font-montserrat font-semibold text-sm px-10 py-4">
+      <div className="bg-darkBg lg:flex hidden text-whiteText justify-between items-center flex-wrap gap-2 font-montserrat font-semibold text-sm px-10 py-4">
         <div className="flex items-center gap-7 font-semibold ">
           <div className="flex items-center gap-2 tracking-wider ">
             <Icon icon="bi:telephone" color="white" />
@@ -79,6 +82,18 @@ export default function Header() {
         </div>
       </div>
 
+      <div
+        className="flex 
+      w-full flex-wrap justify-between font-montserrat py-5 px-10 border-2 border-solid border-green-300"
+      >
+        <div className=" flex flex-row items-center justify-center  flex-wrap gap-16 border-2 border-solid w-full lg:w-auto border-blue-300 ">
+          <div className="flex justify-between w-full lg:w-auto text-2xl font-bold border-2 border-solid border-orange-300 ">
+            <p className="flex border-2 border-solid border-lime-300">
+              {headerData.brandName}
+            </p>
+            <div className="flex lg:hidden items-center border-2 border-solid border-pink-300">
+              <Icon icon="bi:search" className="mx-1" />
+              <Icon icon="ion:cart-outline" className="mx-1" />
               {isMenuVisible ? (
                 <Icon
                   icon="uiw:close"
@@ -92,11 +107,14 @@ export default function Header() {
                   onClick={toggleMenuVisibility}
                 />
               )}
+            </div>
+          </div>
           <div
             className={`${
               isMenuVisible ? "flex" : "hidden"
             } lg:flex sm:flex-row gap-2 text-hdGrey sm:text-sm text-xl flex-col font-bold font-monserrat leading-normal`}
           >
+            <ul className="flex sm:flex-row flex-col justify-center items-center flex-wrap  tracking-wider gap-6 list-none  ">
               {headerData.menuItems.map((item) => (
                 <li
                   key={item.name}
@@ -120,8 +138,8 @@ export default function Header() {
           </div>
         </div>
 
-        <div className="flex flex-row items-center gap-4 ">
-          <div className="text-prBlue flex-row flex items-center gap-2 text-sm font-bold font-monserrat ">
+        <div className="lg:flex hidden flex-row  flex-wrap items-center gap-4 ">
+          <div className="text-prBlue  flex-row flex items-center gap-2 text-sm font-bold font-monserrat ">
             <Icon
               className="text-prBlue "
               icon="mdi:user-outline"
