@@ -17,6 +17,7 @@ export default function Header() {
     if (activeItem) {
       setActiveMenu(activeItem.name);
     }
+    setIsMenuVisible(true);
   }, [location, headerData.menuItems]);
 
   const handleMenuClick = (menuName) => {
@@ -112,7 +113,7 @@ export default function Header() {
           <div
             className={`${
               isMenuVisible ? "flex" : "hidden"
-            } lg:flex sm:flex-row gap-2 text-hdGrey sm:text-sm text-xl flex-col font-bold font-monserrat leading-normal`}
+            } lg:flex sm:flex-row gap-2 text-hdGrey sm:text-sm   text-xl flex-col font-bold font-monserrat leading-normal`}
           >
             <ul className="flex sm:flex-row flex-col justify-center items-center flex-wrap  tracking-wider gap-6 list-none  ">
               {headerData.menuItems.map((item) => (
