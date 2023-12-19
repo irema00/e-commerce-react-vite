@@ -6,7 +6,7 @@ const CategoryCard = ({ category, itemCount, imageUrl }) => {
         alt={category}
         className="w-full h-full object-cover"
       />
-      <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full flex items-center justify-center bg-black bg-opacity-40 hover:opacity-0 hover:shadow-2xl hover:scale-110 p-4 cursor-pointer">
+      <div className="absolute w-full h-full flex items-center justify-center bg-black bg-opacity-40 hover:bg-opacity-0 hover:shadow-2xl hover:scale-110 p-4 cursor-pointer">
         <div className="flex flex-col items-center justify-center">
           <h3 className="text-white text-2xl font-semibold text-center cursor-pointer">
             {category}
