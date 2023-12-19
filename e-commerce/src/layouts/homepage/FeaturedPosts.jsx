@@ -5,7 +5,7 @@ import { Icon } from "@iconify/react";
 export default function FeaturedPosts() {
   const { featuredPostsData } = useData();
   return (
-    <div className="font-montserrat px-[10%] py-[5%] flex flex-col items-center justify-center cursor-pointer">
+    <div className="font-montserrat px-[10%] md:py-[5%] py-[10%] flex flex-col items-center justify-center cursor-pointer">
       <div className="flex flex-col text-center mb-20 ">
         <h5 className=" text-prBlue text-sm font-bold leading-normal tracking-wide mb-4">
           {featuredPostsData.topTitle}
@@ -21,22 +21,22 @@ export default function FeaturedPosts() {
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-3 ">
+      <div className="flex flex-wrap gap-5 items-center justify-center">
         {featuredPostsData.posts.map((post) => (
           <div
-            className="max-w-[350px] shadow-xl hover:shadow-2xl hover:animate-pulse hover:scale-110  "
+            className="max-w-[350px] shadow-xl hover:shadow-2xl md:hover:animate-pulse md:hover:scale-110  "
             key={post.id}
           >
             <img
-              className="object-cover object-center"
+              className="object-cover object-center cursor-pointer"
               src={post.imageUrl}
               alt={post.title}
             />
-            <div className="p-5 flex flex-col gap-4 ">
-              <div className="flex text-sm gap-4 text-hdGrey font-normal tracking-tighter">
-                <p className="text-prBlue">Google</p>
-                <p>Trending</p>
-                <p>New</p>
+            <div className="p-5 flex flex-col gap-4 cursor-pointer">
+              <div className="flex text-sm gap-4 text-hdGrey font-normal tracking-tighter ">
+                <p className="text-prBlue cursor-pointer">Google</p>
+                <p className="cursor-pointer">Trending</p>
+                <p className="cursor-pointer">New</p>
               </div>
               <h3 className="text-bgDark text-2xl font-semibold tracking-tight">
                 {post.title}
@@ -56,7 +56,7 @@ export default function FeaturedPosts() {
               </div>
 
               <a
-                className="text-md font-semibold text-hdGrey flex items-center"
+                className="text-md font-semibold text-hdGrey flex items-center cursor-pointer"
                 href={post.learnMoreUrl}
               >
                 Learn More{" "}
