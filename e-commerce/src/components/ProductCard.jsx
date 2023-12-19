@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 function ProductCard({ product }) {
   return (
     <Link to={`/product/${product.id}`} className="no-underline">
-      <div className="flex flex-col flex-wrap items-center mb-8 shadow-xl md:hover:scale-110 cursor-pointer">
+      <div className="flex flex-col flex-wrap items-center mb-8 shadow-xl md:hover:scale-110 cursor-pointer ">
         <img
           src={product.imageUrl}
           alt={product.title}
-          className="object-cover w-[300px]  object-center md:w-[250px] md:max-h-[400px] cursor-pointer"
+          className="object-cover w-[300px] h-[450px] md:object-center object-top md:w-[250px] md:max-h-[400px] cursor-pointer"
         />
         <div className="flex gap-2 flex-col items-center mt-3 mb-5">
           <h3 className="w-32 text-center text-darkBg text-base font-bold leading-normal tracking-tight mt-2">
