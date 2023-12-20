@@ -118,6 +118,29 @@ const SignUpForm = () => {
 
             <div className="mb-6">
               <label
+                htmlFor="confirmPassword"
+                className="block mb-2 text-sm font-medium text-gray-600"
+              >
+                Confirm Password
+              </label>
+              <input
+                type="password"
+                id="confirmPassword"
+                {...register("confirmPassword", {
+                  validate: (value) =>
+                    value === watch("password") || "The passwords do not match",
+                })}
+                placeholder="Confirm Password"
+                className="form-input w-full p-3 border border-solid bg-ltGrey border-ltGrey rounded-lg text-sm"
+              />
+              {errors.confirmPassword && (
+                <p className="mt-1 text-xs text-red-500">
+                  {errors.confirmPassword.message}
+                </p>
+              )}
+            </div>
+            <div className="mb-6">
+              <label
                 htmlFor="role_id"
                 className="block mb-2 text-sm font-medium text-gray-600"
               >
