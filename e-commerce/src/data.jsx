@@ -60,6 +60,7 @@ import hero2 from "./assets/Carousel/hero2.png";
 import slide3 from "./assets/Carousel/slide3.jpg";
 import slide2 from "./assets/Carousel/slide2.jpg";
 import slide1 from "./assets/Carousel/slide1.jpg";
+import slide4 from "./assets/Carousel/slide4.jpg";
 
 /*FEATURED*/
 
@@ -156,11 +157,12 @@ export const carousel2 = {
     buttonText: "ADD TO CART",
   },
   secondSlide: {
-    title: "BLACK FRIDAY",
+    title: "SUMMER 2020",
+    subTitle: "IT'S A SPECIAL GIFT ",
     description:
-      "We know how large objects will act, but things on a small scale just do not act that way.",
-    imageUrl: slide2,
-    buttonText: "Start Now",
+      "We know how large objects will act, but things on a small scale.",
+    imageUrl: slide4,
+    buttonText: "SHOP NOW",
   },
 };
 
