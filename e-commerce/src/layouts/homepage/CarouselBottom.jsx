@@ -3,7 +3,7 @@ import { useData } from "../../contexts/DataContext";
 import { Carousel, Typography, Button } from "@material-tailwind/react";
 
 export function CarouselBottom() {
-  const { carousel2 } = useData();
+  const { carousel2, carousel1 } = useData();
   const { carousel1 } = useData();
   return (
     <Carousel
