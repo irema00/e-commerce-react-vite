@@ -6,6 +6,7 @@ import ProductPage from "../pages/ProductPage";
 import PageNotFound from "../pages/PageNotFound";
 import ContactPage from "../pages/ContactPage";
 import AboutPage from "../pages/AboutPage";
+import SignUpForm from "../components/SignUpForm";
 
 export default function PageContent() {
   return (
@@ -17,6 +18,7 @@ export default function PageContent() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="*" element={<PageNotFound />} />
+        <Route path="/signup" element={<SignUpForm />} />
       </Routes>
     </>
   );

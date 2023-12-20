@@ -149,9 +149,9 @@ export default function Header() {
                 {headerData.loginText}
               </p>
               <span>/</span>
-              <p className="hover:text-blue-200 cursor-pointer">
+              <Link to="/signup" className="hover:text-blue-200 cursor-pointer">
                 {headerData.registerText}
-              </p>
+              </Link>
             </div>
           </div>
 
