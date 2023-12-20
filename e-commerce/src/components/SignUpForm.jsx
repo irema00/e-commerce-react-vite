@@ -28,6 +28,27 @@ const SignUpForm = () => {
       .catch((error) => console.error(error));
   }, []);
 
+  const onSubmit = (data) => {
+    setIsLoading(true);
+    api
+      .post("/register", data)
+      .then((response) => {
+        console.log("Registration successful", response);
+        toast.success("Congratulations! You've successfully signed up!");
+        navigate(-1);
+      })
+      .catch((error) => {
+        console.error("Registration failed", error);
+        setError("apiError", {
+          type: "manual",
+          message: "Registration failed",
+        });
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
   return (
     <div className="min-h-screen flex flex-col justify-center px-6">
       <div className="max-w-md w-full mx-auto bg-white p-8  ">
@@ -35,7 +56,7 @@ const SignUpForm = () => {
           Sign Up
         </h2>
         <div className="bg-white p-8 border border-gray-300 mt-6 rounded-lg shadow-lg">
-          <form className="space-y-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div>
               <label
                 htmlFor="name"
