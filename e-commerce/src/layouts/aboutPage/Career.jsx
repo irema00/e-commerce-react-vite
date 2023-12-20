@@ -6,7 +6,7 @@ export default function Career() {
     <div className="flex  w-full h-full justify-between text-white bg-blue-600">
       <div className="flex flex-wrap flex-col justify-center lg:items-start text-center lg:text-left  items-center  md:px-[10%]  px-[15%] bg-blue-600 lg:w-1/2 w-full py-[15%] lg:py-0 ">
         <h5 className="mb-12 text-md font-bold tracking-wider">WORK WITH US</h5>
-        <h1 className=" font-montserrat font-semibold text-4xl tracking-t,ght leading-custom mb-12  ">
+        <h1 className=" font-montserrat font-semibold text-4xl tracking-tight leading-custom mb-12  ">
           Now Let's grow Yours
         </h1>
         <h4 className=" font-montserrat tracking-wide font-normal text-sm leading-5 mb-12 ">

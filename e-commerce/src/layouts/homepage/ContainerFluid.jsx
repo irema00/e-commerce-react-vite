@@ -1,6 +1,7 @@
 import React from "react";
 import { useData } from "../../contexts/DataContext";
 import { Button } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 export default function ContainerFluid() {
   const { containerFluid } = useData();
@@ -26,18 +27,20 @@ export default function ContainerFluid() {
         </h4>
         <div className="flex gap-5 mt-5  md:flex-row flex-col items-center lg:items-start lg:justify-start justify-center">
           {containerFluid.buttons.map((button, index) => (
-            <Button
-              key={index}
-              size="lg"
-              className={`rounded transform scale-105 hover:scale-110  ${
-                index === 0
-                  ? "lg:bg-successGreen bg-prBlue"
-                  : "border border-solid lg:border-successGreen border-prBlue lg:text-successGreen  text-prBlue bg-white "
-              }`}
-              href={button.link}
-            >
-              <p className="text-lg">{button.label}</p>
-            </Button>
+            <Link to="/shop">
+              <Button
+                key={index}
+                size="lg"
+                className={`rounded transform scale-105 hover:scale-110  ${
+                  index === 0
+                    ? "lg:bg-successGreen bg-prBlue"
+                    : "border border-solid lg:border-successGreen border-prBlue lg:text-successGreen  text-prBlue bg-white "
+                }`}
+                href={button.link}
+              >
+                <p className="text-lg">{button.label}</p>
+              </Button>
+            </Link>
           ))}
         </div>
       </div>

@@ -1,9 +1,10 @@
 import React from "react";
 import { useData } from "../../contexts/DataContext";
 import { Carousel, Typography, Button } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 export function CarouselBottom() {
-  const { carousel2, carousel1 } = useData();
+  const { carousel2 } = useData();
 
   return (
     <Carousel
@@ -50,12 +51,14 @@ export function CarouselBottom() {
               <div className="text-white lg:text-3xl text:2xl font-semibold items-center">
                 {carousel2.firstSlide.price}
               </div>
-              <Button
-                size="lg"
-                className="bg-successGreen rounded px-12 py-5  lg:text-base text:md font-semibold tracking-wide textransform scale-105 hover:scale-110"
-              >
-                {carousel2.firstSlide.buttonText}
-              </Button>
+              <Link to="/shop">
+                <Button
+                  size="lg"
+                  className="bg-successGreen rounded px-12 py-5  lg:text-base text:md font-semibold tracking-wide textransform scale-105 hover:scale-110"
+                >
+                  {carousel2.firstSlide.buttonText}
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -102,12 +105,14 @@ export function CarouselBottom() {
               {carousel2.secondSlide.description}
             </Typography>
             <div className="flex lg:justify-start justify-center">
-              <Button
-                size="lg"
-                className="bg-white text-bgDark rounded transform px-5 py-3 scale-105 hover:scale-110 text-md "
-              >
-                {carousel2.secondSlide.buttonText}
-              </Button>
+              <Link to="/shop">
+                <Button
+                  size="lg"
+                  className="bg-white text-bgDark rounded transform px-5 py-3 scale-105 hover:scale-110 text-md "
+                >
+                  {carousel2.secondSlide.buttonText}
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

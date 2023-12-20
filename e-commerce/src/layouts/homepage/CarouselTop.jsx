@@ -1,6 +1,7 @@
 import React from "react";
 import { Carousel, Typography, Button } from "@material-tailwind/react";
 import { useData } from "../../contexts/DataContext";
+import { Link } from "react-router-dom";
 
 export function CarouselTop() {
   const { carousel1 } = useData();
@@ -51,12 +52,14 @@ export function CarouselTop() {
               {carousel1.description}
             </Typography>
             <div className="flex lg:justify-start justify-center">
-              <Button
-                size="lg"
-                className="bg-successGreen rounded transform scale-105 hover:scale-110 text-lg "
-              >
-                {carousel1.buttonText1}
-              </Button>
+              <Link to="/shop">
+                <Button
+                  size="lg"
+                  className="bg-successGreen rounded transform scale-105 hover:scale-110 text-lg "
+                >
+                  {carousel1.buttonText1}
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -86,12 +89,14 @@ export function CarouselTop() {
               {carousel1.description2}
             </Typography>
             <div className="flex gap-2 xl:gap-2 lg:gap-2 2xl:gap-2">
-              <Button
-                size="lg"
-                className="bg-prBlue rounded transform scale-105 hover:scale-110  py-4 px-8 text-xl "
-              >
-                {carousel1.buttonText2}
-              </Button>
+              <Link to="/shop">
+                <Button
+                  size="lg"
+                  className="bg-prBlue rounded transform scale-105 hover:scale-110  py-4 px-8 text-xl "
+                >
+                  {carousel1.buttonText2}
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
