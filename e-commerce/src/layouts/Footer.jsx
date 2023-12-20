@@ -30,14 +30,14 @@ export default function Footer() {
       </div>
       <hr className="border-1 border-solid border-inputBorder mx-[10%] "></hr>
       <div className="bg-white  px-[10%] py-8  font-montserrat font-bold">
-        <div className=" bg-white flex flex-wrap justify-between items-start flex-col md:flex-row md:no-wrap">
+        <div className=" bg-white flex flex-wrap justify-between gap-5 items-start  lg:flex-nowrap flex-col sm:flex-row">
           {footerData.footerSections.map((section, index) => (
             <div
               key={index}
               className=" mb-4 md:mb-0 md:w-1/5 flex flex-col justify-start flex-wrap md:no-wrap"
             >
               <h5 className="text-lg font-semibold">{section.title}</h5>
-              <ul className="mt-4 flex items-start justify-start flex-col flex-wrap md:no-wrap">
+              <ul className="mt-4 flex items-start justify-start flex-col flex-wrap ">
                 {section.links.map((link, linkIndex) => (
                   <li
                     key={linkIndex}
@@ -53,7 +53,6 @@ export default function Footer() {
             <h5 className="text-lg font-semibold mb-4">
               {footerData.inputTitle}
             </h5>
-            {/** bu kısım wraplenecek */}
             <form className="flex  ">
               <input
                 type="email"
