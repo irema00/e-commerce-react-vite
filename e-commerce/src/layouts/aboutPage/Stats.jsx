@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Stats() {
   return (
-    <div className="flex flex-wrap justify-between px-[10%] py-[5%]">
+    <div className="lg:flex hidden flex-wrap justify-between px-[10%] py-[5%]">
       <div className="flex flex-col justify-center items-center">
         <span className="text-6xl font-bold">15K</span>
         <p className="text-hdGrey text-md font-semibold ">Happy Customers</p>
