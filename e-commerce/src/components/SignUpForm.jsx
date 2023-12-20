@@ -74,8 +74,10 @@ const SignUpForm = () => {
                 id="email"
                 {...register("email", {
                   required: "Email is required",
-                  value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-                  message: "Invalid email format",
+                  pattern: {
+                    value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                    message: "Invalid email format",
+                  },
                 })}
                 placeholder="Your Email"
                 className="form-input w-full p-3 border border-solid bg-ltGrey border-ltGrey rounded-lg text-sm"
