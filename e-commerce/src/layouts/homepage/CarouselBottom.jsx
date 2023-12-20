@@ -22,44 +22,37 @@ export function CarouselBottom() {
         </div>
       )}
     >
-      <div
-        className="flex flex-wrap  justify-evenly  md:no-wrap gap-8 px-[10%]"
-        style={{
-          backgroundImage: `url(${carousel2.firstSlide.backgroundImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="flex items-center md:flex-wrap lg:no-wrap ">
-          <div className=" flex flex-col w-[500px]">
+      <div className="flex h-screen w-full lg:justify-between lg:bottom-0  justify-center items-center lg:px-[10%] flex-wrap lg:flex-nowrap pt-[10%]  px-[5%] gap-5 bg-[#23856D] py-[10%]">
+        <div className=" flex items-center max-w-[500px] text-center lg:text-start ">
+          <div className=" flex flex-col gap-2 justify-center items-center">
             <Typography
               variant="h5"
               color="white"
-              className="mb-12 text-md font-montserrat  tracking-widest xl:mb-12 lg:mb-12 2xl:mb-12 "
+              className="lg:mb-12 mb-5 text-md font-montserrat  tracking-widest "
             >
               {carousel2.firstSlide.title}
             </Typography>
             <Typography
               variant="h1"
               color="white"
-              className=" font-montserrat font-semibold text-6xl tracking-wide leading-[80px] mb-12"
+              className=" font-montserrat font-semibold lg:text-6xl text-5xl tracking-wide  lg:leading-[80px] lg:mb-12 mb-5"
             >
               {carousel2.firstSlide.subTitle}
             </Typography>
             <Typography
               variant="h4"
               color="white"
-              className=" font-montserrat tracking-wide font-normal text-base leading-7 w-[400px] mb-12 "
+              className=" font-montserrat tracking-wide font-normal text-base leading-7  lg:mb-12 mb-5 lg:justify-start justify-center "
             >
               {carousel2.firstSlide.description}
             </Typography>
-            <div className="flex flex-row items-center gap-10 ">
-              <div className="text-white text-3xl font-semibold items-center">
+            <div className="flex lg:flex-row flex-col items-center lg:justify-start justify-center lg:gap-10 gap-7 ">
+              <div className="text-white lg:text-3xl text:2xl font-semibold items-center">
                 {carousel2.firstSlide.price}
               </div>
               <Button
                 size="lg"
-                className="bg-successGreen rounded px-12 py-5 text-base font-semibold tracking-wide textransform scale-105 hover:scale-110"
+                className="bg-successGreen rounded px-12 py-5  lg:text-base text:md font-semibold tracking-wide textransform scale-105 hover:scale-110"
               >
                 {carousel2.firstSlide.buttonText}
               </Button>
@@ -67,34 +60,41 @@ export function CarouselBottom() {
           </div>
         </div>
 
-        <div className=" flex items-end ml-[100px] h-screen justify-center max-w-[500px] min-w-[400px]">
+        <div
+          className="flex self-end max-w-[300px] md:max-w-[300px] lg:max-w-[700px]
+         "
+        >
           <img
             src={carousel2.firstSlide.imageUrl}
             alt="man wearing white sweatshirt"
-            className="object-fill w-full "
+            className="object-cover object-center w-auto h-auto"
           />
         </div>
       </div>
 
-      <div className="relative h-full w-full">
+      <div className="relative h-screen w-full">
         <img
           src={carousel1.imageUrl2}
           alt="image 2"
-          className="h-screen w-full object-cover"
+          className=" w-full h-screen object-cover "
         />
-        <div className="absolute inset-0 flex flex-col justify-center items-center  ">
-          <div className="flex flex-col justify-center items-center text-center w-[600px] ">
-            <Typography variant="h1" color="white" className="mb-4 text-7xl">
+        <div className="absolute inset-0 flex flex-col justify-center items-center xl:inset-0 lg:inset-0 2xl:inset-0  ">
+          <div className="flex flex-col  justify-center items-center text-center w-[300px] xl:w-[600px] lg:w-[600px] 2xl:w-[600px]  ">
+            <Typography
+              variant="h1"
+              color="white"
+              className="mb-4 md:text-7xl text-4xl  text-center"
+            >
               {carousel1.title2}
             </Typography>
             <Typography
-              variant="lead"
+              variant="h5"
               color="white"
-              className="mb-12 font-montserrat tracking-wider font-normal text-xl my-6 "
+              className="mb-12 font-montserrat tracking-wider font-normal md:text-xl my-6 text-md text-center "
             >
               {carousel1.description2}
             </Typography>
-            <div className="flex gap-2">
+            <div className="flex gap-2 xl:gap-2 lg:gap-2 2xl:gap-2">
               <Button
                 size="lg"
                 className="bg-prBlue rounded transform scale-105 hover:scale-110  py-4 px-8 text-xl "
