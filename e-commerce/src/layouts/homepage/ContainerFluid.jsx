@@ -6,7 +6,7 @@ export default function ContainerFluid() {
   const { containerFluid } = useData();
 
   return (
-    <div className="flex md:justify-between justify-center items-center text-center md:text-start flex-wrap-reverse gap-8 md:gap-0 lg:flex-nowrap md:px-[10%]  font-montserrat ">
+    <div className="flex lg:justify-between justify-center items-center text-center lg:text-start flex-wrap-reverse gap-8 md:gap-0 lg:flex-nowrap md:px-[10%]  ">
       <div className="md:w-[600px] items-center self-center justify-center  ">
         <img
           src={containerFluid.imageUrl}
@@ -14,11 +14,11 @@ export default function ContainerFluid() {
           className=" object-cover object-center w-full h-full "
         />
       </div>
-      <div className="flex flex-col justify-center gap-6 md:w-[450px] w-[300px]  py-[10%] ">
+      <div className="flex flex-col justify-center gap-6 md:w-[450px] w-[300px] py-[10%]  ">
         <h5 className="sm:text-lg text-md tracking-widest font-bold text-gray-400 ">
           {containerFluid.title}
         </h5>
-        <h1 className="font-bold md:text-4xl text-5xl first-letter:tracking-wide leading-normal text-darkBg ">
+        <h1 className="font-bold md:text-4xl text-5xl leading-normal text-darkBg ">
           {containerFluid.subTitle}
         </h1>
         <h4 className="tracking-normal font-semibold leading-8  text-hdGrey text-2xl">
