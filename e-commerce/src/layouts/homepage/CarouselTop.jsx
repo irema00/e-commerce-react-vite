@@ -22,31 +22,31 @@ export function CarouselTop() {
       )}
     >
       <div
-        className="flex h-full w-full xl-h-full xl-w-full lg-h-full lg-w-full xl:h-full xl:w-full lg:h-full lg:w-full 2xl:h-full 2xl:w-full bg-cover bg-top"
+        className="flex bg-cover lg:bg-top bg-center "
         style={{
           backgroundImage: `url(${carousel1.imageUrl1})`,
         }}
       >
-        <div className="flex px-[10%] w-screen h-screen  ">
-          <div className="flex flex-col justify-center   ">
+        <div className="flex px-[15%] lg:px-[10%] w-full h-screen">
+          <div className="flex flex-col justify-center items-center  ">
             <Typography
               variant="h5"
               color="white"
-              className="mb-12 text-md font-montserrat  tracking-widest lg:text-start text-center "
+              className="mb-12 md:text-xl sm:text-lg text-sm font-montserrat  tracking-widest lg:text-start text-center "
             >
               {carousel1.title}
             </Typography>
             <Typography
               variant="h1"
               color="white"
-              className=" font-montserrat font-semibold lg:text-6xl lg:items-start lg:text-start text-center tracking-normal leading-custom mb-12 "
+              className=" font-montserrat font-semibold text-4xl md:text-7xl lg:items-start lg:text-start text-center tracking-normal leading-custom mb-12  "
             >
               {carousel1.subTitle}
             </Typography>
             <Typography
               variant="h4"
               color="white"
-              className=" max-w-[400px] font-montserrat tracking-wide font-normal text-xl leading-5 mb-12  lg:text-start text-center"
+              className=" font-montserrat tracking-wide font-normal text-xl leading-5 mb-12  lg:text-start text-center "
             >
               {carousel1.description}
             </Typography>
@@ -74,7 +74,7 @@ export function CarouselTop() {
             <Typography
               variant="h1"
               color="white"
-              className="mb-4 md:text-7xl text-4xl  text-center"
+              className="mb-4 md:text-7xl text-3xl  text-center"
             >
               {carousel1.title2}
             </Typography>
