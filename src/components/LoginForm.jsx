@@ -11,6 +11,7 @@ const LoginForm = () => {
   const onSubmit = (data) => {
     console.log(data);
   };
+  const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
   return (
     <div className="login-form-container">
@@ -20,9 +21,18 @@ const LoginForm = () => {
           <input
             type="email"
             id="email"
-            {...register("email")}
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value: emailPattern,
+                message: "Invalid email format",
+              },
+            })}
             className="form-control"
-          />
+          />{" "}
+          {errors.email && (
+            <p className="error-message">{errors.email.message}</p>
+          )}
         </div>
 
         <div className="form-group">
@@ -30,9 +40,12 @@ const LoginForm = () => {
           <input
             type="password"
             id="password"
-            {...register("password")}
+            {...register("password", { required: "Password is required" })}
             className="form-control"
-          />
+          />{" "}
+          {errors.password && (
+            <p className="error-message">{errors.password.message}</p>
+          )}
         </div>
 
         <button type="submit" className="submit-button">
