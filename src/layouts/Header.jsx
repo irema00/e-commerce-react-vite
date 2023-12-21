@@ -137,7 +137,7 @@ export default function Header() {
             </div>
           </div>
           {showUserMenu && (
-            <div className="sm:flex-row gap-2 text-hdGrey sm:text-md lg:text-sm  text-xl flex-col font-semibold font-monserrat  tracking-tighter">
+            <div className="sm:flex-row gap-2 text-hdGrey sm:text-md lg:text-sm  text-xl flex-col font-semibold font-monserrat  tracking-tighter  w-full justify-center lg:w-auto">
               <ul className="flex sm:flex-row flex-col justify-center items-center flex-wrap  tracking-wider gap-6 list-none  ">
                 <li onClick={() => setShowUserMenu(false)}>
                   <Link
