@@ -1,5 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { loginUser } from "../store/actions/userActions";
 
 const LoginForm = () => {
   const {
@@ -7,9 +11,19 @@ const LoginForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(loginUser(data))
+      .then((userData) => {
+        localStorage.setItem("token", userData.token);
+        toast.success("Logged in successfully!");
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error("Login failed: " + error.message);
+      });
   };
   const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
