@@ -3,6 +3,7 @@ import {
   applyMiddleware,
   combineReducers,
 } from "redux";
+import { thunk } from "redux-thunk";
 import logger from "redux-logger";
 import { globalReducer } from "./reducers/globalReducer";
 import { userReducer } from "./reducers/userReducer";
@@ -16,4 +17,4 @@ export const reducers = combineReducers({
   shoppingCart: shoppingCartReducer,
 });
 
-export const store = createStore(reducers, applyMiddleware(logger));
+export const store = createStore(reducers, applyMiddleware(logger, thunk));

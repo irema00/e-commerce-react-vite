@@ -10,9 +10,9 @@ export const setIsLoggedIn = (isLoggedIn) => ({
   payload: isLoggedIn,
 });
 
-export const loginUser = (credentials) => (dispatch) => {
+export const loginUser = (loginInfo) => (dispatch) => {
   api
-    .post("/login", credentials)
+    .post("/login", loginInfo)
     .then((response) => {
       dispatch({ type: "LOGIN", payload: response.data });
       dispatch(setUserInfo(response.data.user));
