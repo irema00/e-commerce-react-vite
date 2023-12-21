@@ -3,6 +3,7 @@ import { useData } from "../contexts/DataContext";
 import { Link, useLocation } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useSelector } from "react-redux";
+import pp1 from "../assets/pp1.png";
 
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -135,7 +136,6 @@ export default function Header() {
               )}
             </div>
           </div>
-
           {showUserMenu && (
             <div className="sm:flex-row gap-2 text-hdGrey sm:text-md lg:text-sm  text-xl flex-col font-semibold font-monserrat  tracking-tighter">
               <ul className="flex sm:flex-row flex-col justify-center items-center flex-wrap  tracking-wider gap-6 list-none  ">
