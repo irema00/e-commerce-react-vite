@@ -20,7 +20,7 @@ export default function Header() {
     }
     setIsMenuVisible(true);
 
-    if (location.pathname === "/signup") {
+    if (location.pathname === "/signup" || location.pathname === "/login") {
       setIsMenuVisible(false);
     }
   }, [location, headerData.menuItems]);
