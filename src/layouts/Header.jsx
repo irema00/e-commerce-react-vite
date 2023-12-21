@@ -106,6 +106,14 @@ export default function Header() {
             <p className="flex ">{headerData.brandName}</p>
             <div className="flex lg:hidden items-center ">
               <Icon
+                icon="bi:search"
+                className="mx-1 hover:text-hdGrey cursor-pointer"
+              />
+              <Icon
+                icon="ion:cart-outline"
+                className="mx-1 hover:text-hdGrey cursor-pointer"
+              />
+              <Icon
                 icon="tdesign:user"
                 className="mx-1 hover:text-hdGrey cursor-pointer"
                 onClick={toggleUserMenu}
@@ -113,13 +121,13 @@ export default function Header() {
               {isMenuVisible ? (
                 <Icon
                   icon="uiw:close"
-                  className="mx-1"
+                  className="mx-1 hover:text-hdGrey cursor-pointer"
                   onClick={toggleMenuVisibility}
                 />
               ) : (
                 <Icon
                   icon="tabler:menu-deep"
-                  className="mx-1"
+                  className="mx-1 hover:text-hdGrey cursor-pointer"
                   onClick={toggleMenuVisibility}
                 />
               )}
