@@ -27,6 +27,15 @@ export default function Header() {
 
   const toggleMenuVisibility = () => {
     setIsMenuVisible(!isMenuVisible);
+    if (showUserMenu) {
+      setShowUserMenu(false);
+    }
+  };
+  const toggleUserMenu = () => {
+    setShowUserMenu(!showUserMenu);
+    if (isMenuVisible) {
+      setIsMenuVisible(false);
+    }
   };
 
   const menuItemClass = (menuName) =>
