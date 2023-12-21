@@ -63,7 +63,7 @@ const SignUpForm = () => {
       };
     }
     api
-      .post("/register", data)
+      .post("/signup", formData)
       .then((response) => {
         console.log("Registration successful", response);
         toast.success("Congratulations! You've successfully signed up!");
