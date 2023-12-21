@@ -19,6 +19,10 @@ export default function Header() {
       setActiveMenu(activeItem.name);
     }
     setIsMenuVisible(true);
+
+    if (location.pathname === "/signup") {
+      setIsMenuVisible(false);
+    }
   }, [location, headerData.menuItems]);
 
   const handleMenuClick = (menuName) => {
