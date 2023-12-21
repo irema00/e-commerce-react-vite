@@ -7,6 +7,7 @@ import PageNotFound from "../pages/PageNotFound";
 import ContactPage from "../pages/ContactPage";
 import AboutPage from "../pages/AboutPage";
 import SignUpPage from "../pages/SignUpPage";
+import LoginPage from "../pages/LoginPage";
 
 export default function PageContent() {
   return (
@@ -19,6 +20,7 @@ export default function PageContent() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="*" element={<PageNotFound />} />
         <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </>
   );
