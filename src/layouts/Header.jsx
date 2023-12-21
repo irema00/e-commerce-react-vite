@@ -195,9 +195,9 @@ export default function Header() {
               color="rgba(35, 166, 240, 1)"
             />
             <div className="flex flex-row text-sm font-bold tracking-wider gap-1">
-              <p className="hover:text-blue-200 cursor-pointer">
+              <Link to="/login" className="hover:text-blue-200 cursor-pointer">
                 {headerData.loginText}
-              </p>
+              </Link>
               <span>/</span>
               <Link to="/signup" className="hover:text-blue-200 cursor-pointer">
                 {headerData.registerText}
