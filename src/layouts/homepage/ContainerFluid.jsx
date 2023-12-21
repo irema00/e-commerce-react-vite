@@ -27,9 +27,8 @@ export default function ContainerFluid() {
         </h4>
         <div className="flex gap-5 mt-5  md:flex-row flex-col items-center lg:items-start lg:justify-start justify-center">
           {containerFluid.buttons.map((button, index) => (
-            <Link to="/shop">
+            <Link key={index} to="/shop">
               <Button
-                key={index}
                 size="lg"
                 className={`rounded transform scale-105 hover:scale-110  ${
                   index === 0
