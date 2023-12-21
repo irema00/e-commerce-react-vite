@@ -99,7 +99,7 @@ const SignUpForm = () => {
   const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
   return (
-    <div className="min-h-screen flex flex-col justify-center px-6">
+    <div className="min-h-screen flex flex-col justify-start pt-10 px-6">
       <div className="max-w-md w-full mx-auto bg-white p-8  ">
         <h2 className="mb-6 text-3xl font-bold text-center text-gray-900">
           Sign Up
