@@ -14,7 +14,8 @@ const SignUpForm = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      role_id: "customer",
+      mode: "onChange",
+      role_id: "3",
       password: "",
       confirmPassword: "",
     },
@@ -31,12 +32,6 @@ const SignUpForm = () => {
       .then((response) => {
         console.log("Roles Data", response.data);
         setRoles(response.data);
-        const customerRole = response.data.find(
-          (role) => role.code === "customer"
-        );
-        if (customerRole) {
-          setValue("role_id", customerRole.code);
-        }
       })
       .catch((error) => console.error(error))
       .finally(() => setIsLoading(false));
@@ -216,16 +211,17 @@ const SignUpForm = () => {
                 id="role_id"
                 {...register("role_id", { required: "Role is required" })}
                 className="form-select w-full p-3 border border-solid bg-ltGrey border-ltGrey rounded-lg text-sm"
+                value={watch("role_id")}
               >
                 {roles.map((role) => (
-                  <option key={role.id} value={role.code}>
+                  <option key={role.id} value={role.id}>
                     {role.name}
                   </option>
                 ))}
               </select>
             </div>
 
-            {selectedRole === "store" && (
+            {selectedRole === "2" && (
               <>
                 <div>
                   <label
