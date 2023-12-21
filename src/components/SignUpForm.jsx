@@ -69,6 +69,7 @@ const SignUpForm = () => {
       .post("/signup", formData)
       .then((response) => {
         console.log("Registration successful", response);
+        console.log("Registration successful", response.config.data);
         toast.success("Congratulations! You've successfully signed up!");
         toast.warning(
           "You need to click the link in the email to activate your account!"
