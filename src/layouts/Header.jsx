@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useData } from "../contexts/DataContext";
 import { Link, useLocation } from "react-router-dom";
 import { Icon } from "@iconify/react";
+import { useSelector } from "react-redux";
 
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -9,6 +10,7 @@ export default function Header() {
   const [showUserMenu, setShowUserMenu] = useState(false);
   const { headerData } = useData();
   const location = useLocation();
+  const user = useSelector((state) => state.user);
 
   useEffect(() => {
     console.log(location.pathname);
