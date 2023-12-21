@@ -84,10 +84,14 @@ const SignUpForm = () => {
         setIsLoading(false);
       });
   };
+
   /* regex patterns */
   const turkeyPhoneNumberPattern = /^(\+90)?[0-9]{10}$/;
   const taxIdPattern = /^T\d{4}V\d{6}$/;
   const ibanPattern = /^[A-Z]{2}[0-9]{2}[A-Z0-9]{4}[0-9]{7}([A-Z0-9]?){0,16}$/;
+  const passwordPattern =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
   return (
     <div className="min-h-screen flex flex-col justify-center px-6">
@@ -136,7 +140,7 @@ const SignUpForm = () => {
                 {...register("email", {
                   required: "Email is required",
                   pattern: {
-                    value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                    value: emailPattern,
                     message: "Invalid email format",
                   },
                 })}
@@ -163,8 +167,7 @@ const SignUpForm = () => {
                 {...register("password", {
                   required: "Password is required",
                   pattern: {
-                    value:
-                      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                    value: passwordPattern,
                     message:
                       "Password must be at least 8 characters, including a number, uppercase and lowercase letter, and a special character",
                   },
