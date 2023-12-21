@@ -67,6 +67,9 @@ const SignUpForm = () => {
       .then((response) => {
         console.log("Registration successful", response);
         toast.success("Congratulations! You've successfully signed up!");
+        toast.warning(
+          "You need to click the link in the email to activate your account!"
+        );
         navigate(-1);
       })
       .catch((error) => {
