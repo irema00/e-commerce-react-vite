@@ -185,6 +185,12 @@ export default function Header() {
               </ul>
             </div>
           )}
+          {user && (
+            <div>
+              <span>{user.name}</span>
+              {/* <img src={pp1} className="w-10 h-10" /> */}
+            </div>
+          )}
         </div>
 
         <div className="lg:flex hidden flex-row  flex-wrap items-center gap-4 ">
