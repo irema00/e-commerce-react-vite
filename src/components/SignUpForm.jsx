@@ -10,6 +10,7 @@ const SignUpForm = () => {
     handleSubmit,
     watch,
     setError,
+    setValue,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -21,16 +22,50 @@ const SignUpForm = () => {
   const [roles, setRoles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const selectedRole = watch("role_id");
 
   useEffect(() => {
+    setIsLoading(true);
     api
       .get("/roles")
-      .then((response) => setRoles(response.data))
-      .catch((error) => console.error(error));
-  }, []);
+      .then((response) => {
+        console.log("Roles Data", response.data);
+        setRoles(response.data);
+        const customerRole = response.data.find(
+          (role) => role.code === "customer"
+        );
+        if (customerRole) {
+          setValue("role_id", customerRole.code);
+        }
+      })
+      .catch((error) => console.error(error))
+      .finally(() => setIsLoading(false));
+  }, [setValue]);
 
   const onSubmit = (data) => {
     setIsLoading(true);
+    let formData = {};
+    if (data.role_id === "store") {
+      formData = {
+        name: data.name,
+        email: data.email,
+        password: data.password,
+        role_id: data.role_id,
+        store: {
+          name: data.storeName,
+          phone: data.storePhone,
+          tax_no: data.storeTaxId,
+          bank_account: data.storeBankAccount,
+        },
+      };
+    } else {
+      formData = {
+        name: data.name,
+        email: data.email,
+        password: data.password,
+        role_id: data.role_id,
+      };
+    }
     api
       .post("/register", data)
       .then((response) => {
@@ -49,6 +84,10 @@ const SignUpForm = () => {
         setIsLoading(false);
       });
   };
+  /* regex patterns */
+  const turkeyPhoneNumberPattern = /^(\+90)?[0-9]{10}$/;
+  const taxIdPattern = /^T\d{4}V\d{6}$/;
+  const ibanPattern = /^[A-Z]{2}[0-9]{2}[A-Z0-9]{4}[0-9]{7}([A-Z0-9]?){0,16}$/;
 
   return (
     <div className="min-h-screen flex flex-col justify-center px-6">
@@ -174,41 +213,120 @@ const SignUpForm = () => {
                 id="role_id"
                 {...register("role_id", { required: "Role is required" })}
                 className="form-select w-full p-3 border border-solid bg-ltGrey border-ltGrey rounded-lg text-sm"
-                defaultValue=""
               >
                 {roles.map((role) => (
-                  <option key={role.id} value={role.id}>
+                  <option key={role.id} value={role.code}>
                     {role.name}
                   </option>
                 ))}
               </select>
             </div>
-            <div>
-              <label
-                htmlFor="storeName"
-                className="text-sm font-semibold text-gray-700 block"
-              >
-                Store Name
-              </label>
-              <input
-                type="text"
-                id="storeName"
-                {...register("storeName", {
-                  required: "Store name is required",
-                  minLength: {
-                    value: 3,
-                    message: "Store name must be at least 3 characters",
-                  },
-                })}
-                className="mt-1 w-full p-3 border border-gray-300 rounded-md"
-              />
-              {errors.storeName && (
-                <span className="text-red-500 text-xs">
-                  {errors.storeName.message}
-                </span>
-              )}
-            </div>
 
+            {selectedRole === "store" && (
+              <>
+                <div>
+                  <label
+                    htmlFor="storeName"
+                    className="text-sm font-semibold text-gray-700 block"
+                  >
+                    Store Name
+                  </label>
+                  <input
+                    type="text"
+                    id="storeName"
+                    {...register("storeName", {
+                      required: "Store name is required",
+                      minLength: {
+                        value: 3,
+                        message: "Store name must be at least 3 characters",
+                      },
+                    })}
+                    className="mt-2 w-full p-3 border border-solid bg-ltGrey border-ltGrey rounded-lg text-sm"
+                  />
+                  {errors.storeName && (
+                    <span className="text-red-500 text-xs">
+                      {errors.storeName.message}
+                    </span>
+                  )}
+                </div>
+                <div>
+                  <label
+                    htmlFor="storePhone"
+                    className="text-sm font-semibold text-gray-700 block"
+                  >
+                    Store Phone
+                  </label>
+                  <input
+                    type="text"
+                    id="storePhone"
+                    {...register("storePhone", {
+                      required: "Store phone is required",
+                      pattern: {
+                        value: turkeyPhoneNumberPattern,
+                        message:
+                          "Invalid Turkish phone number, +90 XXX XXX XX XX",
+                      },
+                    })}
+                    className="mt-2 w-full p-3 border border-solid bg-ltGrey border-ltGrey rounded-lg text-sm"
+                  />
+                  {errors.storePhone && (
+                    <span className="text-red-500 text-xs">
+                      {errors.storePhone.message}
+                    </span>
+                  )}
+                </div>
+                <div>
+                  <label
+                    htmlFor="storeTaxId"
+                    className="text-sm font-semibold text-gray-700 block"
+                  >
+                    Store Tax ID
+                  </label>
+                  <input
+                    type="text"
+                    id="storeTaxId"
+                    {...register("storeTaxId", {
+                      required: "Store Tax ID is required",
+                      pattern: {
+                        value: taxIdPattern,
+                        message: "Invalid Tax ID format,  “TXXXXVXXXXXX” ",
+                      },
+                    })}
+                    className="mt-2 w-full p-3 border border-solid bg-ltGrey border-ltGrey rounded-lg text-sm"
+                  />
+                  {errors.storeTaxId && (
+                    <span className="text-red-500 text-xs">
+                      {errors.storeTaxId.message}
+                    </span>
+                  )}
+                </div>
+                <div>
+                  <label
+                    htmlFor="storeBankAccount"
+                    className="text-sm font-semibold text-gray-700 block"
+                  >
+                    Store Bank Account (IBAN)
+                  </label>
+                  <input
+                    type="text"
+                    id="storeBankAccount"
+                    {...register("storeBankAccount", {
+                      required: "Store Bank Account is required",
+                      pattern: {
+                        value: ibanPattern,
+                        message: "Invalid IBAN format",
+                      },
+                    })}
+                    className="mt-2  w-full p-3 border border-solid bg-ltGrey border-ltGrey rounded-lg text-sm"
+                  />
+                  {errors.storeBankAccount && (
+                    <span className="text-red-500 text-xs">
+                      {errors.storeBankAccount.message}
+                    </span>
+                  )}
+                </div>
+              </>
+            )}
             <button
               type="submit"
               disabled={isLoading}
