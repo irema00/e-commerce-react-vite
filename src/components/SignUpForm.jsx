@@ -40,8 +40,11 @@ const SignUpForm = () => {
 
   const onSubmit = (data) => {
     setIsLoading(true);
-    let formData = {};
-    if (data.role_id === "store") {
+    let formData = {
+      ...data,
+      role_id: selectedRole,
+    };
+    if (data.role_id === "2") {
       formData = {
         name: data.name,
         email: data.email,
