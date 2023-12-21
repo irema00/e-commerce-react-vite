@@ -6,6 +6,7 @@ import { Icon } from "@iconify/react";
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const [showUserMenu, setShowUserMenu] = useState(false);
   const { headerData } = useData();
   const location = useLocation();
 
@@ -91,8 +92,11 @@ export default function Header() {
           <div className="flex justify-between w-full lg:w-auto text-2xl font-bold  ">
             <p className="flex ">{headerData.brandName}</p>
             <div className="flex lg:hidden items-center ">
-              <Icon icon="bi:search" className="mx-1" />
-              <Icon icon="ion:cart-outline" className="mx-1" />
+              <Icon
+                icon="tdesign:user"
+                className="mx-1 hover:text-hdGrey cursor-pointer"
+                onClick={toggleUserMenu}
+              />
               {isMenuVisible ? (
                 <Icon
                   icon="uiw:close"
@@ -108,33 +112,58 @@ export default function Header() {
               )}
             </div>
           </div>
-          <div
-            className={`${
-              isMenuVisible ? "flex" : "hidden"
-            } lg:flex sm:flex-row gap-2 text-hdGrey sm:text-md lg:text-sm  text-xl flex-col font-bold font-monserrat leading-normal`}
-          >
-            <ul className="flex sm:flex-row flex-col justify-center items-center flex-wrap  tracking-wider gap-6 list-none  ">
-              {headerData.menuItems.map((item) => (
-                <li
-                  key={item.name}
-                  onClick={() => handleMenuClick(item.name)}
-                  className={menuItemClass(item.name)}
-                >
+
+          {showUserMenu && (
+            <div className="sm:flex-row gap-2 text-hdGrey sm:text-md lg:text-sm  text-xl flex-col font-semibold font-monserrat  tracking-tighter">
+              <ul className="flex sm:flex-row flex-col justify-center items-center flex-wrap  tracking-wider gap-6 list-none  ">
+                <li onClick={() => setShowUserMenu(false)}>
                   <Link
-                    to={item.path}
+                    to="/login"
                     className="flex items-center hover:text-semiGrey cursor-pointer"
                   >
-                    {item.label}
-                    {activeMenu === item.name && (
-                      <span className="ml-2 flex flex-row">
-                        <Icon icon="bi:chevron-down" />
-                      </span>
-                    )}
+                    Login
                   </Link>
                 </li>
-              ))}
-            </ul>
-          </div>
+                <li onClick={() => setShowUserMenu(false)}>
+                  <Link
+                    to="/signup"
+                    className="flex items-center hover:text-semiGrey cursor-pointer"
+                  >
+                    Sign Up
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          )}
+          {!showUserMenu && (
+            <div
+              className={`${
+                isMenuVisible ? "flex" : "hidden"
+              } lg:flex sm:flex-row gap-2 text-hdGrey sm:text-md lg:text-sm  text-xl flex-col font-bold font-monserrat leading-normal`}
+            >
+              <ul className="flex sm:flex-row flex-col justify-center items-center flex-wrap  tracking-wider gap-6 list-none  ">
+                {headerData.menuItems.map((item) => (
+                  <li
+                    key={item.name}
+                    onClick={() => handleMenuClick(item.name)}
+                    className={menuItemClass(item.name)}
+                  >
+                    <Link
+                      to={item.path}
+                      className="flex items-center hover:text-semiGrey cursor-pointer"
+                    >
+                      {item.label}
+                      {activeMenu === item.name && (
+                        <span className="ml-2 flex flex-row">
+                          <Icon icon="bi:chevron-down" />
+                        </span>
+                      )}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
 
         <div className="lg:flex hidden flex-row  flex-wrap items-center gap-4 ">
