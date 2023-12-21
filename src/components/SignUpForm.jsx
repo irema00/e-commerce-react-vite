@@ -76,10 +76,12 @@ const SignUpForm = () => {
         navigate(-1);
       })
       .catch((error) => {
-        console.error("Registration failed", error);
+        console.error("Registration failed!", error);
+        console.log(error);
+        toast.error("Registration failed!");
         setError("apiError", {
           type: "manual",
-          message: "Registration failed",
+          message: "Registration failed" + error.message,
         });
       })
       .finally(() => {
