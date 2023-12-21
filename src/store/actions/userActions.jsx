@@ -1,19 +1,24 @@
-export const addToCart = (item) => ({
-  type: "ADD_TO_CART",
-  payload: item,
+import api from "../../api/api";
+
+export const setUserInfo = (userInfo) => ({
+  type: "SET_USER_INFO",
+  payload: userInfo,
 });
 
-export const removeFromCart = (itemId) => ({
-  type: "REMOVE_FROM_CART",
-  payload: itemId,
+export const setIsLoggedIn = (isLoggedIn) => ({
+  type: "SET_IS_LOGGED_IN",
+  payload: isLoggedIn,
 });
 
-export const updatePaymentInfo = (paymentInfo) => ({
-  type: "UPDATE_PAYMENT_INFO",
-  payload: paymentInfo,
-});
-
-export const updateAddressInfo = (addressInfo) => ({
-  type: "UPDATE_ADDRESS_INFO",
-  payload: addressInfo,
-});
+export const loginUser = (credentials) => (dispatch) => {
+  api
+    .post("/login", credentials)
+    .then((response) => {
+      dispatch({ type: "LOGIN", payload: response.data });
+      dispatch(setUserInfo(response.data.user));
+      dispatch(setIsLoggedIn(true));
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
