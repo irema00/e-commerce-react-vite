@@ -85,21 +85,21 @@ export function CarouselBottom() {
           <div className="flex flex-col justify-center lg:items-left lg:text-left ">
             <Typography
               variant="h5"
-              color="bgDark"
+              color="inherit"
               className="mb-12 md:text-xl sm:text-lg text-sm font-montserrat  tracking-widest lg:text-start text-center "
             >
               {carousel2.secondSlide.title}
             </Typography>
             <Typography
               variant="h1"
-              color="bgDark"
+              color="inherit"
               className=" font-montserrat font-semibold text-4xl md:text-5xl lg:items-start lg:text-start text-center tracking-normal leading-custom mb-12  "
             >
               {carousel2.secondSlide.subTitle}
             </Typography>
             <Typography
               variant="h4"
-              color="bgDark"
+              color="inherit"
               className=" font-montserrat tracking-wide font-normal text-lg leading-5 mb-12  lg:text-start text-center "
             >
               {carousel2.secondSlide.description}
