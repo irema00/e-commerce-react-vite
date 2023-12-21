@@ -123,7 +123,7 @@ const SignUpForm = () => {
                 </span>
               )}
             </div>
-            <div className="mb-5">
+            <div className="mb-6">
               <label
                 htmlFor="email"
                 className="block mb-2 text-sm font-medium text-gray-600"
