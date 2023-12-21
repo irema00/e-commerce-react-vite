@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import api from "../api/api";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Icon } from "@iconify/react";
 
 const SignUpForm = () => {
   const {
@@ -329,13 +330,16 @@ const SignUpForm = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className={`w-full p-3 bg-blue-600 text-white rounded-lg font-semibold ${
+              className={` flex w-full px-5 py-3 pr-12 bg-blue-600 text-white rounded-lg font-semibold  items-center justify-center ${
                 isLoading
-                  ? "opacity-50 cursor-not-allowed"
+                  ? "opacity-60 cursor-not-allowed"
                   : "hover:bg-blue-700"
               }`}
             >
-              {isLoading ? "Signing Up..." : "Sign Up"}
+              {isLoading && (
+                <Icon icon="ei:spinner-3" className="animate-spin text-3xl" />
+              )}
+              <p>{isLoading ? " Signing Up " : "Sign Up"}</p>
             </button>
           </form>
         </div>
