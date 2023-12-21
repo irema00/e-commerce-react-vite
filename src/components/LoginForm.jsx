@@ -17,9 +17,14 @@ const LoginForm = () => {
   const onSubmit = (data) => {
     dispatch(loginUser(data))
       .then((userData) => {
-        localStorage.setItem("token", userData.token);
-        toast.success("Logged in successfully!");
-        navigate("/");
+        if (userData && userData.token) {
+          console.log("userData", userData);
+          localStorage.setItem("token", userData.token);
+          toast.success("Logged in successfully!");
+          navigate("/");
+        } else {
+          throw new Error("Login failed: No token received");
+        }
       })
       .catch((error) => {
         toast.error("Login failed: " + error.message);
