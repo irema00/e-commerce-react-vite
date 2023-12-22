@@ -158,6 +158,11 @@ export default function Header() {
               </ul>
             </div>
           )}
+          {isLoggedIn && (
+            <div className="flex items-center justify-center text-center text-md text-darkBg font-bold italic">
+              <span>Hi, {userName}!</span>
+            </div>
+          )}
           {!showUserMenu && (
             <div
               className={`${
