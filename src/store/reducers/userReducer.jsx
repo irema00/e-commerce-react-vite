@@ -2,14 +2,14 @@ const userInitial = {
   user: null,
   token: null,
   fetchState: "NOT_FETCHED",
-  isLoggedIn: false,
+  isLoggedIn: !!localStorage.getItem("token"),
   error: null,
 };
 
 export const userReducer = (state = userInitial, action) => {
   switch (action.type) {
     case "SET_IS_LOGGED_IN":
-      return { ...state, isLoggedIn: action.payload };
+      return { ...state, isLoggedIn: true };
 
     case "LOGIN_SUCCESS":
       return {
