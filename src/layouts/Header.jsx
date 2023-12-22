@@ -220,11 +220,7 @@ export default function Header() {
             </div>
           )}
         </div>
-        <div>
-          <div>
-            <span>{userName}</span>
-          </div>
-        </div>
+
         <div className="lg:flex hidden flex-row  flex-wrap items-center gap-4 ">
           <div className="text-prBlue  flex-row flex items-center gap-2 text-sm font-bold font-monserrat ">
             <Icon
