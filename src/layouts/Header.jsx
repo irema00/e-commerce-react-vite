@@ -59,6 +59,15 @@ export default function Header() {
   const promptLogout = () => {
     setShowLogoutModal(true);
   };
+
+  const confirmLogout = () => {
+    dispatch(logoutUser());
+    localStorage.clear();
+    setUserName(null);
+    setShowLogoutModal(false);
+    navigate("/");
+  };
+
   return (
     <div className="w-full flex-wrap ">
       <div className="bg-darkBg lg:flex hidden text-whiteText justify-between items-center flex-wrap gap-2 font-montserrat font-semibold text-sm px-10 py-4 ">
