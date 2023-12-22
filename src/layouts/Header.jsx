@@ -11,7 +11,7 @@ export default function Header() {
   const [showUserMenu, setShowUserMenu] = useState(false);
   const { headerData } = useData();
   const location = useLocation();
-  const user = useSelector((state) => state.user);
+  const [userName, setUserName] = useState(localStorage.getItem("userName"));
 
   useEffect(() => {
     console.log(location.pathname);
@@ -187,14 +187,12 @@ export default function Header() {
               </ul>
             </div>
           )}
-          {user && (
-            <div>
-              <span>{user.name}</span>
-              {/* <img src={pp1} className="w-10 h-10" /> */}
-            </div>
-          )}
         </div>
-
+        <div>
+          <div>
+            <span>{userName}</span>
+          </div>
+        </div>
         <div className="lg:flex hidden flex-row  flex-wrap items-center gap-4 ">
           <div className="text-prBlue  flex-row flex items-center gap-2 text-sm font-bold font-monserrat ">
             <Icon
