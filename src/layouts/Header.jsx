@@ -238,6 +238,33 @@ export default function Header() {
           </div>
         </div>
       </div>
+
+      {showLogoutModal && (
+        <div className="fixed inset-0 z-50 overflow-auto bg-smoke-light flex shadow-2xl">
+          <div className="relative p-8 bg-white w-full max-w-md m-auto flex-col flex rounded-lg ">
+            <div className="flex text-lg font-bold justify-center ">
+              Confirm Logout
+            </div>
+            <div className="flex my-4 justify-center">
+              <p>Are you sure you want to log out?</p>
+            </div>
+            <div className="flex justify-center gap-6  ">
+              <button
+                onClick={confirmLogout}
+                className="bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 rounded"
+              >
+                Logout
+              </button>
+              <button
+                onClick={() => setShowLogoutModal(false)}
+                className="bg-red-400 hover:bg-red-600  text-white font-bold py-2 px-4 rounded"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
