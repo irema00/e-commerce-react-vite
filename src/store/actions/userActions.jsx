@@ -10,6 +10,12 @@ export const setIsLoggedIn = (isLoggedIn) => ({
   payload: isLoggedIn,
 });
 
+export const logoutUser = () => {
+  return {
+    type: "LOGOUT",
+  };
+};
+
 export const loginUser = (loginInfo) => {
   return (dispatch) => {
     return api
