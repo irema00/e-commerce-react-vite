@@ -81,7 +81,7 @@ const LoginForm = () => {
                 type="password"
                 id="password"
                 {...register("password", { required: "Password is required" })}
-                placeholder="Your Email"
+                placeholder="Password"
                 className=" w-full p-3 border border-solid bg-ltGrey border-ltGrey rounded-lg text-sm"
               />{" "}
               {errors.password && (
