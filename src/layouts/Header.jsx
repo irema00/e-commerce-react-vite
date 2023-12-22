@@ -4,6 +4,9 @@ import { Link, useLocation } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useSelector } from "react-redux";
 import pp1 from "../assets/pp1.png";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../store/actions/userActions";
 
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
