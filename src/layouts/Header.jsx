@@ -147,7 +147,22 @@ export default function Header() {
             <div className="sm:flex-row gap-2 text-hdGrey sm:text-md lg:text-sm  text-xl flex-col font-semibold font-monserrat  tracking-tighter  w-full justify-center lg:w-auto">
               <ul className="flex sm:flex-row flex-col justify-center items-center flex-wrap  tracking-wider gap-6 list-none  ">
                 <li onClick={() => setShowUserMenu(false)}>
+                  {isLoggedIn ? (
+                    <span
                       onClick={promptLogout}
+                      className="flex items-center hover:text-semiGrey
+                      cursor-pointer"
+                    >
+                      Logout
+                    </span>
+                  ) : (
+                    <Link
+                      to="/login"
+                      className="flex items-center hover:text-semiGrey cursor-pointer"
+                    >
+                      Login
+                    </Link>
+                  )}
                 </li>
                 <li onClick={() => setShowUserMenu(false)}>
                   <Link
@@ -208,7 +223,21 @@ export default function Header() {
               color="rgba(35, 166, 240, 1)"
             />
             <div className="flex flex-row text-sm font-bold tracking-wider gap-1">
+              {isLoggedIn ? (
+                <span
                   onClick={promptLogout}
+                  className="cursor-pointer hover:text-blue-200"
+                >
+                  Logout
+                </span>
+              ) : (
+                <Link
+                  to="/login"
+                  className="hover:text-blue-200 cursor-pointer"
+                >
+                  {headerData.loginText}
+                </Link>
+              )}
               <span>/</span>
               <Link to="/signup" className="hover:text-blue-200 cursor-pointer">
                 {headerData.registerText}
