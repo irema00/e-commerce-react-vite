@@ -16,10 +16,8 @@ const LoginForm = () => {
 
   const onSubmit = (data) => {
     dispatch(loginUser(data))
-      .then((userData) => {
-        if (userData && userData.token) {
-          console.log("userData", userData);
-          localStorage.setItem("token", userData.token);
+      .then((response) => {
+        console.log("response", response);
           toast.success("Logged in successfully!");
           navigate("/");
         } else {
