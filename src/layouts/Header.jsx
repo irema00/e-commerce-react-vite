@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useData } from "../contexts/DataContext";
 import { Link, useLocation } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { useSelector } from "react-redux";
 import pp1 from "../assets/pp1.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
