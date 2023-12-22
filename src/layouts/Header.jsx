@@ -16,6 +16,7 @@ export default function Header() {
   const location = useLocation();
   const [userName, setUserName] = useState(localStorage.getItem("userName"));
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
   useEffect(() => {
     console.log(location.pathname);
