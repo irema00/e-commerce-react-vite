@@ -13,6 +13,7 @@ export default function Header() {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const { headerData } = useData();
+  const dispatch = useDispatch();
   const location = useLocation();
   const [userName, setUserName] = useState(localStorage.getItem("userName"));
   const [showLogoutModal, setShowLogoutModal] = useState(false);
