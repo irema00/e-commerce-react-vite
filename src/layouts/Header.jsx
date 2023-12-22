@@ -12,6 +12,7 @@ export default function Header() {
   const { headerData } = useData();
   const location = useLocation();
   const [userName, setUserName] = useState(localStorage.getItem("userName"));
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   useEffect(() => {
     console.log(location.pathname);
