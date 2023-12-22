@@ -18,6 +18,9 @@ const LoginForm = () => {
     dispatch(loginUser(data))
       .then((response) => {
         console.log("response", response);
+        if (response.data && response.data.token) {
+          localStorage.setItem("token", response.data.token);
+          localStorage.setItem("userName", response.data.name);
           toast.success("Logged in successfully!");
           navigate("/");
         } else {
