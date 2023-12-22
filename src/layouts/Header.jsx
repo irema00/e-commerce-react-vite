@@ -56,6 +56,9 @@ export default function Header() {
         : "text-neutral-500 font-semibold"
     }`;
 
+  const promptLogout = () => {
+    setShowLogoutModal(true);
+  };
   return (
     <div className="w-full flex-wrap ">
       <div className="bg-darkBg lg:flex hidden text-whiteText justify-between items-center flex-wrap gap-2 font-montserrat font-semibold text-sm px-10 py-4 ">
@@ -144,12 +147,7 @@ export default function Header() {
             <div className="sm:flex-row gap-2 text-hdGrey sm:text-md lg:text-sm  text-xl flex-col font-semibold font-monserrat  tracking-tighter  w-full justify-center lg:w-auto">
               <ul className="flex sm:flex-row flex-col justify-center items-center flex-wrap  tracking-wider gap-6 list-none  ">
                 <li onClick={() => setShowUserMenu(false)}>
-                  <Link
-                    to="/login"
-                    className="flex items-center hover:text-semiGrey cursor-pointer"
-                  >
-                    Login
-                  </Link>
+                      onClick={promptLogout}
                 </li>
                 <li onClick={() => setShowUserMenu(false)}>
                   <Link
@@ -210,9 +208,7 @@ export default function Header() {
               color="rgba(35, 166, 240, 1)"
             />
             <div className="flex flex-row text-sm font-bold tracking-wider gap-1">
-              <Link to="/login" className="hover:text-blue-200 cursor-pointer">
-                {headerData.loginText}
-              </Link>
+                  onClick={promptLogout}
               <span>/</span>
               <Link to="/signup" className="hover:text-blue-200 cursor-pointer">
                 {headerData.registerText}
