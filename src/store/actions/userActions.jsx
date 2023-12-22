@@ -10,15 +10,17 @@ export const setIsLoggedIn = (isLoggedIn) => ({
   payload: isLoggedIn,
 });
 
-export const loginUser = (loginInfo) => (dispatch) => {
-  api
-    .post("/login", loginInfo)
-    .then((response) => {
-      dispatch({ type: "LOGIN", payload: response.data });
-      dispatch(setUserInfo(response.data.user));
-      dispatch(setIsLoggedIn(true));
-    })
-    .catch((error) => {
-      throw error;
-    });
+export const loginUser = (loginInfo) => {
+  return (dispatch) => {
+    return api
+      .post("/login", loginInfo)
+      .then((response) => {
+        dispatch({ type: "LOGIN_SUCCESS", payload: response.data });
+        return response;
+      })
+      .catch((error) => {
+        dispatch({ type: "LOGIN_FAILURE", payload: error });
+        throw error;
+      });
+  };
 };
