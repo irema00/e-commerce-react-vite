@@ -26,6 +26,15 @@ export const userReducer = (state = userInitial, action) => {
         isLoggedIn: false,
       };
 
+    case "LOGOUT":
+      return {
+        ...state,
+        user: null,
+        token: null,
+        isLoggedIn: false,
+        error: null,
+      };
+
     default:
       return state;
   }
