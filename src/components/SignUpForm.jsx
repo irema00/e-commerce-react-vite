@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import api from "../api/api";
+import { AxiosInstance } from "../api/api";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Icon } from "@iconify/react";
@@ -28,8 +28,7 @@ const SignUpForm = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    api
-      .get("/roles")
+    AxiosInstance.get("/roles")
       .then((response) => {
         console.log("Roles Data", response.data);
         setRoles(response.data);
@@ -55,8 +54,7 @@ const SignUpForm = () => {
         bank_account: data.bank_account,
       };
     }
-    api
-      .post("/signup", formData)
+    AxiosInstance.post("/signup", formData)
       .then((response) => {
         console.log("Registration successful", response);
         // console.log("Registration successful", response.config.data);
