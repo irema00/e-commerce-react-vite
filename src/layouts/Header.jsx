@@ -259,10 +259,18 @@ export default function Header() {
                   {headerData.loginText}
                 </Link>
               )}
-              <span>/</span>
-              <Link to="/signup" className="hover:text-blue-200 cursor-pointer">
-                {headerData.registerText}
-              </Link>
+
+              {!isLoggedIn && (
+                <>
+                  <span>/</span>
+                  <Link
+                    to="/signup"
+                    className="hover:text-blue-200 cursor-pointer"
+                  >
+                    {headerData.registerText}
+                  </Link>
+                </>
+              )}
             </div>
           </div>
 
