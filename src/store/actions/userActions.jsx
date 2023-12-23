@@ -21,6 +21,7 @@ export const loginUser = (loginInfo) => {
     return api
       .post("/login", loginInfo)
       .then((response) => {
+        localStorage.setItem("isLoggedIn", "true");
         dispatch({ type: "LOGIN_SUCCESS", payload: response.data });
         return response;
       })
