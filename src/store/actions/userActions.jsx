@@ -1,4 +1,4 @@
-import api from "../../api/api";
+import { AxiosInstance, renewAxiosInstance } from "../../api/api";
 
 export const setUser = (userInfo) => ({
   type: "SET_USER",
@@ -18,11 +18,11 @@ export const logoutUser = () => {
 
 export const loginUser = (loginInfo) => {
   return (dispatch) => {
-    return api
-      .post("/login", loginInfo)
+    return AxiosInstance.post("/login", loginInfo)
       .then((response) => {
-        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("token", response.data.token);
         dispatch({ type: "LOGIN_SUCCESS", payload: response.data });
+        renewAxiosInstance();
         return response;
       })
       .catch((error) => {
