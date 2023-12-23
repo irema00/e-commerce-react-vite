@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { loginUser } from "../store/actions/userActions";
+import md5 from "md5";
 
 const LoginForm = () => {
   const {
@@ -14,13 +15,20 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const getGravatar = (email) => {
+    const emailHash = md5(email.trim().toLowerCase());
+    return `https://www.gravatar.com/avatar/${emailHash}`;
+  };
+
   const onSubmit = (data) => {
     dispatch(loginUser(data))
       .then((response) => {
         console.log("response", response);
         if (response.data && response.data.token) {
+          const gravatar = getGravatar(data.email);
           localStorage.setItem("token", response.data.token);
           localStorage.setItem("userName", response.data.name);
+          localStorage.setItem("userGravatar", gravatar);
           toast.success("Logged in successfully!");
           navigate("/");
         } else {
