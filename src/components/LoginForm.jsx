@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { loginUser } from "../store/actions/userActions";
+import { loginUser, setUser } from "../store/actions/userActions";
 import md5 from "md5";
 
 const LoginForm = () => {
@@ -29,6 +29,13 @@ const LoginForm = () => {
           localStorage.setItem("token", response.data.token);
           localStorage.setItem("userName", response.data.name);
           localStorage.setItem("userGravatar", gravatar);
+          dispatch(
+            setUser({
+              name: response.data.name,
+              email: data.email,
+              gravatar: gravatar,
+            })
+          );
           toast.success("Logged in successfully!");
           navigate("/");
         } else {
