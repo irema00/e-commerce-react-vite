@@ -31,7 +31,8 @@ export default function Header() {
     if (location.pathname === "/signup" || location.pathname === "/login") {
       setIsMenuVisible(false);
     }
-  }, [location, headerData.menuItems]);
+    setUserName(localStorage.getItem("userName"));
+  }, [isLoggedIn, location, headerData.menuItems]);
 
   const handleMenuClick = (menuName) => {
     setActiveMenu(activeMenu === menuName ? null : menuName);
