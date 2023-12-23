@@ -18,6 +18,9 @@ export default function Header() {
   const [userName, setUserName] = useState(localStorage.getItem("userName"));
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+  const [userGravatar, setUserGravatar] = useState(
+    localStorage.getItem("userGravatar")
+  );
 
   useEffect(() => {
     console.log(location.pathname);
@@ -33,6 +36,7 @@ export default function Header() {
       setIsMenuVisible(false);
     }
     setUserName(localStorage.getItem("userName"));
+    setUserGravatar(localStorage.getItem("userGravatar"));
   }, [isLoggedIn, location, headerData.menuItems]);
 
   const handleMenuClick = (menuName) => {
@@ -189,8 +193,13 @@ export default function Header() {
               </ul>
             </div>
           )}
-          {isLoggedIn && (
-            <div className="flex items-center justify-center text-center text-md text-darkBg font-bold italic">
+          {isLoggedIn && userGravatar && (
+            <div className="flex items-center justify-center text-center text-md text-darkBg font-bold italic gap-3">
+              <img
+                src={userGravatar}
+                alt="User Gravatar"
+                className="w-6 h-6 rounded-full"
+              />
               <span>Hi, {userName}!</span>
             </div>
           )}
