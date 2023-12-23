@@ -14,6 +14,7 @@ export default function Header() {
   const { headerData } = useData();
   const dispatch = useDispatch();
   const location = useLocation();
+  const navigate = useNavigate();
   const [userName, setUserName] = useState(localStorage.getItem("userName"));
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
