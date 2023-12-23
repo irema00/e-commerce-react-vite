@@ -8,6 +8,12 @@ const userInitial = {
 
 export const userReducer = (state = userInitial, action) => {
   switch (action.type) {
+    case "SET_USER_INFO":
+      return {
+        ...state,
+        user: action.payload.user,
+        token: action.payload.token,
+      };
     case "SET_IS_LOGGED_IN":
       return { ...state, isLoggedIn: true };
 
