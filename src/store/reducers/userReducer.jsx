@@ -1,29 +1,34 @@
 const userInitial = {
-  user: null,
+  userName: null,
+  userMail: null,
+  userGravatar: null,
   token: null,
-  fetchState: "NOT_FETCHED",
-  isLoggedIn: !!localStorage.getItem("token"),
+  isLoggedIn: localStorage.getItem("isLoggedIn") === "true",
   error: null,
 };
 
 export const userReducer = (state = userInitial, action) => {
   switch (action.type) {
-    case "SET_USER_INFO":
+    case "SET_IS_LOGGED_IN":
       return {
         ...state,
-        user: action.payload.user,
-        token: action.payload.token,
+        isLoggedIn: true,
       };
-    case "SET_IS_LOGGED_IN":
-      return { ...state, isLoggedIn: true };
-
+    case "SET_USER":
+      return {
+        ...state,
+        userName: action.payload.name,
+        userMail: action.payload.email,
+        userGravatar: action.payload.gravatar,
+        isLoggedIn: true,
+      };
     case "LOGIN_SUCCESS":
       return {
         ...state,
-        user: action.payload.user,
-        token: action.payload.token,
         isLoggedIn: true,
-        error: null,
+        userName: action.payload.name,
+        userMail: action.payload.email,
+        token: action.payload.token,
       };
     case "LOGIN_FAILURE":
       return {
@@ -33,12 +38,15 @@ export const userReducer = (state = userInitial, action) => {
       };
 
     case "LOGOUT":
+      localStorage.removeItem("token");
+      localStorage.removeItem("userName");
+      localStorage.removeItem("userGravatar");
       return {
         ...state,
-        user: null,
-        token: null,
+        userName: null,
+        userMail: null,
+        userGravatar: null,
         isLoggedIn: false,
-        error: null,
       };
 
     default:
