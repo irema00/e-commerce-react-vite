@@ -1,6 +1,15 @@
 import axios from "axios";
 
-const api = axios.create({
-  baseURL: "https://workintech-fe-ecommerce.onrender.com/",
-});
-export default api;
+export const createAxiosInstance = () => {
+  const token = localStorage.getItem("token");
+  return axios.create({
+    baseURL: "https://workintech-fe-ecommerce.onrender.com/",
+    headers: token ? { Authorization: token } : {},
+  });
+};
+
+export let AxiosInstance = createAxiosInstance();
+
+export const renewAxiosInstance = () => {
+  AxiosInstance = createAxiosInstance();
+};
