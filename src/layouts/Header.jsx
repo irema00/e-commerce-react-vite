@@ -169,7 +169,7 @@ export default function Header() {
                     <span
                       onClick={promptLogout}
                       className="flex items-center hover:text-semiGrey
-                      cursor-pointer"
+                      cursor-pointer lg:hidden"
                     >
                       Logout
                     </span>
@@ -182,14 +182,16 @@ export default function Header() {
                     </Link>
                   )}
                 </li>
-                <li onClick={() => setShowUserMenu(false)}>
-                  <Link
-                    to="/signup"
-                    className="flex items-center hover:text-semiGrey cursor-pointer"
-                  >
-                    Sign Up
-                  </Link>
-                </li>
+                {!isLoggedIn && (
+                  <li onClick={() => setShowUserMenu(false)}>
+                    <Link
+                      to="/signup"
+                      className="flex items-center hover:text-semiGrey cursor-pointer"
+                    >
+                      Sign Up
+                    </Link>
+                  </li>
+                )}
               </ul>
             </div>
           )}
