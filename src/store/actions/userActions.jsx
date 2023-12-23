@@ -1,7 +1,7 @@
 import api from "../../api/api";
 
-export const setUserInfo = (userInfo) => ({
-  type: "SET_USER_INFO",
+export const setUser = (userInfo) => ({
+  type: "SET_USER",
   payload: userInfo,
 });
 
