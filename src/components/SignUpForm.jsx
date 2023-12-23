@@ -40,40 +40,30 @@ const SignUpForm = () => {
 
   const onSubmit = (data) => {
     setIsLoading(true);
-    let formData = {
-      ...data,
+    const formData = {
+      name: data.name,
+      email: data.email,
+      password: data.password,
       role_id: selectedRole,
     };
-    if (data.role_id === "2") {
-      formData = {
+
+    if (selectedRole === "2") {
+      formData.store = {
         name: data.name,
-        email: data.email,
-        password: data.password,
-        role_id: data.role_id,
-        store: {
-          name: data.storeName,
-          phone: data.storePhone,
-          tax_no: data.storeTaxId,
-          bank_account: data.storeBankAccount,
-        },
-      };
-    } else {
-      formData = {
-        name: data.name,
-        email: data.email,
-        password: data.password,
-        role_id: data.role_id,
+        phone: data.phone,
+        tax_no: data.tax_no,
+        bank_account: data.bank_account,
       };
     }
     api
       .post("/signup", formData)
       .then((response) => {
         console.log("Registration successful", response);
-        console.log("Registration successful", response.config.data);
+        // console.log("Registration successful", response.config.data);
         toast.success("Congratulations! You've successfully signed up!");
         toast.warning(
           "You need to click the link in the email to activate your account!"
-        );
+        ); /* BURADA BIR WINDOW ACILABILIR */
         navigate(-1);
       })
       .catch((error) => {
@@ -243,7 +233,7 @@ const SignUpForm = () => {
                   <input
                     type="text"
                     id="storeName"
-                    {...register("storeName", {
+                    {...register("name", {
                       required: "Store name is required",
                       minLength: {
                         value: 3,
@@ -268,7 +258,7 @@ const SignUpForm = () => {
                   <input
                     type="text"
                     id="storePhone"
-                    {...register("storePhone", {
+                    {...register("phone", {
                       required: "Store phone is required",
                       pattern: {
                         value: turkeyPhoneNumberPattern,
@@ -294,7 +284,7 @@ const SignUpForm = () => {
                   <input
                     type="text"
                     id="storeTaxId"
-                    {...register("storeTaxId", {
+                    {...register("tax_no", {
                       required: "Store Tax ID is required",
                       pattern: {
                         value: taxIdPattern,
