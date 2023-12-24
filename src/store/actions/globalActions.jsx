@@ -24,7 +24,10 @@ export const fetchCategories = () => {
   return (dispatch) => {
     AxiosInstance.get("/categories")
       .then((response) => {
-        dispatch(setCategories(response.data));
+        const topCategories = response.data
+          .sort((a, b) => b.rating - a.rating)
+          .slice(0, 5);
+        dispatch(setCategories(topCategories));
       })
       .catch((error) => {
         console.error("Error fetching categories:", error);
