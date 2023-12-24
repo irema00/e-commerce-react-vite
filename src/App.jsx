@@ -6,7 +6,6 @@ import "react-toastify/dist/ReactToastify.css";
 import PageContent from "./layouts/PageContent";
 import { setUser } from "./store/actions/userActions";
 import { useDispatch } from "react-redux";
-import { setIsLoggedIn } from "./store/actions/userActions";
 import { AxiosInstance, renewAxiosInstance } from "./api/api";
 
 function App() {
