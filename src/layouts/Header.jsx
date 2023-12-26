@@ -68,9 +68,6 @@ export default function Header() {
   const confirmLogout = () => {
     dispatch(logoutUser());
     localStorage.removeItem("token");
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("userName");
-    localStorage.removeItem("userGravatar");
     setShowLogoutModal(false);
     navigate("/");
   };
