@@ -197,9 +197,9 @@ export default function Header() {
             <div
               className={`${
                 isMenuVisible ? "flex" : "hidden"
-              } lg:flex sm:flex-row gap-2 text-hdGrey sm:text-md lg:text-sm  text-xl flex-col font-bold font-monserrat leading-normal  w-full justify-center items-center lg:w-auto`}
+              } lg:flex sm:flex-row gap-2  sm:text-md lg:text-sm  text-xl flex-col font-bold font-monserrat leading-normal  w-full justify-center items-center lg:w-auto`}
             >
-              <ul className="flex sm:flex-row flex-col justify-center items-center flex-wrap  tracking-wider gap-6 list-none  ">
+              <ul className="flex sm:flex-row flex-col  justify-center items-center flex-wrap  tracking-wider gap-6 list-none  ">
                 {headerData.menuItems.map((item) => (
                   <li
                     key={item.name}
@@ -210,17 +210,33 @@ export default function Header() {
                         : " font-semibold text-hdGrey"
                     }`}
                   >
-                    <Link
-                      to={item.path}
-                      className="flex items-center hover:text-semiGrey cursor-pointer"
-                    >
-                      {item.label}
-                      {activeMenu === item.name && (
+                    {item.name && (
+                      <Link
+                        to={item.path}
+                        className="flex items-center  hover:text-semiGrey cursor-pointer"
+                      >
+                        {item.label}
+                      </Link>
+                    )}
+
+                    {item.name == "shop" && activeMenu === item.name && (
+                      <>
                         <span className="ml-2 flex flex-row">
                           <Icon icon="bi:chevron-down" />
                         </span>
-                      )}
-                    </Link>
+                        <div className="fles flex-col items-center ">
+                          {categories.map((category) => (
+                            <Link
+                              key={category.id}
+                              to={`/shopping/${category.gender}/${category.code}`}
+                              className="dropdown-item"
+                            >
+                              {category.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </>
+                    )}
                   </li>
                 ))}
               </ul>
