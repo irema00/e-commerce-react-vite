@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { loginUser, setUser } from "../store/actions/userActions";
-import md5 from "md5";
 import gravatar from "gravatar";
 
 const LoginForm = () => {
@@ -17,7 +16,7 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const getGravatar = (email) => {
-    return gravatar.url(email, { s: "100", r: "x", d: "retro" }, true);
+    return gravatar.url(email, { s: "100", r: "x", d: "wavatar" }, true);
   };
 
   const loginSubmit = (data) => {
