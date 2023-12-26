@@ -20,7 +20,7 @@ const LoginForm = () => {
     return gravatar.url(email, { s: "100", r: "x", d: "retro" }, true);
   };
 
-  const onSubmit = (data) => {
+  const loginSubmit = (data) => {
     dispatch(loginUser(data))
       .then(async (response) => {
         console.log("response", response);
@@ -57,7 +57,7 @@ const LoginForm = () => {
           Log In
         </h2>
         <div className="bg-white p-8 border border-gray-300 mt-6 rounded-lg shadow-lg">
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={handleSubmit(loginSubmit)} className="space-y-4">
             <div className="mb-6">
               <label
                 htmlFor="email"
