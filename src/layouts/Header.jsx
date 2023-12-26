@@ -5,6 +5,13 @@ import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../store/actions/userActions";
+import {
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
+
+} from "@material-tailwind/react";
 
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -210,32 +217,74 @@ export default function Header() {
                         : " font-semibold text-hdGrey"
                     }`}
                   >
-                    {item.name && (
+                    {item.name !== "shop" ? (
                       <Link
                         to={item.path}
-                        className="flex items-center  hover:text-semiGrey cursor-pointer"
+                        className="flex items-center hover:text-semiGrey cursor-pointer"
                       >
                         {item.label}
                       </Link>
-                    )}
-
-                    {item.name == "shop" && activeMenu === item.name && (
-                      <>
-                        <span className="ml-2 flex flex-row">
-                          <Icon icon="bi:chevron-down" />
-                        </span>
-                        <div className="fles flex-col items-center ">
-                          {categories.map((category) => (
-                            <Link
-                              key={category.id}
-                              to={`/shopping/${category.gender}/${category.code}`}
-                              className="dropdown-item"
-                            >
-                              {category.title}
-                            </Link>
-                          ))}
-                        </div>
-                      </>
+                    ) : (
+                      <Menu>
+                        <MenuHandler>
+                          <div
+                            onClick={() => handleMenuClick(item.name)}
+                            className="flex items-center hover:text-semiGrey cursor-pointer"
+                          >
+                            {item.label} <Icon icon="bi:chevron-down" />
+                          </div>
+                        </MenuHandler>
+                        <MenuList>
+                          <Menu offset={15} placement="right-start">
+                            <MenuHandler>
+                              <MenuItem className="flex justify-between w-full">
+                                WOMEN
+                                <Icon icon="bi:chevron-right" />
+                              </MenuItem>
+                            </MenuHandler>
+                            <MenuList>
+                              {categories
+                                .filter((category) => category.gender === "k")
+                                .map((category) => (
+                                  <MenuItem
+                                    key={category.id}
+                                    onClick={() =>
+                                      navigate(
+                                        `/shopping/${category.gender}/${category.code}`
+                                      )
+                                    }
+                                  >
+                                    {category.title}
+                                  </MenuItem>
+                                ))}
+                            </MenuList>
+                          </Menu>
+                          <Menu offset={15} placement="right-start">
+                            <MenuHandler>
+                              <MenuItem className="flex justify-between w-full">
+                                MEN
+                                <Icon icon="bi:chevron-right" />
+                              </MenuItem>
+                            </MenuHandler>
+                            <MenuList>
+                              {categories
+                                .filter((category) => category.gender === "e")
+                                .map((category) => (
+                                  <MenuItem
+                                    key={category.id}
+                                    onClick={() =>
+                                      navigate(
+                                        `/shopping/${category.gender}/${category.code}`
+                                      )
+                                    }
+                                  >
+                                    {category.title}
+                                  </MenuItem>
+                                ))}
+                            </MenuList>
+                          </Menu>
+                        </MenuList>
+                      </Menu>
                     )}
                   </li>
                 ))}
