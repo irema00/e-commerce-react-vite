@@ -38,9 +38,6 @@ export const userReducer = (state = userInitial, action) => {
       };
 
     case "LOGOUT":
-      localStorage.removeItem("token");
-      localStorage.removeItem("userName");
-      localStorage.removeItem("userGravatar");
       return {
         ...state,
         userName: null,
