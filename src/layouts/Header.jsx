@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useData } from "../contexts/DataContext";
 import { Link, useLocation } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import pp1 from "../assets/pp1.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../store/actions/userActions";
@@ -15,12 +14,13 @@ export default function Header() {
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
-  const [userName, setUserName] = useState(localStorage.getItem("userName"));
+
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const categories = useSelector((state) => state.global.categories);
+  const user = useSelector((state) => state.user);
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
-  const [userGravatar, setUserGravatar] = useState(
-    localStorage.getItem("userGravatar")
-  );
 
   useEffect(() => {
     console.log(location.pathname);
