@@ -35,8 +35,6 @@ export default function Header() {
     if (location.pathname === "/signup" || location.pathname === "/login") {
       setIsMenuVisible(false);
     }
-    setUserName(localStorage.getItem("userName"));
-    setUserGravatar(localStorage.getItem("userGravatar"));
   }, [isLoggedIn, location, headerData.menuItems]);
 
   const handleMenuClick = (menuName) => {
