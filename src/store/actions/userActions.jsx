@@ -11,12 +11,19 @@ export const logoutUser = () => {
   };
 };
 
+export const login = (data) => {
+  return {
+    type: "LOGIN_SUCCESS",
+    payload: data,
+  };
+};
+
 export const loginUser = (loginInfo) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     return AxiosInstance.post("/login", loginInfo)
       .then((response) => {
         localStorage.setItem("token", response.data.token);
-        dispatch({ type: "LOGIN_SUCCESS", payload: response.data });
+        dispatch(login(response.data));
         renewAxiosInstance();
         return response;
       })
