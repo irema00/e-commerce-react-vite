@@ -162,10 +162,10 @@ export default function Header() {
             </div>
           </div>
           {showUserMenu && (
-            <div className="sm:flex-row gap-2 text-hdGrey sm:text-md lg:text-sm  text-xl flex-col font-semibold font-monserrat  tracking-tighter  w-full justify-center lg:w-auto">
+            <div className="sm:flex-row gap-2  sm:text-md lg:text-sm  text-xl flex-col font-semibold font-monserrat  tracking-tighter  w-full justify-center lg:w-auto">
               <ul className="flex sm:flex-row flex-col justify-center items-center flex-wrap  tracking-wider gap-6 list-none  ">
                 <li onClick={() => setShowUserMenu(false)}>
-                  {isLoggedIn ? (
+                  {user.userName ? (
                     <span
                       onClick={promptLogout}
                       className="flex items-center hover:text-semiGrey
@@ -195,14 +195,14 @@ export default function Header() {
               </ul>
             </div>
           )}
-          {isLoggedIn && userGravatar && (
-            <div className="flex items-center justify-center text-center text-md text-darkBg font-bold italic gap-3">
+          {isLoggedIn && user.userGravatar && (
+            <div className="flex items-center justify-center text-center text-md font-bold italic gap-3">
               <img
-                src={userGravatar}
+                src={user.userGravatar}
                 alt="User Gravatar"
                 className="w-6 h-6 rounded-full"
               />
-              <span>Hi, {userName}!</span>
+              <span>Hi, {user.userName}!</span>
             </div>
           )}
           {!showUserMenu && (
