@@ -3,17 +3,12 @@ const userInitial = {
   userMail: null,
   userGravatar: null,
   token: null,
-  isLoggedIn: localStorage.getItem("isLoggedIn") === "true",
+  isLoggedIn: false,
   error: null,
 };
 
 export const userReducer = (state = userInitial, action) => {
   switch (action.type) {
-    case "SET_IS_LOGGED_IN":
-      return {
-        ...state,
-        isLoggedIn: true,
-      };
     case "SET_USER":
       return {
         ...state,
