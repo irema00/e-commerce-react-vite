@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { loginUser, setUser } from "../store/actions/userActions";
 import md5 from "md5";
+import gravatar from "gravatar";
 
 const LoginForm = () => {
   const {
@@ -21,18 +22,17 @@ const LoginForm = () => {
 
   const onSubmit = (data) => {
     dispatch(loginUser(data))
-      .then((response) => {
+      .then(async (response) => {
         console.log("response", response);
         if (response.data && response.data.token) {
           const gravatar = getGravatar(data.email);
           localStorage.setItem("token", response.data.token);
-          localStorage.setItem("userName", response.data.name);
-          localStorage.setItem("userGravatar", gravatar);
           dispatch(
             setUser({
               name: response.data.name,
               email: data.email,
               gravatar: gravatar,
+              isLoggedIn: true,
             })
           );
           toast.success("Logged in successfully!");
