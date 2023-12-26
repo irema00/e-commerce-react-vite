@@ -7,6 +7,7 @@ import PageContent from "./layouts/PageContent";
 import { setUser } from "./store/actions/userActions";
 import { useDispatch } from "react-redux";
 import { AxiosInstance, renewAxiosInstance } from "./api/api";
+import { fetchCategories } from "./store/actions/globalActions";
 
 import gravatar from "gravatar";
 function App() {
@@ -15,6 +16,9 @@ function App() {
   const getGravatar = (email) => {
     return gravatar.url(email, { s: "100", r: "x", d: "wavatar" }, true);
   };
+  useEffect(() => {
+    dispatch(fetchCategories());
+  }, []);
 
   useEffect(() => {
     AxiosInstance.get("/verify")
