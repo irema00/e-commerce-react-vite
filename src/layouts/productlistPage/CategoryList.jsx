@@ -4,9 +4,12 @@ import { useSelector } from "react-redux";
 
 const CategoryList = () => {
   const categories = useSelector((state) => state.global.categories);
+  const topCategories = [...categories]
+    .sort((a, b) => b.rating - a.rating)
+    .slice(0, 5);
   return (
     <div className="flex lg:justify-between justify-center flex-wrap items-center gap-2 bg-ltGrey px-[10%]">
-      {categories.map((category) => (
+      {topCategories.map((category) => (
         <CategoryCard
           key={category.id}
           category={category.title}
