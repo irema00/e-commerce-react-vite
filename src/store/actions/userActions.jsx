@@ -5,11 +5,6 @@ export const setUser = (userInfo) => ({
   payload: userInfo,
 });
 
-export const setIsLoggedIn = (isLoggedIn) => ({
-  type: "SET_IS_LOGGED_IN",
-  payload: isLoggedIn,
-});
-
 export const logoutUser = () => {
   return {
     type: "LOGOUT",
