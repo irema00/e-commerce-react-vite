@@ -53,14 +53,7 @@ export default function Header() {
       setIsMenuVisible(false);
     }
   };
-
-  const menuItemClass = (menuName) =>
-    `cursor-pointer ${
-      activeMenu === menuName
-        ? "text-darkBg font-bold "
-        : "text-neutral-500 font-semibold"
-    }`;
-
+  //LOGOUT
   const promptLogout = () => {
     setShowLogoutModal(true);
   };
@@ -211,7 +204,11 @@ export default function Header() {
                   <li
                     key={item.name}
                     onClick={() => handleMenuClick(item.name)}
-                    className={menuItemClass(item.name)}
+                    className={`cursor-pointer  flex items-center${
+                      activeMenu === item.name
+                        ? " font-extrabold text-darkBg "
+                        : " font-semibold text-hdGrey"
+                    }`}
                   >
                     <Link
                       to={item.path}
