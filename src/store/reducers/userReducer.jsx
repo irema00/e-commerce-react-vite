@@ -26,8 +26,6 @@ export const userReducer = (state = userInitial, action) => {
       return {
         ...state,
         isLoggedIn: true,
-        userName: action.payload.name,
-        userMail: action.payload.email,
         token: action.payload.token,
       };
     case "LOGIN_FAILURE":
