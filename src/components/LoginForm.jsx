@@ -16,8 +16,7 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const getGravatar = (email) => {
-    const emailHash = md5(email.trim().toLowerCase());
-    return `https://www.gravatar.com/avatar/${emailHash}`;
+    return gravatar.url(email, { s: "100", r: "x", d: "retro" }, true);
   };
 
   const onSubmit = (data) => {
