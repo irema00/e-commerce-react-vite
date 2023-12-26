@@ -8,25 +8,31 @@ import { setUser } from "./store/actions/userActions";
 import { useDispatch } from "react-redux";
 import { AxiosInstance, renewAxiosInstance } from "./api/api";
 
+import gravatar from "gravatar";
 function App() {
   const dispatch = useDispatch();
+
+  const getGravatar = (email) => {
+    return gravatar.url(email, { s: "100", r: "x", d: "wavatar" }, true);
+  };
+
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      AxiosInstance.get("/verify")
-        .then((response) => {
-          const user = response.data;
-          dispatch(setUser(user));
-          renewAxiosInstance();
-          console.log("verified", user);
-        })
-        .catch((error) => {
-          console.error("Token verification failed", error);
-          localStorage.removeItem("token");
-          renewAxiosInstance();
-        });
-    }
-  }, [dispatch]);
+    AxiosInstance.get("/verify")
+      .then((response) => {
+        const user = response.data;
+        const gravatar = getGravatar(user.email);
+        dispatch(setUser({ ...user, isLoggedIn: true, gravatar: gravatar }));
+        renewAxiosInstance();
+      })
+      .catch((error) => {
+        console.error("Token verification failed", error);
+        localStorage.removeItem("token");
+        dispatch(
+          setUser({ name: "", email: "", gravatar: "", isLoggedIn: false })
+        );
+        renewAxiosInstance();
+      });
+  }, []);
   return (
     <DataProvider>
       <PageContent />
