@@ -20,7 +20,7 @@ export const userReducer = (state = userInitial, action) => {
         userName: action.payload.name,
         userMail: action.payload.email,
         userGravatar: action.payload.gravatar,
-        isLoggedIn: true,
+        isLoggedIn: action.payload.isLoggedIn,
       };
     case "LOGIN_SUCCESS":
       return {
