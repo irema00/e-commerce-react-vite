@@ -79,6 +79,9 @@ export default function ProductLists() {
             onChange={onSortChange}
             className="text-hdGrey text-sm font-normal font-montserrat leading-normal t bg-ltGreye px-2 py-3  shadow-lg rounded border border-solid border-semiGrey flex items-center cursor-pointer"
           >
+            <option value="" disabled selected>
+              Sort By
+            </option>
             <option value="rating:asc">Popularity - Low to High</option>
             <option value="rating:desc">Popularity - High to Low</option>
             <option value="price:asc">Price - Low to High</option>
