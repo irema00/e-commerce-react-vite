@@ -1,10 +1,19 @@
-import React from "react";
-import { useData } from "../../contexts/DataContext";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Icon } from "@iconify/react";
 import ProductCard from "../../components/ProductCard";
+import { fetchProducts } from "../../store/actions/productActions";
+import { Spinner } from "react-awesome-spinners";
+import { FETCH_STATES } from "../../store/actions/productActions";
 
 export default function ProductLists() {
-  const { productListData } = useData();
+  const productList = useSelector((state) => state.products.productList);
+  const fetchState = useSelector((state) => state.products.fetchState);
+  console.log("PRODUCT LISTESİ", productList);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   return (
     <div className="flex flex-col flex-wrap py-20 px-[10%]  font-monserrat gap-12 ">
