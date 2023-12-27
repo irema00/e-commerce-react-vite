@@ -1,9 +1,16 @@
 import React from "react";
 import { useData } from "../../contexts/DataContext";
 import ProductCard from "../../components/ProductCard";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../../store/actions/productActions";
 
 export default function Bestseller() {
-  const { bestsellerData } = useData();
+  const dispatch = useDispatch();
+  const { productList } = useSelector((state) => state.products);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   return (
     <div className="flex flex-col flex-wrap py-[5%] lg:px-[12%] px-0 font-monserrat gap-12 ">
@@ -19,8 +26,8 @@ export default function Bestseller() {
         </p>
       </div>
       <div className="flex flex-wrap justify-evenly gap-3">
-        {bestsellerData.products.map((product, index) => (
-          <ProductCard key={index} product={product} />
+        {productList.map((product) => (
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
     </div>
