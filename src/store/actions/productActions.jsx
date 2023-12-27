@@ -12,9 +12,9 @@ export const setProductList = (productList) => ({
   payload: productList,
 });
 
-export const setTotalProductCount = (count) => ({
+export const setTotalProductCount = (total) => ({
   type: "SET_TOTAL_PRODUCT_COUNT",
-  payload: count,
+  payload: total,
 });
 
 export const setPageCount = (count) => ({
