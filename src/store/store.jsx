@@ -13,7 +13,7 @@ import { shoppingCartReducer } from "./reducers/shoppingCartReducer";
 export const reducers = combineReducers({
   global: globalReducer,
   user: userReducer,
-  product: productReducer,
+  products: productReducer,
   shoppingCart: shoppingCartReducer,
 });
 
