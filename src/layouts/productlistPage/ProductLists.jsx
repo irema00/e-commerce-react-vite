@@ -42,11 +42,17 @@ export default function ProductLists() {
           </button>
         </div>
       </div>
-      <div className="flex flex-wrap justify-evenly gap-3 py-4">
-        {productListData.products.map((product, index) => (
-          <ProductCard key={index} product={product} />
-        ))}
-      </div>
+      {fetchState === FETCH_STATES.fetching ? (
+        <div className="flex justify-center items-start">
+          <Spinner />
+        </div>
+      ) : (
+        <div className="flex flex-wrap justify-evenly gap-3 py-4">
+          {productList.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      )}
       <h1 className="bg-red-300 text-5xl flex items-center justify-center">
         PAGINATION
       </h1>
