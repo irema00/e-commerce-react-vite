@@ -9,11 +9,21 @@ import { FETCH_STATES } from "../../store/actions/productActions";
 export default function ProductLists() {
   const productList = useSelector((state) => state.products.productList);
   const fetchState = useSelector((state) => state.products.fetchState);
+  const [searched, setSearched] = useState("");
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
+  const onSearchedChange = (e) => {
+    setSearched(e.target.value);
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+  const handleSearch = () => {
+    dispatch(fetchProducts({ filter: searched }));
+  };
   return (
     <div className="flex flex-col flex-wrap py-20 px-[10%]  font-monserrat gap-12 ">
       <div className="flex px-[2%] lg:justify-between justify-center flex-wrap items-center  text-sm md:flex-row md-no-gap gap-8 flex-col font-bold text-hdGrey ">
