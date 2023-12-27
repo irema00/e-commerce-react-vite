@@ -1,3 +1,5 @@
+import { AxiosInstance } from "../../api/api";
+
 export const FETCH_STATES = {
   notFetched: "NOT_FETCHED",
   fetching: "FETCHING",
