@@ -32,19 +32,23 @@ export const setFetchState = (fetchState) => ({
   payload: fetchState,
 });
 
-export const fetchProducts =
-  (queryParams = {}) =>
-  (dispatch) => {
+export const fetchProducts = (params = {}) => {
+  return (dispatch) => {
     dispatch(setFetchState(FETCH_STATES.fetching));
-
-    AxiosInstance.get("/products", { params: queryParams })
-      .then((response) => {
-        dispatch(setProductList(response.data.products));
-        dispatch(setTotalProductCount(response.data.total));
-        dispatch(setFetchState(FETCH_STATES.fetched));
-      })
-      .catch((error) => {
-        console.error("Error fetching products:", error);
-        dispatch(setFetchState(FETCH_STATES.failed));
-      });
+    setTimeout(() => {
+      AxiosInstance.get("/products", { params })
+        .then((response) => {
+          console.log("OBJECT LIKE BELOW", response.data);
+          dispatch(setProductList(response.data.products));
+          dispatch(setTotalProductCount(response.data.totalProductCount));
+          dispatch(setActivePage(response.data.page));
+          dispatch(setFetchState(FETCH_STATES.fetched));
+          console.log("PRODUCTS FETCHED", response.data.productList);
+        })
+        .catch((error) => {
+          console.error("Error fetching products:", error);
+          dispatch(setFetchState(FETCH_STATES.failed));
+        });
+    }, 5000);
   };
+};
