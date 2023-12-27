@@ -9,7 +9,6 @@ import { FETCH_STATES } from "../../store/actions/productActions";
 export default function ProductLists() {
   const productList = useSelector((state) => state.products.productList);
   const fetchState = useSelector((state) => state.products.fetchState);
-  console.log("PRODUCT LISTESİ", productList);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
