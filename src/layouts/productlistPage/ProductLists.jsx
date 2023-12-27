@@ -35,16 +35,29 @@ export default function ProductLists() {
             width="35"
           />
         </div>
-        <div className="flex justify-between items-center cursor-pointer gap-4">
-          <div className="text-hdGrey text-sm font-normal font-montserrat leading-normal t bg-ltGreye px-6 py-3  shadow-lg rounded border border-solid border-semiGrey flex items-center cursor-pointer">
-            <p className="cursor-pointer">Popularity</p>
-            <Icon
-              className="cursor-pointer "
-              icon="mingcute:down-line"
-              color="gray"
-              width="18"
+        <div className="flex justify-between items-center cursor-pointer gap-4 flex-wrap">
+          <div className="flex">
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searched}
+              onChange={onSearchedChange}
+              onKeyDown={onSearchedChange}
+              className=" px-2 py-3 rounded-l border border-solid border-semiGrey flex items-center cursor-text shadow-lg"
             />
+            <button
+              onClick={handleSearch}
+              className="text-white text-md font-bold font-montserrat leading-normal t bg-prBlue px-3 py-3 bg-sky-500 rounded-r shadow-lg hover:shadow-xl hover:bg-blue-300  items-center"
+            >
+              Search
+            </button>
           </div>
+          <select className="text-hdGrey text-sm font-normal font-montserrat leading-normal t bg-ltGreye px-2 py-3  shadow-lg rounded border border-solid border-semiGrey flex items-center cursor-pointer">
+            <option value="popularity-asc">Popularity - Low to High</option>
+            <option value="popularity-desc">Popularity - High to Low</option>
+            <option value="price-asc">Price - Low to High</option>
+            <option value="price-desc">Price - High to Low</option>
+          </select>
           <button className="text-white text-md font-bold font-montserrat leading-normal t bg-prBlue px-6 py-3 bg-sky-500 rounded hover:scale-110 shadow-lg hover:shadow-xl hover:bg-blue-300  items-center">
             Filter
           </button>
