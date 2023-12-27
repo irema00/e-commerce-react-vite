@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./App.css";
 import { DataProvider } from "./contexts/DataContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
