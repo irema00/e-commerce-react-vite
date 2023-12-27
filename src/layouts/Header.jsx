@@ -12,6 +12,7 @@ import {
   MenuItem,
 
 } from "@material-tailwind/react";
+import slugify from "slugify";
 
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -250,7 +251,9 @@ export default function Header() {
                                     key={category.id}
                                     onClick={() =>
                                       navigate(
-                                        `/shopping/${category.gender}/${category.code}`
+                                        `/shop/women/${slugify(category.title, {
+                                          lower: true,
+                                        })}`
                                       )
                                     }
                                   >
@@ -274,7 +277,9 @@ export default function Header() {
                                     key={category.id}
                                     onClick={() =>
                                       navigate(
-                                        `/shopping/${category.gender}/${category.code}`
+                                        `/shop/men/${slugify(category.title, {
+                                          lower: true,
+                                        })}`
                                       )
                                     }
                                   >
