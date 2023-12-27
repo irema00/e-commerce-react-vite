@@ -10,11 +10,14 @@ export default function ProductLists() {
   const productList = useSelector((state) => state.products.productList);
   const fetchState = useSelector((state) => state.products.fetchState);
   const [searched, setSearched] = useState("");
+  const [sorted, setSorted] = useState("");
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
+  //SEARCH
   const onSearchedChange = (e) => {
     setSearched(e.target.value);
     if (e.key === "Enter") {
@@ -24,6 +27,16 @@ export default function ProductLists() {
   const handleSearch = () => {
     dispatch(fetchProducts({ filter: searched }));
   };
+
+  //SORT
+  const onSortChange = (e) => {
+    setSorted(e.target.value);
+  };
+
+  const handleSort = () => {
+    dispatch(fetchProducts({ sort: sorted }));
+  };
+
   return (
     <div className="flex flex-col flex-wrap py-20 px-[10%]  font-monserrat gap-12 ">
       <div className="flex px-[2%] lg:justify-between justify-center flex-wrap items-center  text-sm md:flex-row md-no-gap gap-8 flex-col font-bold text-hdGrey ">
@@ -62,14 +75,20 @@ export default function ProductLists() {
               Search
             </button>
           </div>
-          <select className="text-hdGrey text-sm font-normal font-montserrat leading-normal t bg-ltGreye px-2 py-3  shadow-lg rounded border border-solid border-semiGrey flex items-center cursor-pointer">
-            <option value="popularity-asc">Popularity - Low to High</option>
-            <option value="popularity-desc">Popularity - High to Low</option>
-            <option value="price-asc">Price - Low to High</option>
-            <option value="price-desc">Price - High to Low</option>
+          <select
+            onChange={onSortChange}
+            className="text-hdGrey text-sm font-normal font-montserrat leading-normal t bg-ltGreye px-2 py-3  shadow-lg rounded border border-solid border-semiGrey flex items-center cursor-pointer"
+          >
+            <option value="rating:asc">Popularity - Low to High</option>
+            <option value="rating:desc">Popularity - High to Low</option>
+            <option value="price:asc">Price - Low to High</option>
+            <option value="price:desc">Price - High to Low</option>
           </select>
-          <button className="text-white text-md font-bold font-montserrat leading-normal t bg-prBlue px-6 py-3 bg-sky-500 rounded hover:scale-110 shadow-lg hover:shadow-xl hover:bg-blue-300  items-center">
-            Filter
+          <button
+            onClick={handleSort}
+            className="text-white text-md font-bold font-montserrat leading-normal t bg-prBlue px-6 py-3 bg-sky-500 rounded hover:scale-110 shadow-lg hover:shadow-xl hover:bg-blue-300  items-center"
+          >
+            Sort
           </button>
         </div>
       </div>
