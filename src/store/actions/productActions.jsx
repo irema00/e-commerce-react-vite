@@ -1,7 +1,7 @@
 export const FETCH_STATES = {
   notFetched: "NOT_FETCHED",
   fetching: "FETCHING",
-  fethced: "FETCHED",
+  fetched: "FETCHED",
   failed: "FAILED",
 };
 
@@ -29,3 +29,20 @@ export const setFetchState = (fetchState) => ({
   type: "SET_FETCH_STATE",
   payload: fetchState,
 });
+
+export const fetchProducts =
+  (queryParams = {}) =>
+  (dispatch) => {
+    dispatch(setFetchState(FETCH_STATES.fetching));
+
+    AxiosInstance.get("/products", { params: queryParams })
+      .then((response) => {
+        dispatch(setProductList(response.data.products));
+        dispatch(setTotalProductCount(response.data.total));
+        dispatch(setFetchState(FETCH_STATES.fetched));
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+        dispatch(setFetchState(FETCH_STATES.failed));
+      });
+  };
