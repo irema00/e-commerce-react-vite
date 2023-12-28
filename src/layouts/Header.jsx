@@ -10,7 +10,6 @@ import {
   MenuHandler,
   MenuList,
   MenuItem,
-
 } from "@material-tailwind/react";
 import slugify from "slugify";
 
@@ -18,13 +17,12 @@ export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+
   const { headerData } = useData();
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
-
-  const [showLogoutModal, setShowLogoutModal] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
 
   const categories = useSelector((state) => state.global.categories);
   const user = useSelector((state) => state.user);
@@ -39,28 +37,32 @@ export default function Header() {
       setActiveMenu(activeItem.name);
     }
     setIsMenuVisible(true);
-
     if (location.pathname === "/signup" || location.pathname === "/login") {
       setIsMenuVisible(false);
     }
   }, [isLoggedIn, location, headerData.menuItems]);
 
-  const handleMenuClick = (menuName) => {
-    setActiveMenu(activeMenu === menuName ? null : menuName);
-  };
-
+  //MENU
   const toggleMenuVisibility = () => {
     setIsMenuVisible(!isMenuVisible);
     if (showUserMenu) {
       setShowUserMenu(false);
     }
   };
+
+  const handleMenuClick = (menuName) => {
+    setActiveMenu(menuName);
+  };
+
+  //USER MENU
+
   const toggleUserMenu = () => {
     setShowUserMenu(!showUserMenu);
     if (isMenuVisible) {
       setIsMenuVisible(false);
     }
   };
+
   //LOGOUT
   const promptLogout = () => {
     setShowLogoutModal(true);
@@ -228,10 +230,7 @@ export default function Header() {
                     {item.name === "shop" && (
                       <Menu>
                         <MenuHandler>
-                          <span
-                            onClick={handleShopMenuClick}
-                            className="flex items-center hover:text-semiGrey cursor-pointer gap-2  "
-                          >
+                          <span className="flex items-center hover:text-semiGrey cursor-pointer gap-2  ">
                             <Icon
                               icon="bi:chevron-down"
                               className="cursor-pointer"
