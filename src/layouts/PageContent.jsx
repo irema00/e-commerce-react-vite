@@ -21,6 +21,10 @@ export default function PageContent() {
         <Route path="*" element={<PageNotFound />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/shop/:category_id/:gender/:category"
+          element={<ProductListPage />}
+        />
       </Routes>
     </>
   );
