@@ -218,22 +218,25 @@ export default function Header() {
                         : " font-semibold text-hdGrey"
                     }`}
                   >
-                    {item.name !== "shop" ? (
-                      <Link
-                        to={item.path}
-                        className="flex items-center hover:text-semiGrey cursor-pointer"
-                      >
-                        {item.label}
-                      </Link>
-                    ) : (
+                    <Link
+                      to={item.path}
+                      className="flex items-center hover:text-semiGrey cursor-pointer"
+                      onClick={() => handleMenuClick(item.name)}
+                    >
+                      {item.label}
+                    </Link>
+                    {item.name === "shop" && (
                       <Menu>
                         <MenuHandler>
-                          <div
-                            onClick={() => handleMenuClick(item.name)}
-                            className="flex items-center hover:text-semiGrey cursor-pointer"
+                          <span
+                            onClick={handleShopMenuClick}
+                            className="flex items-center hover:text-semiGrey cursor-pointer gap-2  "
                           >
-                            {item.label} <Icon icon="bi:chevron-down" />
-                          </div>
+                            <Icon
+                              icon="bi:chevron-down"
+                              className="cursor-pointer"
+                            />
+                          </span>
                         </MenuHandler>
                         <MenuList>
                           <Menu offset={15} placement="right-start">
