@@ -107,9 +107,6 @@ export default function ProductLists() {
           ))}
         </div>
       )}
-      <h1 className="bg-red-300 text-5xl flex items-center justify-center">
-        PAGINATION
-      </h1>
     </div>
   );
 }
