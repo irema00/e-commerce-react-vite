@@ -42,12 +42,10 @@ export const fetchProducts = (params = {}) => {
         dispatch(setActivePage(response.data.page));
         dispatch(setFetchState(FETCH_STATES.fetched));
         console.log("PRODUCTS FETCHED", response.data.productList);
-        console.log("SÜPER OLDU", response);
       })
       .catch((error) => {
         console.error("Error fetching products:", error);
         dispatch(setFetchState(FETCH_STATES.failed));
-        console.log("ÇALIŞMİİİİYYY");
       });
   };
 };
