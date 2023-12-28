@@ -5,6 +5,7 @@ import ProductCard from "../../components/ProductCard";
 import { fetchProducts } from "../../store/actions/productActions";
 import { Spinner } from "react-awesome-spinners";
 import { FETCH_STATES } from "../../store/actions/productActions";
+import { useParams } from "react-router";
 
 export default function ProductLists() {
   const productList = useSelector((state) => state.products.productList);
@@ -14,8 +15,8 @@ export default function ProductLists() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
+    dispatch(fetchProducts({ category: parameters.category_id }));
+  }, [dispatch, parameters]);
 
   //SEARCH
   const onSearchedChange = (e) => {
