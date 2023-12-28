@@ -253,9 +253,12 @@ export default function Header() {
                                     key={category.id}
                                     onClick={() =>
                                       navigate(
-                                        `/shop/women/${slugify(category.title, {
-                                          lower: true,
-                                        })}`
+                                        `/shop/${category.id}/kadın/${slugify(
+                                          category.title,
+                                          {
+                                            lower: true,
+                                          }
+                                        )}`
                                       )
                                     }
                                   >
@@ -279,9 +282,12 @@ export default function Header() {
                                     key={category.id}
                                     onClick={() =>
                                       navigate(
-                                        `/shop/men/${slugify(category.title, {
-                                          lower: true,
-                                        })}`
+                                        `/shop/${category.id}/erkek/${slugify(
+                                          category.title,
+                                          {
+                                            lower: true,
+                                          }
+                                        )}`
                                       )
                                     }
                                   >
