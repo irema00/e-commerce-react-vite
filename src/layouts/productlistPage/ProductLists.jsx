@@ -6,6 +6,7 @@ import { fetchProducts } from "../../store/actions/productActions";
 import { Spinner } from "react-awesome-spinners";
 import { FETCH_STATES } from "../../store/actions/productActions";
 import { useParams } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductLists() {
   const productList = useSelector((state) => state.products.productList);
@@ -13,10 +14,32 @@ export default function ProductLists() {
   const [searched, setSearched] = useState("");
   const [sorted, setSorted] = useState("");
   const dispatch = useDispatch();
+  const parameters = useParams();
+  const navigate = useNavigate();
 
+  const updateUrlParams = (newParams) => {
+    const searchParams = new URLSearchParams(window.location.search);
+
+    Object.keys(newParams).forEach((key) => {
+      if (newParams[key]) {
+        searchParams.set(key, newParams[key]);
+      } else {
+        searchParams.delete(key);
+      }
+    });
+
+    navigate({
+      pathname: window.location.pathname,
+      search: searchParams.toString(),
+    });
+  };
   useEffect(() => {
-    dispatch(fetchProducts({ category: parameters.category_id }));
-  }, [dispatch, parameters]);
+    const searchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(searchParams.entries());
+    params.category = parameters.category_id;
+
+    dispatch(fetchProducts(params));
+  }, [dispatch, window.location.search]);
 
   //SEARCH
   const onSearchedChange = (e) => {
@@ -25,19 +48,26 @@ export default function ProductLists() {
       handleSearch();
     }
   };
-  const handleSearch = () => {
-    dispatch(fetchProducts({ filter: searched }));
-  };
 
+  const handleSearch = () => {
+    updateUrlParams({ filter: searched });
+    const searchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(searchParams.entries());
+    params.category = parameters.category_id;
+    dispatch(fetchProducts(params));
+  };
   //SORT
   const onSortChange = (e) => {
     setSorted(e.target.value);
   };
 
   const handleSort = () => {
-    dispatch(fetchProducts({ sort: sorted }));
+    updateUrlParams({ sort: sorted });
+    const searchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(searchParams.entries());
+    params.category = parameters.category_id;
+    dispatch(fetchProducts(params));
   };
-
   return (
     <div className="flex flex-col flex-wrap py-20 px-[10%]  font-monserrat gap-12 ">
       <div className="flex px-[2%] lg:justify-between justify-center flex-wrap items-center  text-sm md:flex-row md-no-gap gap-8 flex-col font-bold text-hdGrey ">
