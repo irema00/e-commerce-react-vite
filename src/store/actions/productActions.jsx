@@ -12,6 +12,11 @@ export const setProductList = (productList) => ({
   payload: productList,
 });
 
+export const setMoreProductList = (productList) => ({
+  type: "SET_MORE_PRODUCTS",
+  payload: productList,
+});
+
 export const setTotalProductCount = (total) => ({
   type: "SET_TOTAL_PRODUCT_COUNT",
   payload: total,
@@ -36,21 +41,20 @@ export const fetchProducts = (params = {}) => {
   return (dispatch, getState) => {
     const state = getState();
     let page = state.products.activePage;
-    const offset = (page - 1) * 25;
 
     dispatch(setFetchState(FETCH_STATES.fetching));
 
     AxiosInstance.get("/products", {
-      params: {
-        ...params,
-        offset: offset,
-        limit: 25,
-      },
+      params: params,
     })
       .then((response) => {
-        dispatch(setProductList(response.data.products));
+        if (params.offset) {
+          dispatch(setMoreProductList(response.data.products));
+          dispatch(setActivePage(page + 1));
+        } else {
+          dispatch(setProductList(response.data.products));
+        }
         dispatch(setTotalProductCount(response.data.total));
-        dispatch(setActivePage(page + 1));
         dispatch(setFetchState(FETCH_STATES.fetched));
       })
       .catch((error) => {

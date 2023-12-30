@@ -15,6 +15,7 @@ export default function ProductLists() {
   const totalProductCount = useSelector(
     (state) => state.products.totalProductCount
   );
+  const page = useSelector((state) => state.products.activePage);
   const [searched, setSearched] = useState("");
   const [sorted, setSorted] = useState("");
   const dispatch = useDispatch();
@@ -74,13 +75,6 @@ export default function ProductLists() {
     dispatch(fetchProducts(params));
   };
 
-  // FETCHING MORE DATA FOR INFINITE SCROLL
-
-  const fetchMoreData = () => {
-    if (productList.length < totalProductCount) {
-      dispatch(fetchProducts());
-    }
-  };
   return (
     <div className="flex flex-col flex-wrap py-20 px-[10%]  font-monserrat gap-12 ">
       <div className="flex px-[2%] lg:justify-between justify-center flex-wrap items-center  text-sm md:flex-row md-no-gap gap-8 flex-col font-bold text-hdGrey ">
@@ -146,8 +140,16 @@ export default function ProductLists() {
         </div>
       ) : (
         <InfiniteScroll
-          dataLength={productList.length}
-          next={fetchMoreData}
+          dataLength={page * 25}
+          next={() =>
+            dispatch(
+              fetchProducts({
+                filter: searched,
+                sort: sorted,
+                offset: 25,
+              })
+            )
+          }
           hasMore={productList.length < totalProductCount}
           loader={<Spinner />}
           endMessage={

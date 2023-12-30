@@ -12,6 +12,11 @@ export const productReducer = (state = productInitial, action) => {
     case "SET_PRODUCTS":
       return {
         ...state,
+        productList: [...action.payload],
+      };
+    case "SET_MORE_PRODUCTS":
+      return {
+        ...state,
         productList: [...state.productList, ...action.payload],
       };
     case "SET_TOTAL_PRODUCT_COUNT":
