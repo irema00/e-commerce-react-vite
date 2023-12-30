@@ -33,14 +33,24 @@ export const setFetchState = (fetchState) => ({
 });
 
 export const fetchProducts = (params = {}) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const state = getState();
+    let page = state.products.activePage;
+    const offset = (page - 1) * 25;
+
     dispatch(setFetchState(FETCH_STATES.fetching));
 
-    AxiosInstance.get("/products", { params: params })
+    AxiosInstance.get("/products", {
+      params: {
+        ...params,
+        offset: offset,
+        limit: 25,
+      },
+    })
       .then((response) => {
         dispatch(setProductList(response.data.products));
-        dispatch(setTotalProductCount(response.data.totalProductCount));
-        dispatch(setActivePage(response.data.page));
+        dispatch(setTotalProductCount(response.data.total));
+        dispatch(setActivePage(page + 1));
         dispatch(setFetchState(FETCH_STATES.fetched));
       })
       .catch((error) => {
