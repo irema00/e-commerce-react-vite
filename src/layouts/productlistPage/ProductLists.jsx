@@ -7,10 +7,14 @@ import { Spinner } from "react-awesome-spinners";
 import { FETCH_STATES } from "../../store/actions/productActions";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function ProductLists() {
   const productList = useSelector((state) => state.products.productList);
   const fetchState = useSelector((state) => state.products.fetchState);
+  const totalProductCount = useSelector(
+    (state) => state.products.totalProductCount
+  );
   const [searched, setSearched] = useState("");
   const [sorted, setSorted] = useState("");
   const dispatch = useDispatch();
@@ -33,6 +37,7 @@ export default function ProductLists() {
       search: searchParams.toString(),
     });
   };
+
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(searchParams.entries());
@@ -67,6 +72,14 @@ export default function ProductLists() {
     const params = Object.fromEntries(searchParams.entries());
     params.category = parameters.category_id;
     dispatch(fetchProducts(params));
+  };
+
+  // FETCHING MORE DATA FOR INFINITE SCROLL
+
+  const fetchMoreData = () => {
+    if (productList.length < totalProductCount) {
+      dispatch(fetchProducts());
+    }
   };
   return (
     <div className="flex flex-col flex-wrap py-20 px-[10%]  font-monserrat gap-12 ">
@@ -132,11 +145,23 @@ export default function ProductLists() {
           <Spinner />
         </div>
       ) : (
-        <div className="flex flex-wrap justify-evenly gap-3 py-4">
-          {productList.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        <InfiniteScroll
+          dataLength={productList.length}
+          next={fetchMoreData}
+          hasMore={productList.length < totalProductCount}
+          loader={<Spinner />}
+          endMessage={
+            <p style={{ textAlign: "center" }}>
+              <b>"All products have been displayed."</b>
+            </p>
+          }
+        >
+          <div className="flex flex-wrap justify-evenly gap-3 py-4   overflow-x-hidden;">
+            {productList.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>{" "}
+        </InfiniteScroll>
       )}
     </div>
   );
