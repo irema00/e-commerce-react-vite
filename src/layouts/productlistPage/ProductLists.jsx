@@ -39,7 +39,7 @@ export default function ProductLists() {
     params.category = parameters.category_id;
 
     dispatch(fetchProducts(params));
-  }, [dispatch, window.location.search]);
+  }, [dispatch, window.location.search, parameters]);
 
   //SEARCH
   const onSearchedChange = (e) => {
