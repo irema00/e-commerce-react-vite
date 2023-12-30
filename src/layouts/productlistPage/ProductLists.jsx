@@ -107,10 +107,11 @@ export default function ProductLists() {
             </button>
           </div>
           <select
+            value={sorted}
             onChange={onSortChange}
             className="text-hdGrey text-sm font-normal font-montserrat leading-normal t bg-ltGreye px-2 py-3  shadow-lg rounded border border-solid border-semiGrey flex items-center cursor-pointer"
           >
-            <option value="" disabled selected>
+            <option value="" disabled>
               Sort By
             </option>
             <option value="rating:asc">Popularity - Low to High</option>
