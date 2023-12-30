@@ -35,13 +35,13 @@ export const setFetchState = (fetchState) => ({
 export const fetchProducts = (params = {}) => {
   return (dispatch) => {
     dispatch(setFetchState(FETCH_STATES.fetching));
+
     AxiosInstance.get("/products", { params: params })
       .then((response) => {
         dispatch(setProductList(response.data.products));
         dispatch(setTotalProductCount(response.data.totalProductCount));
         dispatch(setActivePage(response.data.page));
         dispatch(setFetchState(FETCH_STATES.fetched));
-        console.log("PRODUCTS FETCHED", response.data.productList);
       })
       .catch((error) => {
         console.error("Error fetching products:", error);
