@@ -10,13 +10,18 @@ const productInitial = {
 export const productReducer = (state = productInitial, action) => {
   switch (action.type) {
     case "SET_PRODUCTS":
-      return { ...state, productList: action.payload };
+      return {
+        ...state,
+        productList: [...state.productList, ...action.payload],
+      };
     case "SET_TOTAL_PRODUCT_COUNT":
       return { ...state, totalProductCount: action.payload };
     case "SET_FETCH_STATE":
       return { ...state, fetchState: action.payload };
     case "SET_PAGE_COUNT":
-      return { ...state, page: action.payload };
+      return { ...state, pageCount: action.payload };
+    case "SET_ACTIVE_PAGE":
+      return { ...state, activePage: action.payload };
     default:
       return state;
   }
