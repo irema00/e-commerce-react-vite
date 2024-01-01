@@ -151,7 +151,7 @@ export default function ProductLists() {
               fetchProducts({
                 filter: searched,
                 sort: sorted,
-                offset: 25,
+                offset: page * 25,
               })
             )
           }
