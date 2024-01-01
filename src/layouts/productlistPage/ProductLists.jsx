@@ -134,6 +134,11 @@ export default function ProductLists() {
           </button>
         </div>
       </div>
+      {searched && (
+        <p className="text-sm">
+          Search results for "<strong>{searched}</strong>" :
+        </p>
+      )}
       {fetchState === FETCH_STATES.fetching ? (
         <div className="flex justify-center items-start">
           <Spinner />
