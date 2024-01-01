@@ -163,11 +163,11 @@ export default function ProductLists() {
             </p>
           }
         >
-          <div className="flex flex-wrap justify-evenly gap-3 py-4   overflow-x-hidden;">
+          <div className="flex flex-wrap justify-evenly gap-4 py-4 ">
             {productList.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
-          </div>{" "}
+          </div>
         </InfiniteScroll>
       )}
     </div>
