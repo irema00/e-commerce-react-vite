@@ -156,7 +156,7 @@ export default function ProductLists() {
             )
           }
           hasMore={productList.length < totalProductCount}
-          loader={<Spinner />}
+          loader="loading..."
           endMessage={
             <p style={{ textAlign: "center" }}>
               <b>"All products have been displayed."</b>
