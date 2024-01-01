@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import ProductCard from "../../components/ProductCard";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../../store/actions/productActions";
+import { fetchBestsellerProducts } from "../../store/actions/productActions";
 
 export default function Bestseller() {
   const dispatch = useDispatch();
-  const { productList } = useSelector((state) => state.products);
+  const bestsellerProducts = useSelector((state) => state.bestseller);
 
   useEffect(() => {
-    dispatch(fetchProducts({ sort: "rating:desc" }));
+    dispatch(fetchBestsellerProducts());
   }, [dispatch]);
 
   return (
@@ -25,7 +25,7 @@ export default function Bestseller() {
         </p>
       </div>
       <div className="flex flex-wrap justify-evenly gap-3">
-        {productList.map((product) => (
+        {bestsellerProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
