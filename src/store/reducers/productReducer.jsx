@@ -31,3 +31,12 @@ export const productReducer = (state = productInitial, action) => {
       return state;
   }
 };
+
+export const bestsellerReducer = (state = [], action) => {
+  switch (action.type) {
+    case "SET_BESTSELLER_PRODUCTS":
+      return [...action.payload];
+    default:
+      return state;
+  }
+};

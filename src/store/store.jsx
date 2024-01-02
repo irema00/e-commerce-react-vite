@@ -7,7 +7,7 @@ import { thunk } from "redux-thunk";
 import logger from "redux-logger";
 import { globalReducer } from "./reducers/globalReducer";
 import { userReducer } from "./reducers/userReducer";
-import { productReducer } from "./reducers/productReducer";
+import { bestsellerReducer, productReducer } from "./reducers/productReducer";
 import { shoppingCartReducer } from "./reducers/shoppingCartReducer";
 
 export const reducers = combineReducers({
@@ -15,6 +15,7 @@ export const reducers = combineReducers({
   user: userReducer,
   products: productReducer,
   shoppingCart: shoppingCartReducer,
+  bestseller: bestsellerReducer,
 });
 
 export const store = createStore(reducers, applyMiddleware(logger, thunk));
