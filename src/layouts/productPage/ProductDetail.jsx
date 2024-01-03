@@ -16,6 +16,10 @@ export default function ProductDetail() {
       dispatch(fetchProductDetailById(productId));
     }
   }, []);
+  if (!productDetail) {
+    return <div>Product Detail is loading...</div>;
+  }
+
   const starsDisplay = () => {
     const fullStars = Math.floor(product.rating);
     const halfStar = product.rating % 1 >= 0.5 ? 1 : 0;
