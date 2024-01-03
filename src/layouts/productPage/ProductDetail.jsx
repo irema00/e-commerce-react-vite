@@ -80,7 +80,7 @@ export default function ProductDetail() {
             </div>
             <div className="my-2">
               <span className="text-xl font-extrabold">
-                ${productDetail.price}
+                ${parseFloat(productDetail.price).toFixed(2)}
               </span>
             </div>
             <div className="my-2">
