@@ -5,8 +5,7 @@ import ProductCard from "../../components/ProductCard";
 import { fetchProducts } from "../../store/actions/productActions";
 import { Spinner } from "react-awesome-spinners";
 import { FETCH_STATES } from "../../store/actions/productActions";
-import { useParams } from "react-router";
-import { useNavigate } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function ProductLists() {
@@ -20,27 +19,9 @@ export default function ProductLists() {
   const [sorted, setSorted] = useState("");
   const dispatch = useDispatch();
   const parameters = useParams();
-  const navigate = useNavigate();
-
-  const updateUrlParams = (newParams) => {
-    const searchParams = new URLSearchParams(window.location.search);
-
-    Object.keys(newParams).forEach((key) => {
-      if (newParams[key]) {
-        searchParams.set(key, newParams[key]);
-      } else {
-        searchParams.delete(key);
-      }
-    });
-
-    navigate({
-      pathname: window.location.pathname,
-      search: searchParams.toString(),
-    });
-  };
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const fetchProductsByParams = () => {
-    const searchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(searchParams.entries());
     params.category = parameters.category_id;
 
@@ -49,7 +30,7 @@ export default function ProductLists() {
 
   useEffect(() => {
     fetchProductsByParams();
-  }, [dispatch, window.location.search, parameters]);
+  }, [dispatch, searchParams, parameters]);
 
   //SEARCH
   const onSearchedChange = (e) => {
@@ -60,7 +41,9 @@ export default function ProductLists() {
   };
 
   const handleSearch = () => {
-    updateUrlParams({ filter: searched });
+    searchParams.set("filter", searched);
+    setSearchParams(searchParams);
+
     fetchProductsByParams();
   };
   //SORT
@@ -69,7 +52,9 @@ export default function ProductLists() {
   };
 
   const handleSort = () => {
-    updateUrlParams({ sort: sorted });
+    searchParams.set("sort", sorted);
+    setSearchParams(searchParams);
+
     fetchProductsByParams();
   };
 
