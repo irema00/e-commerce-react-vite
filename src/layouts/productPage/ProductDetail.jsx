@@ -21,10 +21,9 @@ export default function ProductDetail() {
   }
 
   const starsDisplay = () => {
-    const fullStars = Math.floor(product.rating);
-    const halfStar = product.rating % 1 >= 0.5 ? 1 : 0;
+    const fullStars = Math.floor(productDetail.rating);
+    const halfStar = productDetail.rating % 1 >= 0.5 ? 1 : 0;
     const emptyStars = 5 - fullStars - halfStar;
-
     return (
       <>
         {Array(fullStars)
