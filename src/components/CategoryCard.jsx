@@ -1,4 +1,4 @@
-const CategoryCard = ({ category, itemCount, imageUrl }) => {
+const CategoryCard = ({ category, gender, imageUrl }) => {
   return (
     <div className="relative flex flex-wrap justify-between shadow-xl max-w-[350px] max-h-[350px] md:max-h-[350px]  lg:w-[220px]  lg:h-[230px]  mb-8 lg:hover:scale-110 cursor-pointer overflow-hidden ">
       <img
@@ -11,7 +11,7 @@ const CategoryCard = ({ category, itemCount, imageUrl }) => {
           <h3 className="text-white text-2xl font-semibold text-center cursor-pointer">
             {category}
           </h3>
-          <p className="text-white text-sm">{itemCount} Items</p>
+          <p className="text-white text-sm">{gender}</p>
         </div>
       </div>
     </div>
