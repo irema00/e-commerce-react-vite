@@ -5,7 +5,10 @@ function ProductCard({ product }) {
   const [showPopover, setShowPopover] = useState(false);
   const popoverRef = useRef(null);
   return (
-    <Link to={`/product/${product.id}`} className="no-underline">
+    <Link
+      to={`/${product.category_id}/${product.id}/${product.name}`}
+      className="no-underline"
+    >
       <div className="flex flex-col flex-wrap items-center mb-8 shadow-xl md:hover:scale-110 cursor-pointer w-[370px] md:w-[260px] ">
         <div className=" w-[95%] h-[95%px]  cursor-pointer overflow-hidden">
           <img
