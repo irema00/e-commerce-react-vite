@@ -52,7 +52,7 @@ export default function ProductDetail() {
       <div className="flex mx-auto my-12 md:p-8 ">
         <div className="flex flex-col lg:flex-row">
           <div className=" lex justify-center items-center">
-            <ProductDetailCarousel productData={product} />
+            <ProductDetailCarousel />
           </div>
           <div className="flex-1 px-4 pt-2">
             <h1 className="text-xl font-normal md:pt-0 pt-10 text-darkBg">
