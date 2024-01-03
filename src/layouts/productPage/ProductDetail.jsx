@@ -4,12 +4,14 @@ import { Icon } from "@iconify/react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductDetailById } from "../../store/actions/productActions";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductDetail() {
   const params = useParams();
   const dispatch = useDispatch();
   const productId = params.productId;
   const productDetail = useSelector((state) => state.products.productDetail);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (productId) {
@@ -50,8 +52,24 @@ export default function ProductDetail() {
       </>
     );
   };
+  const handleGoBack = () => {
+    navigate(-1);
+  };
   return (
     <div className="flex flex-col px-[10%] bg-ltGrey ">
+      <div className="flex items-center gap-3 text-sm text-hdGrey font-semibold mt-3">
+        <Icon
+          icon="fluent-mdl2:back"
+          onClick={handleGoBack}
+          className="cursor-pointer text-gray-800"
+        />
+        <p
+          className="cursor-pointer hover:underline hover:text-semiGrey"
+          onClick={handleGoBack}
+        >
+          Go back
+        </p>
+      </div>
       <div className="flex flex-row md:justify-between  justify-center flex-wrap w-full font-montserrat py-6   ">
         <div className="flex gap-2 text-md tracking-tight font-bold   ">
           <div className=" flex text-darkBg ">
