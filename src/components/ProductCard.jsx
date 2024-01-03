@@ -36,10 +36,10 @@ function ProductCard({ product }) {
           )}
           <div className="flex justify-evenly w-full  text-center ">
             <span className="text-semiGrey text-base font-bold leading-normal tracking-tight">
-              ${product.price.toFixed(2)}
+              ${parseFloat(product.price).toFixed(2)}
             </span>
             <span className="text-teal-700 text-base font-bold leading-normal tracking-tight">
-              ${product.price.toFixed(2)}
+              ${parseFloat(product.price).toFixed(2)}
             </span>
           </div>
           <div className="flex items-center gap-1 mb-5">
