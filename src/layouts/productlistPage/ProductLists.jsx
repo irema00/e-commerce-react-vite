@@ -39,12 +39,16 @@ export default function ProductLists() {
     });
   };
 
-  useEffect(() => {
+  const fetchProductsByParams = () => {
     const searchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(searchParams.entries());
     params.category = parameters.category_id;
 
     dispatch(fetchProducts(params));
+  };
+
+  useEffect(() => {
+    fetchProductsByParams();
   }, [dispatch, window.location.search, parameters]);
 
   //SEARCH
@@ -57,10 +61,7 @@ export default function ProductLists() {
 
   const handleSearch = () => {
     updateUrlParams({ filter: searched });
-    const searchParams = new URLSearchParams(window.location.search);
-    const params = Object.fromEntries(searchParams.entries());
-    params.category = parameters.category_id;
-    dispatch(fetchProducts(params));
+    fetchProductsByParams();
   };
   //SORT
   const onSortChange = (e) => {
@@ -69,10 +70,7 @@ export default function ProductLists() {
 
   const handleSort = () => {
     updateUrlParams({ sort: sorted });
-    const searchParams = new URLSearchParams(window.location.search);
-    const params = Object.fromEntries(searchParams.entries());
-    params.category = parameters.category_id;
-    dispatch(fetchProducts(params));
+    fetchProductsByParams();
   };
 
   return (
