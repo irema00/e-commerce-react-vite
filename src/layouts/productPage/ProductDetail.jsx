@@ -86,7 +86,13 @@ export default function ProductDetail() {
             <div className="my-2">
               <span className="text-sm font-bold flex gap-2 leading-6">
                 <p className="text-hdGrey">Availability: </p>
-                <p className="text-prBlue">{productDetail.stock}</p>
+                <p
+                  className={`text-${
+                    productDetail.stock > 0 ? "prBlue" : "text-gray-500"
+                  }`}
+                >
+                  {productDetail.stock > 0 ? "In stock" : "Out of stock"}
+                </p>
               </span>
             </div>
             <p className="my-4 text-gray-600 border-solid border-semiGrey border-b pb-6 pt-3">
