@@ -5,7 +5,37 @@ import ProductDetailCarousel from "../productPage/ProductDetailCarousel";
 import { Icon } from "@iconify/react";
 
 export default function ProductDetail() {
-  const { productData } = useData();
+  const starsDisplay = () => {
+    const fullStars = Math.floor(product.rating);
+    const halfStar = product.rating % 1 >= 0.5 ? 1 : 0;
+    const emptyStars = 5 - fullStars - halfStar;
+
+    return (
+      <>
+        {Array(fullStars)
+          .fill()
+          .map((_, index) => (
+            <Icon
+              key={`full-${index}`}
+              icon="mingcute:star-fill"
+              color="rgb(243,205,3)"
+            />
+          ))}
+        {halfStar > 0 && (
+          <Icon icon="mingcute:star-half-fill" color="rgb(243,205,3)" />
+        )}
+        {Array(emptyStars)
+          .fill()
+          .map((_, index) => (
+            <Icon
+              key={`empty-${index}`}
+              icon="mingcute:star-line"
+              color="rgb(243,205,3)"
+            />
+          ))}
+      </>
+    );
+  };
   return (
     <div className="flex flex-col px-[10%] bg-ltGrey ">
       <div className="flex flex-row md:justify-between  justify-center flex-wrap w-full font-montserrat py-6   ">
@@ -29,14 +59,10 @@ export default function ProductDetail() {
               {productData.productName}
             </h1>
             <div className="my-2 flex gap-3 items-center">
-              <span className="flex gap-1 py-2">
-                <Icon icon="iconoir:star-solid" color="rgb(243,205,3)" />
-                <Icon icon="iconoir:star-solid" color="rgb(243,205,3)" />
-                <Icon icon="iconoir:star-solid" color="rgb(243,205,3)" />
-                <Icon icon="iconoir:star-solid" color="rgb(243,205,3)" />
-                <Icon icon="iconoir:star" color="rgb(243,205,3)" />
-              </span>
-              <span>{productData.reviewNumber} Reviews</span>
+              <span className="flex gap-1 py-2">{starsDisplay()}</span>
+              <p>
+                <span>{productDetail.rating}</span>
+              </p>
             </div>
             <div className="my-2">
               <span className="text-xl font-extrabold">
