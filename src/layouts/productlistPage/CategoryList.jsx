@@ -12,12 +12,16 @@ const CategoryList = () => {
   return (
     <div className="flex lg:justify-between justify-center flex-wrap items-center gap-2 bg-ltGrey px-[10%]">
       {topCategories.map((category) => (
-        <Link to={`/shop/${category.id}/${category.gender}/${category.title}`}>
+        <Link
+          to={`/shop/${category.id}/${
+            category.gender === "e" ? "erkek" : "kadin"
+          }/${category.title}`}
+        >
           <CategoryCard
             key={category.id}
             category={category.title}
             imageUrl={category.img}
-            gender={category.gender === "e" ? "erkek" : "kadın"}
+            gender={category.gender === "e" ? "erkek" : "kadin"}
           />
         </Link>
       ))}
