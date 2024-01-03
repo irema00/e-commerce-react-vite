@@ -17,7 +17,7 @@ export default function ProductDetail() {
     if (productId) {
       dispatch(fetchProductDetailById(productId));
     }
-  }, []);
+  }, [productId, dispatch]);
   if (!productDetail) {
     return <div>Product Detail is loading...</div>;
   }
