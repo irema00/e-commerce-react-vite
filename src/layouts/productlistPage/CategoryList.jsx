@@ -2,6 +2,7 @@ import React from "react";
 import CategoryCard from "../../components/CategoryCard";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import slugify from "slugify";
 
 const CategoryList = () => {
   const categories = useSelector((state) => state.global.categories);
@@ -15,7 +16,9 @@ const CategoryList = () => {
         <Link
           to={`/shop/${category.id}/${
             category.gender === "e" ? "erkek" : "kadin"
-          }/${category.title}`}
+          }/${slugify(category.title, {
+            lower: true,
+          })}`}
         >
           <CategoryCard
             key={category.id}
