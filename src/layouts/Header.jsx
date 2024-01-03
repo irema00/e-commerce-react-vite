@@ -253,12 +253,13 @@ export default function Header() {
                                     key={category.id}
                                     onClick={() =>
                                       navigate(
-                                        `/shop/${category.id}/kadın/${slugify(
-                                          category.title,
-                                          {
-                                            lower: true,
-                                          }
-                                        )}`
+                                        `/shop/${category.id}/${
+                                          category.gender === "e"
+                                            ? "erkek"
+                                            : "kadin"
+                                        }/${slugify(category.title, {
+                                          lower: true,
+                                        })}`
                                       )
                                     }
                                   >
@@ -282,12 +283,13 @@ export default function Header() {
                                     key={category.id}
                                     onClick={() =>
                                       navigate(
-                                        `/shop/${category.id}/erkek/${slugify(
-                                          category.title,
-                                          {
-                                            lower: true,
-                                          }
-                                        )}`
+                                        `/shop/${category.id}/${
+                                          category.gender === "e"
+                                            ? "erkek"
+                                            : "kadın"
+                                        }/${slugify(category.title, {
+                                          lower: true,
+                                        })}`
                                       )
                                     }
                                   >
