@@ -16,6 +16,7 @@ export default function ProductDetail() {
   useEffect(() => {
     if (productId) {
       dispatch(fetchProductDetailById(productId));
+      window.scrollTo(0, 0);
     }
   }, [productId, dispatch]);
   if (!productDetail) {
