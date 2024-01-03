@@ -1,10 +1,21 @@
-import React from "react";
-import ProductCard from "../../components/ProductCard";
-import { useData } from "../../contexts/DataContext";
+import React, { useEffect } from "react";
 import ProductDetailCarousel from "../productPage/ProductDetailCarousel";
 import { Icon } from "@iconify/react";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductDetailById } from "../../store/actions/productActions";
 
 export default function ProductDetail() {
+  const params = useParams();
+  const dispatch = useDispatch();
+  const productId = params.productId;
+  const productDetail = useSelector((state) => state.products.productDetail);
+
+  useEffect(() => {
+    if (productId) {
+      dispatch(fetchProductDetailById(productId));
+    }
+  }, []);
   const starsDisplay = () => {
     const fullStars = Math.floor(product.rating);
     const halfStar = product.rating % 1 >= 0.5 ? 1 : 0;
