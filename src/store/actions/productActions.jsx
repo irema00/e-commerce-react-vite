@@ -42,6 +42,10 @@ export const setBestsellerProducts = (productList) => ({
   payload: productList,
 });
 
+export const setProductDetail = (product) => ({
+  type: "SET_PRODUCT_DETAIL",
+  payload: product,
+});
 export const fetchProducts = (params = {}) => {
   return (dispatch, getState) => {
     const state = getState();
@@ -77,6 +81,18 @@ export const fetchBestsellerProducts = () => {
       })
       .catch((error) => {
         console.error("Error fetching bestseller products:", error);
+      });
+  };
+};
+
+export const fetchProductDetailById = (productId) => {
+  return (dispatch) => {
+    AxiosInstance.get(`/products/${productId}`)
+      .then((response) => {
+        dispatch(setProductDetail(response.data));
+      })
+      .catch((error) => {
+        console.error("Error fetching product detail:", error);
       });
   };
 };
