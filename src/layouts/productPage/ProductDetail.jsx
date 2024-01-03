@@ -52,11 +52,11 @@ export default function ProductDetail() {
       <div className="flex mx-auto my-12 md:p-8 ">
         <div className="flex flex-col lg:flex-row">
           <div className=" lex justify-center items-center">
-            <ProductDetailCarousel />
+            <ProductDetailCarousel productData={product} />
           </div>
           <div className="flex-1 px-4 pt-2">
             <h1 className="text-xl font-normal md:pt-0 pt-10 text-darkBg">
-              {productData.productName}
+              {productDetail.name}
             </h1>
             <div className="my-2 flex gap-3 items-center">
               <span className="flex gap-1 py-2">{starsDisplay()}</span>
@@ -66,17 +66,17 @@ export default function ProductDetail() {
             </div>
             <div className="my-2">
               <span className="text-xl font-extrabold">
-                {productData.price}
+                ${productDetail.price}
               </span>
             </div>
             <div className="my-2">
               <span className="text-sm font-bold flex gap-2 leading-6">
                 <p className="text-hdGrey">Availability: </p>
-                <p className="text-prBlue">{productData.availability}</p>
+                <p className="text-prBlue">{productDetail.stock}</p>
               </span>
             </div>
             <p className="my-4 text-gray-600 border-solid border-semiGrey border-b pb-6 pt-3">
-              {productData.description}
+              {productDetail.description}
             </p>
 
             <div className="flex items-center gap-2 pb-8">
