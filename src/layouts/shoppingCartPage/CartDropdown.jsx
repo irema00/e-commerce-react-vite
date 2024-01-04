@@ -2,8 +2,11 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
+import {
   decreaseItemCount,
   increaseItemCount,
+  removeFromCart,
+} from "../../store/actions/shoppingCartActions";
 
 function CartDropdown({ onClose }) {
   const cartItems = useSelector((state) => state.shoppingCart.cart);
@@ -71,6 +74,15 @@ function CartDropdown({ onClose }) {
                       +
                     </button>
                   </div>
+                  <Icon
+                    className="flex justify-end items-end"
+                    icon="fluent:delete-24-regular"
+                    width="20"
+                    height="20"
+                    onClick={() => handleRemove(item.product.id)}
+                  />
+                </div>
+              </div>
             </div>
           ))
         ) : (
