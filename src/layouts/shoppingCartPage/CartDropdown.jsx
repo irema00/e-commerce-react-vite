@@ -5,7 +5,7 @@ import { Icon } from "@iconify/react";
   decreaseItemCount,
   increaseItemCount,
 
-function CartDropdown() {
+function CartDropdown({ onClose }) {
   const cartItems = useSelector((state) => state.shoppingCart.cart);
   const dispatch = useDispatch();
 
@@ -13,7 +13,19 @@ function CartDropdown() {
     dispatch(removeFromCart(productId));
   };
 
+  const handleClose = () => {
+    onClose();
+  };
+
   return (
+    <div className="absolute right-0 mt-2 pb-2 w-80 bg-white rounded-lg  shadow-xl z-20">
+      <div className="flex text-darkBg items-center justify-end px-5 pt-3 hover:text-semiGrey ">
+        <Icon
+          icon="uiw:close"
+          onClick={handleClose}
+          className="hover:cursor-pointer"
+        />
+      </div>
       <p className="flex items-center justify-center pb-3 font-bold text-darkBg ">
         My Cart (count)
       </p>
