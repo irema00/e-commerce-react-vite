@@ -1,14 +1,22 @@
 export const addToCart = (product) => {
-  return {
-    type: "ADD_TO_CART",
-    payload: product,
+  return (dispatch, getState) => {
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: product,
+    });
+
+    localStorage.setItem("cart", JSON.stringify(getState().shoppingCart.cart));
   };
 };
 
 export const removeFromCart = (productId) => {
-  return {
-    type: "REMOVE_FROM_CART",
-    payload: productId,
+  return (dispatch, getState) => {
+    dispatch({
+      type: "REMOVE_FROM_CART",
+      payload: productId,
+    });
+
+    localStorage.setItem("cart", JSON.stringify(getState().shoppingCart.cart));
   };
 };
 
