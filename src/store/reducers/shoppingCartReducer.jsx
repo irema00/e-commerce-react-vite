@@ -31,6 +31,11 @@ export const shoppingCartReducer = (state = cartInitial, action) => {
         ...state,
         cart: state.cart.filter((item) => item.product.id !== action.payload),
       };
+    case "CLEAR_CART":
+      return {
+        ...state,
+        cart: [],
+      };
     case "SET_PAYMENT_INFO":
       return { ...state, payment: action.payload };
     case "SET_ADDRESS_INFO":
