@@ -4,6 +4,7 @@ import slugify from "slugify";
 import { Icon } from "@iconify/react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/actions/shoppingCartActions";
+import { toast } from "react-toastify";
 
 function ProductCard({ product }) {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ function ProductCard({ product }) {
 
   const handleAddToCart = () => {
     dispatch(addToCart(product));
+    toast.success("Product successfully added to cart!");
   };
 
   return (
