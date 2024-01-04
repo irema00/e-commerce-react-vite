@@ -18,4 +18,18 @@ export const reducers = combineReducers({
   bestseller: bestsellerReducer,
 });
 
-export const store = createStore(reducers, applyMiddleware(logger, thunk));
+const loadFromLocalStorage = () => {
+  try {
+    if (localStorage.getItem("cart") === null) return undefined;
+    return { shoppingCart: { cart: JSON.parse(localStorage.getItem("cart")) } };
+  } catch (err) {
+    console.error("Error loading state from localStorage", err);
+    return undefined;
+  }
+};
+
+export const store = createStore(
+  reducers,
+  loadFromLocalStorage(),
+  applyMiddleware(logger, thunk)
+);
