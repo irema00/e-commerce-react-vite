@@ -24,7 +24,9 @@ function CartDropdown({ onClose }) {
       return total + item.product.price * item.count;
     }, 0)
     .toFixed(2);
-
+  const totalItemCount = cartItems.reduce((total, item) => {
+    return total + item.count;
+  }, 0);
   return (
     <div className="absolute right-0 mt-2 pb-2 w-80 bg-white rounded-lg  shadow-xl z-20">
       <div className="flex text-darkBg items-center justify-end px-5 pt-3 hover:text-semiGrey ">
@@ -35,7 +37,7 @@ function CartDropdown({ onClose }) {
         />
       </div>
       <p className="flex items-center justify-center pb-3 font-bold text-darkBg ">
-        My Cart (count)
+        My Cart ({totalItemCount})
       </p>
       <div className="flex flex-col px-4 py-2  ">
         {cartItems.length > 0 ? (
