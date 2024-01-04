@@ -1,10 +1,16 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { Icon } from "@iconify/react";
+import { removeFromCart } from "../../store/actions/shoppingCartActions";
 
 function CartDropdown() {
   const cartItems = useSelector((state) => state.shoppingCart.cart);
-  console.log("SEPETTEKİLER", cartItems);
+  const dispatch = useDispatch();
+
+  const handleRemove = (productId) => {
+    dispatch(removeFromCart(productId));
+  };
 
   return (
     <div className="absolute right-0 mt-2 py-2 w-80 bg-white rounded-lg shadow-xl z-20">
@@ -32,6 +38,12 @@ function CartDropdown() {
                   <span className="text-gray-600"> </span>
                 </p>
               </div>
+              <Icon
+                icon="fluent:delete-24-regular"
+                width="20"
+                height="20"
+                onClick={() => handleRemove(item.product.id)}
+              />
             </div>
           ))
         ) : (
