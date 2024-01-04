@@ -71,7 +71,7 @@ export default function ProductDetail() {
           Go back
         </p>
       </div>
-      <div className="flex flex-row md:justify-between  justify-center flex-wrap w-full font-montserrat py-6   ">
+      <div className="flex flex-row md:justify-between  justify-center flex-wrap w-full font-montserrat py-2  ">
         <div className="flex gap-2 text-md tracking-tight font-bold   ">
           <div className=" flex text-darkBg ">
             <p>Home</p>
@@ -82,7 +82,7 @@ export default function ProductDetail() {
           </div>
         </div>
       </div>
-      <div className="flex mx-auto my-12 md:p-8 ">
+      <div className="flex mx-auto my-3 md:p-8 ">
         <div className="flex flex-col lg:flex-row">
           <div className=" lex justify-center items-center">
             <ProductDetailCarousel />
