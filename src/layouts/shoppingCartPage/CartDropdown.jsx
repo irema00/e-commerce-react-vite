@@ -24,7 +24,7 @@ function CartDropdown() {
               className="flex items-center border-solid border-b border-gray-200 py-3   "
             >
               <img
-                className="h-12 w-12 rounded-xl object-cover mr-4 object-top"
+                className="h-14 w-14 rounded-xl object-cover mr-4 object-top"
                 src={item.product.images[0].url}
                 alt={item.product.name}
               />
