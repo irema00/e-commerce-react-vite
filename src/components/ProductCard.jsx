@@ -26,7 +26,7 @@ function ProductCard({ product }) {
             {product.name}
           </h3>
           <p
-            className="text-center items-center text-hdGrey text-sm font-bold leading-normal tracking-tight px-[5%] h-[40px]  hover:text-ellipsis truncate-description hover:cursor-pointer overflow-hidden "
+            className="text-center items-center text-hdGrey text-sm font-semibold leading-normal tracking-tight px-[5%] md:h-[40px]  hover:text-ellipsis md:truncate-description md:hover:cursor-pointer overflow-hidden "
             onMouseEnter={() => setShowPopover(true)}
             onMouseLeave={() => setShowPopover(false)}
             ref={popoverRef}
@@ -35,7 +35,7 @@ function ProductCard({ product }) {
           </p>
           {showPopover && (
             <div
-              className="absolute z-10 w-64 bg-white p-2 border rounded shadow-lg  text-hdGrey text-sm font-bold leading-normal"
+              className="absolute hidden md:flex z-50 w-64 bg-gradient-to-r from-gray-100 to-gray-300 p-2 border rounded shadow-lg  text-bgDark text-sm font-semibold leading-normal text-center "
               style={{ top: popoverRef.current.offsetTop + 20 }}
             >
               {product.description}
