@@ -20,6 +20,27 @@ export const removeFromCart = (productId) => {
   };
 };
 
+export const increaseItemCount = (productId) => {
+  return (dispatch, getState) => {
+    dispatch({
+      type: "INCREASE_ITEM_COUNT",
+      payload: productId,
+    });
+
+    localStorage.setItem("cart", JSON.stringify(getState().shoppingCart.cart));
+  };
+};
+
+export const decreaseItemCount = (productId) => {
+  return (dispatch, getState) => {
+    dispatch({
+      type: "DECREASE_ITEM_COUNT",
+      payload: productId,
+    });
+    localStorage.setItem("cart", JSON.stringify(getState().shoppingCart.cart));
+  };
+};
+
 export const setPaymentInfo = (paymentInfo) => {
   return {
     type: "SET_PAYMENT_INFO",
