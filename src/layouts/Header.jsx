@@ -146,11 +146,18 @@ export default function Header() {
             <div className="flex lg:hidden items-center ">
               <Icon
                 icon="bi:search"
-                className="mx-1 hover:text-hdGrey cursor-pointer"
+                className="mx-1 hover:text-hdGrey cursor-pointer relative"
               />
+              {cartDropdownVisible && (
+                <div className="mt-5">
+                  <CartDropdown onClose={() => setCartDropdownVisible(false)} />
+                </div>
+              )}
+
               <Icon
                 icon="ion:cart-outline"
                 className="mx-1 hover:text-hdGrey cursor-pointer"
+                onClick={toggleCartDropdown}
               />
               <Icon
                 icon="tdesign:user"
@@ -311,7 +318,7 @@ export default function Header() {
           )}
         </div>
 
-        <div className="lg:flex hidden flex-row  flex-wrap items-center gap-4 relative ">
+        <div className="lg:flex hidden flex-row  flex-wrap items-center gap-4  ">
           <div className="text-prBlue  flex-row flex items-center gap-2 text-sm font-bold font-monserrat ">
             {isLoggedIn && user.userGravatar && (
               <div className="flex items-center justify-center text-center text-sm font-bold italic gap-3 mr-5">
@@ -361,14 +368,14 @@ export default function Header() {
             </div>
           </div>
 
-          <div className="flex flex-row gap-8 items-center text-prBlue ">
+          <div className="flex flex-row gap-8 items-center text-prBlue  relative ">
             <Icon
               className="hover:scale-110 cursor-pointer"
               icon="streamline:magnifying-glass"
               color="rgba(35, 166, 240, 1)"
             />
 
-            <div className="flex items-center ">
+            <div className="flex items-center relative">
               <Icon
                 onClick={toggleCartDropdown}
                 className="hover:scale-110 cursor-pointer"
@@ -376,7 +383,7 @@ export default function Header() {
                 color="rgba(35, 166, 240, 1)"
               />
               <span className="ml-2 ">{totalQuantity}</span>
-              <div className="absolute left-0 right-0 top-full mt-5 -mx-20 w-80 bg-white rounded-lg shadow-xl z-30">
+              <div className="absolute left-12 transform -translate-x-full mt-5 w-80 bg-white rounded-lg shadow-xl z-50">
                 {cartDropdownVisible && (
                   <CartDropdown onClose={toggleCartDropdown} />
                 )}
