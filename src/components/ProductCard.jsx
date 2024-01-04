@@ -13,7 +13,7 @@ function ProductCard({ product }) {
       })}`}
       className="no-underline"
     >
-      <div className="flex flex-col flex-wrap items-center mb-8 shadow-xl md:hover:scale-110 cursor-pointer w-[370px] md:w-[260px] ">
+      <div className="flex flex-col flex-wrap items-center mb-8 shadow-xl md:hover:scale-110 cursor-pointer w-[370px] md:w-[260px]  gap-2">
         <div className=" w-[95%] h-[95%px]  cursor-pointer overflow-hidden">
           <img
             src={product.images?.[0]?.url}
@@ -21,7 +21,7 @@ function ProductCard({ product }) {
             className="object-cover object-center border-solid border border-[#fbfafa] "
           />
         </div>
-        <div className="flex gap-2 flex-col items-center mt-3 mb-5 bg-gray-50 mx-3">
+        <div className="flex gap-2 flex-col items-center mt-3 mb-5 mx-3">
           <h3 className=" text-darkBg text-base font-bold leading-normal tracking-tight mt-2">
             {product.name}
           </h3>
