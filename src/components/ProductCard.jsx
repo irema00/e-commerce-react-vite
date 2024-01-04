@@ -55,6 +55,20 @@ function ProductCard({ product }) {
             <div className="w-4 h-4 bg-orange-400 rounded-full" />
             <div className="w-4 h-4 bg-black rounded-full" />{" "}
           </div>
+          <div className="flex justify-space gap-3">
+            <div className="flex bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-200 hover:to-blue-300 items-center text-sm  text-white rounded-full py-3 px-3 cursor-pointer ">
+              <Icon icon="bi:heart-fill" className="cursor-pointer" />
+            </div>
+            <button className="flex bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-200 hover:to-blue-300 items-center text-white text-xs py-2 px-5 rounded-full cursor-pointer font-semibold gap-2 justify-center">
+              <Icon
+                icon="uil:cart"
+                width="20"
+                height="20"
+                className="items-center"
+              />
+              ADD TO CART
+            </button>
+          </div>
         </div>
       </div>
     </Link>
