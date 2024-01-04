@@ -2,7 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { removeFromCart } from "../../store/actions/shoppingCartActions";
+  decreaseItemCount,
+  increaseItemCount,
 
 function CartDropdown() {
   const cartItems = useSelector((state) => state.shoppingCart.cart);
@@ -33,17 +34,28 @@ function CartDropdown() {
                 </span>
                 <span className="text-gray-600">${item.product.price}</span>
 
-                <p className="font-semibold text-xs text-hdGrey">
-                  adet:{item.count}
-                  <span className="text-gray-600"> </span>
-                </p>
-              </div>
-              <Icon
-                icon="fluent:delete-24-regular"
-                width="20"
-                height="20"
-                onClick={() => handleRemove(item.product.id)}
-              />
+                <div className="flex font-semibold text-xs text-hdGrey justify-end gap-2 ">
+                  <div>
+                    <button
+                      className="bg-prBlue text-white text-md rounded-l px-2 py-1"
+                      onClick={() =>
+                        dispatch(decreaseItemCount(item.product.id))
+                      }
+                    >
+                      -
+                    </button>
+                    <span className="border border-solid border-semiGrey text-xs px-2 py-1 text-darkBg">
+                      {item.count}
+                    </span>
+                    <button
+                      className="bg-prBlue text-white text-md rounded-r px-2 py-1"
+                      onClick={() =>
+                        dispatch(increaseItemCount(item.product.id))
+                      }
+                    >
+                      +
+                    </button>
+                  </div>
             </div>
           ))
         ) : (
