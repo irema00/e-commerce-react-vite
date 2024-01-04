@@ -27,6 +27,7 @@ export default function Header() {
   const categories = useSelector((state) => state.global.categories);
   const user = useSelector((state) => state.user);
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+  const cart = useSelector((state) => state.shoppingCart.cart);
 
   useEffect(() => {
     console.log(location.pathname);
@@ -359,7 +360,7 @@ export default function Header() {
                 icon="bi:cart"
                 color="rgba(35, 166, 240, 1)"
               />
-              <span className="ml-2 ">{headerData.cartProductCount}</span>
+              <span className="ml-2 ">{cart.length}</span>
             </div>
             <div className="flex items-center">
               <Icon
