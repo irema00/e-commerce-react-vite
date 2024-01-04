@@ -36,6 +36,25 @@ export const shoppingCartReducer = (state = cartInitial, action) => {
         ...state,
         cart: [],
       };
+
+    case "INCREASE_ITEM_COUNT":
+      return {
+        ...state,
+        cart: state.cart.map((item) =>
+          item.product.id === action.payload
+            ? { ...item, count: item.count + 1 }
+            : item
+        ),
+      };
+    case "DECREASE_ITEM_COUNT":
+      return {
+        ...state,
+        cart: state.cart.map((item) =>
+          item.product.id === action.payload
+            ? { ...item, count: Math.max(item.count - 1, 1) }
+            : item
+        ),
+      };
     case "SET_PAYMENT_INFO":
       return { ...state, payment: action.payload };
     case "SET_ADDRESS_INFO":
