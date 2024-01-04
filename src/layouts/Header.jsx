@@ -361,7 +361,7 @@ export default function Header() {
               color="rgba(35, 166, 240, 1)"
             />
 
-            <div className="flex items-center">
+            <div className="flex items-center " onClick={toggleCartDropdown}>
               <Icon
                 className="hover:scale-110 cursor-pointer"
                 icon="bi:cart"
