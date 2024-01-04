@@ -101,8 +101,8 @@ function CartDropdown({ onClose }) {
         >
           Go to Cart
         </Link>
-        <button className="text-sm bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
-          Siparişi Tamamla
+        <button className="text-sm bg-prBlue hover:bg-blue-300 text-white font-semibold py-2 px-4 rounded">
+          Complete Order
         </button>
       </div>
     </div>
