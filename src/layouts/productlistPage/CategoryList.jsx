@@ -24,7 +24,7 @@ const CategoryList = () => {
             key={category.id}
             category={category.title}
             imageUrl={category.img}
-            gender={category.gender === "e" ? "erkek" : "kadin"}
+            gender={category.gender === "e" ? "erkek" : "kadın"}
           />
         </Link>
       ))}
