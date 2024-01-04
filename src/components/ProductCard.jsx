@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import slugify from "slugify";
+import { Icon } from "@iconify/react";
 
 function ProductCard({ product }) {
   const [showPopover, setShowPopover] = useState(false);
