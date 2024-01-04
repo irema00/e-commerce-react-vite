@@ -31,6 +31,8 @@ export default function Header() {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const cart = useSelector((state) => state.shoppingCart.cart);
 
+  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+
   useEffect(() => {
     console.log(location.pathname);
     const activeItem = headerData.menuItems.find(
@@ -367,6 +369,7 @@ export default function Header() {
                 icon="bi:cart"
                 color="rgba(35, 166, 240, 1)"
               />
+              <span className="ml-2 ">{totalQuantity}</span>
               <div className="absolute left-0 right-0 top-full mt-5 -mx-20 w-80 bg-white rounded-lg shadow-xl z-30">
                 {cartDropdownVisible && <CartDropdown />}
               </div>
