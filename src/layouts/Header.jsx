@@ -74,8 +74,10 @@ export default function Header() {
   };
 
   const confirmLogout = () => {
+    dispatch({ type: "CLEAR_CART" });
     dispatch(logoutUser());
     localStorage.removeItem("token");
+    localStorage.removeItem("cart");
     setShowLogoutModal(false);
     navigate("/");
   };
