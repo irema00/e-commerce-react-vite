@@ -12,12 +12,14 @@ import {
   MenuItem,
 } from "@material-tailwind/react";
 import slugify from "slugify";
+import CartDropdown from "./shoppingCartPage/CartDropdown";
 
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [cartDropdownVisible, setCartDropdownVisible] = useState(false);
 
   const { headerData } = useData();
   const dispatch = useDispatch();
@@ -74,6 +76,11 @@ export default function Header() {
     localStorage.removeItem("token");
     setShowLogoutModal(false);
     navigate("/");
+  };
+
+  //CART
+  const toggleCartDropdown = () => {
+    setCartDropdownVisible(!cartDropdownVisible);
   };
 
   return (
@@ -309,7 +316,7 @@ export default function Header() {
           )}
         </div>
 
-        <div className="lg:flex hidden flex-row  flex-wrap items-center gap-4 ">
+        <div className="lg:flex hidden flex-row  flex-wrap items-center gap-4 relative ">
           <div className="text-prBlue  flex-row flex items-center gap-2 text-sm font-bold font-monserrat ">
             <Icon
               className="text-prBlue "
@@ -360,8 +367,11 @@ export default function Header() {
                 icon="bi:cart"
                 color="rgba(35, 166, 240, 1)"
               />
-              <span className="ml-2 ">{cart.length}</span>
+              <div className="absolute left-0 right-0 top-full mt-5 -mx-20 w-80 bg-white rounded-lg shadow-xl z-30">
+                {cartDropdownVisible && <CartDropdown />}
+              </div>
             </div>
+
             <div className="flex items-center">
               <Icon
                 className="hover:scale-110 cursor-pointer"
