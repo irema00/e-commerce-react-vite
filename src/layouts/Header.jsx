@@ -84,7 +84,7 @@ export default function Header() {
 
   //CART
   const toggleCartDropdown = () => {
-    setCartDropdownVisible(!cartDropdownVisible);
+    setCartDropdownVisible((prevVisible) => !prevVisible);
   };
 
   return (
@@ -365,15 +365,18 @@ export default function Header() {
               color="rgba(35, 166, 240, 1)"
             />
 
-            <div className="flex items-center " onClick={toggleCartDropdown}>
+            <div className="flex items-center ">
               <Icon
+                onClick={toggleCartDropdown}
                 className="hover:scale-110 cursor-pointer"
                 icon="bi:cart"
                 color="rgba(35, 166, 240, 1)"
               />
               <span className="ml-2 ">{totalQuantity}</span>
               <div className="absolute left-0 right-0 top-full mt-5 -mx-20 w-80 bg-white rounded-lg shadow-xl z-30">
-                {cartDropdownVisible && <CartDropdown />}
+                {cartDropdownVisible && (
+                  <CartDropdown onClose={toggleCartDropdown} />
+                )}
               </div>
             </div>
 
