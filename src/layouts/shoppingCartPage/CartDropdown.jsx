@@ -32,7 +32,9 @@ function CartDropdown() {
                 <span className="font-bold text-sm hover:underline hover:cursor-pointer">
                   {item.product.name}
                 </span>
-                <span className="text-gray-600">${item.product.price}</span>
+                <span className="text-gray-600 py-1">
+                  ${parseFloat(item.product.price).toFixed(2)}
+                </span>
 
                 <div className="flex font-semibold text-xs text-hdGrey justify-end gap-2 ">
                   <div>
