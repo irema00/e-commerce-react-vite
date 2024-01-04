@@ -142,6 +142,7 @@ export default function Header() {
         <div className=" flex flex-row items-center justify-center  flex-wrap gap-16  w-full lg:w-auto ">
           <div className="flex justify-between w-full lg:w-auto text-2xl font-bold  ">
             <p className="flex ">{headerData.brandName}</p>
+
             <div className="flex lg:hidden items-center ">
               <Icon
                 icon="bi:search"
@@ -203,16 +204,6 @@ export default function Header() {
                   </li>
                 )}
               </ul>
-            </div>
-          )}
-          {isLoggedIn && user.userGravatar && (
-            <div className="flex items-center justify-center text-center text-md font-bold italic gap-3">
-              <img
-                src={user.userGravatar}
-                alt="User Gravatar"
-                className="w-6 h-6 rounded-full"
-              />
-              <span>Hi, {user.userName}!</span>
             </div>
           )}
           {!showUserMenu && (
@@ -322,11 +313,23 @@ export default function Header() {
 
         <div className="lg:flex hidden flex-row  flex-wrap items-center gap-4 relative ">
           <div className="text-prBlue  flex-row flex items-center gap-2 text-sm font-bold font-monserrat ">
-            <Icon
-              className="text-prBlue "
-              icon="mdi:user-outline"
-              color="rgba(35, 166, 240, 1)"
-            />
+            {isLoggedIn && user.userGravatar && (
+              <div className="flex items-center justify-center text-center text-sm font-bold italic gap-3 mr-5">
+                <span className="text-darkBg">Hi, {user.userName}!</span>{" "}
+                <img
+                  src={user.userGravatar}
+                  alt="User Gravatar"
+                  className="w-6 h-6 rounded-full"
+                />
+              </div>
+            )}
+            {!isLoggedIn && (
+              <Icon
+                className="text-prBlue "
+                icon="mdi:user-outline"
+                color="rgba(35, 166, 240, 1)"
+              />
+            )}
             <div className="flex flex-row text-sm font-bold tracking-wider gap-1">
               {isLoggedIn ? (
                 <span
