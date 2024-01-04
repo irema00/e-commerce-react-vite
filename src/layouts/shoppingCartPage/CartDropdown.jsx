@@ -14,9 +14,10 @@ function CartDropdown() {
   };
 
   return (
-    <div className="absolute right-0 mt-2 py-2 w-80 bg-white rounded-lg shadow-xl z-20">
-      <div className="flex text-darkBg items-center justify-end px-5">x</div>
-      <div className="flex flex-col px-4  ">
+      <p className="flex items-center justify-center pb-3 font-bold text-darkBg ">
+        My Cart (count)
+      </p>
+      <div className="flex flex-col px-4 py-2  ">
         {cartItems.length > 0 ? (
           cartItems.map((item) => (
             <div
