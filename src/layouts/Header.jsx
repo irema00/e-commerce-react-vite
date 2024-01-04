@@ -31,7 +31,7 @@ export default function Header() {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const cart = useSelector((state) => state.shoppingCart.cart);
 
-  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+  const totalQuantity = cart.reduce((total, item) => total + item.count, 0);
 
   useEffect(() => {
     console.log(location.pathname);

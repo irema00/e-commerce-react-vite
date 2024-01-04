@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 function CartDropdown() {
   const cartItems = useSelector((state) => state.shoppingCart.cart);
+  console.log("SEPETTEKİLER", cartItems);
 
   return (
     <div className="absolute right-0 mt-2 py-2 w-80 bg-white rounded-lg shadow-xl z-20">
@@ -12,22 +13,22 @@ function CartDropdown() {
         {cartItems.length > 0 ? (
           cartItems.map((item) => (
             <div
-              key={item.id}
+              key={item.product.id}
               className="flex items-center border-solid border-b border-gray-200 py-3   "
             >
               <img
                 className="h-12 w-12 rounded-xl object-cover mr-4 object-top"
-                src={item.images[0].url}
-                alt={item.name}
+                src={item.product.images[0].url}
+                alt={item.product.name}
               />
               <div className="flex flex-col flex-grow gap-1">
                 <span className="font-bold text-sm hover:underline hover:cursor-pointer">
-                  {item.name}
+                  {item.product.name}
                 </span>
-                <span className="text-gray-600">${item.price}</span>
+                <span className="text-gray-600">${item.product.price}</span>
 
                 <p className="font-semibold text-xs text-hdGrey">
-                  adet: {item.quantity}
+                  adet:{item.count}
                   <span className="text-gray-600"> </span>
                 </p>
               </div>
@@ -39,7 +40,7 @@ function CartDropdown() {
           </p>
         )}
       </div>
-      <div className="flex justify-end items-center py-3 px-5 text-darkBg gap-2">
+      <div className="flex justify-end item.products-center py-3 px-5 text-darkBg gap-2">
         Total: <span>0</span>
       </div>
       <div className="flex justify-between items-center py-1 px-4">
