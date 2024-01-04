@@ -58,7 +58,7 @@ export default function ProductDetail() {
   };
   return (
     <div className="flex flex-col px-[10%] bg-ltGrey ">
-      <div className="flex items-center gap-3 text-sm text-hdGrey font-semibold mt-3">
+      <div className="flex items-center gap-3 text-xs text-hdGrey font-semibold mt-3">
         <Icon
           icon="fluent-mdl2:back"
           onClick={handleGoBack}
@@ -71,7 +71,7 @@ export default function ProductDetail() {
           Go back
         </p>
       </div>
-      <div className="flex flex-row md:justify-between  justify-center flex-wrap w-full font-montserrat py-2  ">
+      <div className="flex flex-row md:justify-between  justify-center flex-wrap w-full font-montserrat py-4">
         <div className="flex gap-2 text-md tracking-tight font-bold   ">
           <div className=" flex text-darkBg ">
             <p>Home</p>
