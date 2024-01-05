@@ -27,18 +27,18 @@ const ShoppingCartLayout = () => {
   };
 
   return (
-    <div className="container mx-auto my-6 p-4">
+    <div className="container mx-auto my-6 p-4 bg-ltGrey rounded-xl">
       <h2 className="text-2xl font-bold mb-4">
         My Cart ({cartItems.reduce((total, item) => total + item.count, 0)}{" "}
         Items)
       </h2>
-      <div className="flex flex-col space-y-4">
+      <div className="flex flex-col space-y-4 ">
         {cartItems.map((item) => {
           const itemTotal = calculateItemTotal(item.count, item.product.price);
           return (
             <div
               key={item.product.id}
-              className="flex items-center justify-between p-4 border-b"
+              className="flex items-center justify-between p-4 border border-solid border-semiGrey rounded-xl bg-white"
             >
               <div className="flex items-center space-x-4">
                 <input
@@ -60,7 +60,7 @@ const ShoppingCartLayout = () => {
                 >
                   -
                 </button>
-                <span className="border border-solid border-semiGrey text-xs px-2 py-2 text-darkBg">
+                <span className="border border-solid border-semiGrey text-xs px-3 py-[7px] text-darkBg">
                   {item.count}
                 </span>
                 <button
