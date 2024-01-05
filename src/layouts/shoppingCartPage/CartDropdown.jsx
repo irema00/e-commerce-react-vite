@@ -84,7 +84,7 @@ function CartDropdown({ onClose }) {
                       </button>
                     </div>
                     <Icon
-                      className="flex justify-end items-end"
+                      className="flex justify-end items-end hover:cursor-pointer"
                       icon="fluent:delete-24-regular"
                       width="20"
                       height="20"
