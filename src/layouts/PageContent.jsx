@@ -8,6 +8,7 @@ import ContactPage from "../pages/ContactPage";
 import AboutPage from "../pages/AboutPage";
 import SignUpPage from "../pages/SignUpPage";
 import LoginPage from "../pages/LoginPage";
+import ShoppingCartPage from "../pages/ShoppingCartPage";
 
 export default function PageContent() {
   return (
@@ -28,6 +29,7 @@ export default function PageContent() {
           path="/:category/:productId/:productNameSlug"
           element={<ProductPage />}
         />
+        <Route path="/cart" element={<ShoppingCartPage />} />
       </Routes>
     </>
   );
