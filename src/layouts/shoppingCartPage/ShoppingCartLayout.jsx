@@ -83,11 +83,27 @@ const ShoppingCartLayout = () => {
           );
         })}
       </div>
-      <div className="flex justify-end mt-4">
-        <div className="text-lg">
-          <p>Total Price: ${total.toFixed(2)}</p>
-          <p>Shipping: {isShippingFree(total) ? "Free" : "$29.99"}</p>
-        </div>
+      <div className="flex justify-end mt-4  ">
+        <table className="w-[300px] divide-y divide-gray-200 border border-solid border-semiGrey">
+          <tbody className="bg-white divide-y divide-gray-200">
+            <tr>
+              <td className="px-6 py-4 whitespace-nowrap text-sm font-bold lg:text-[18px] text-[20px]">
+                Total Price:
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm font-normal lg:text-[18px] text-[20px]">
+                ${total.toFixed(2)}
+              </td>
+            </tr>
+            <tr>
+              <td className="px-6 py-4 whitespace-nowrap text-sm font-bold lg:text-[18px] text-[20px]">
+                Shipping:
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm font-normal lg:text-[18px] text-[20px]">
+                {isShippingFree(total) ? "Free" : "$29.99"}
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );
