@@ -29,7 +29,8 @@ const ShoppingCartLayout = () => {
   return (
     <div className="container mx-auto my-6 p-4">
       <h2 className="text-2xl font-bold mb-4">
-        My Cart ({cartItems.length} Items)
+        My Cart ({cartItems.reduce((total, item) => total + item.count, 0)}{" "}
+        Items)
       </h2>
       <div className="flex flex-col space-y-4">
         {cartItems.map((item) => {
