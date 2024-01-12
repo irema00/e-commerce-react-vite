@@ -12,8 +12,9 @@ const CategoryList = () => {
 
   return (
     <div className="flex lg:justify-between justify-center flex-wrap items-center gap-2 bg-ltGrey px-[10%]">
-      {topCategories.map((category) => (
+      {topCategories.map((category, index) => (
         <Link
+          key={index}
           to={`/shop/${category.id}/${
             category.gender === "e" ? "erkek" : "kadin"
           }/${slugify(category.title, {
@@ -21,7 +22,7 @@ const CategoryList = () => {
           })}`}
         >
           <CategoryCard
-            key={category.id}
+            key={index}
             category={category.title}
             imageUrl={category.img}
             gender={category.gender === "e" ? "erkek" : "kadın"}
