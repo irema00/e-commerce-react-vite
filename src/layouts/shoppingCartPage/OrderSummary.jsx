@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function OrderSummary({ total, shippingCost, orderTotal }) {
   return (
-    <div className="bg-ltGrey rounded-xl border border-solid border-semiGrey p-4 w-full lg:w-[400px] h-[350px] justify-between flex flex-col bg-white">
+    <div className="bg-ltGrey rounded-xl border border-solid border-semiGrey p-4 w-full lg:w-[400px] h-full justify-between flex flex-col bg-white">
       <h3 className="text-2xl font-bold mb-4 text-center">Order Summary</h3>
       {total === 0 ? (
         <div className="flex text-center justify-center items-center flex-col h-full gap-5">
