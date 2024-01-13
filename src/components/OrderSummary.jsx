@@ -11,12 +11,7 @@ export default function OrderSummary() {
   );
 
   const handleCreateOrderClick = () => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      navigate("/login");
-    } else {
-      navigate("/order");
-    }
+    navigate("/order");
   };
   return (
     <div className="bg-ltGrey rounded-xl border border-solid border-semiGrey p-4 w-full lg:w-[400px] h-full justify-between flex flex-col bg-white">
