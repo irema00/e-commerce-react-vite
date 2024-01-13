@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   increaseItemCount,
@@ -7,24 +7,22 @@ import {
   toggleItemCheck,
 } from "../../store/actions/shoppingCartActions";
 import { Icon } from "@iconify/react";
-import OrderSummary from "./OrderSummary";
 import { Link } from "react-router-dom";
+import OrderSummary from "../../components/OrderSummary";
+import { calculateTotals } from "../../store/actions/shoppingCartActions";
 
 const ShoppingCartLayout = () => {
   const cartItems = useSelector((state) => state.shoppingCart.cart);
   const dispatch = useDispatch();
 
-  const calculateItemTotal = (count, price) => {
-    return (count * price).toFixed(2);
-  };
+  useEffect(() => {
+    dispatch(calculateTotals());
+  }, [dispatch, cartItems]);
 
-  const total = cartItems.reduce(
-    (acc, item) => acc + (item.checked ? item.product.price * item.count : 0),
-    0
+  const { total, shippingCost, orderTotal } = useSelector(
+    (state) => state.shoppingCart
   );
-  const isShippingFree = (totalPrice) => totalPrice >= 300;
-  const shippingCost = isShippingFree(total) ? 0 : 29.99;
-  const orderTotal = total + shippingCost;
+
   const handleCheckboxChange = (productId) => {
     dispatch(toggleItemCheck(productId));
   };
@@ -32,7 +30,7 @@ const ShoppingCartLayout = () => {
     <div className="container mx-auto my-6 p-4 bg-ltGrey rounded-xl flex justify-between gap-10">
       <div className="flex flex-col w-full">
         <h2 className="text-2xl font-bold mb-4">
-          My Cart ({cartItems.reduce((total, item) => total + item.count, 0)}{" "}
+          My Cart ({cartItems.reduce((total, item) => total + item.count, 0)}
           Items)
         </h2>
         {cartItems.length === 0 ? (
@@ -47,16 +45,16 @@ const ShoppingCartLayout = () => {
           </div>
         ) : (
           <>
-            {isShippingFree(total) ? (
+            {shippingCost === 0 ? (
               <div className="text-green-600 font-bold mb-2">
                 Free Shipping!
               </div>
             ) : (
               <div className="font-normal mb-2">
-                Add{" "}
+                Add
                 <span className="font-bold text-red-600 ">
-                  ${parseFloat((300 - total).toFixed(2)).toFixed(2)}
-                </span>{" "}
+                  ${parseFloat(300 - parseFloat(total)).toFixed(2)}
+                </span>
                 worth of products to get{" "}
                 <span className="text-successGreen font-semibold">
                   Free Shipping!
@@ -65,10 +63,9 @@ const ShoppingCartLayout = () => {
             )}
             <div className="flex flex-col space-y-4  bg-white ">
               {cartItems.map((item) => {
-                const itemTotal = calculateItemTotal(
-                  item.count,
-                  item.product.price
-                );
+                const itemTotal = parseFloat(
+                  item.count * item.product.price
+                ).toFixed(2);
                 return (
                   <div
                     key={item.product.id}
@@ -131,7 +128,7 @@ const ShoppingCartLayout = () => {
                       Total Price:
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-normal lg:text-[18px] text-[20px]">
-                      ${total.toFixed(2)}
+                      ${parseFloat(total).toFixed(2)}
                     </td>
                   </tr>
                   <tr>
@@ -139,7 +136,7 @@ const ShoppingCartLayout = () => {
                       Shipping:
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-normal lg:text-[18px] text-[20px]">
-                      {isShippingFree(total) ? (
+                      {shippingCost === 0 ? (
                         <div className="flex gap-2">
                           <span className="text-blue-500 line-through">
                             $29.99
@@ -157,9 +154,9 @@ const ShoppingCartLayout = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-normal lg:text-[18px] text-[20px]">
                       $
-                      {isShippingFree(total)
-                        ? total.toFixed(2)
-                        : orderTotal.toFixed(2)}
+                      {shippingCost === 0
+                        ? parseFloat(total).toFixed(2)
+                        : parseFloat(orderTotal).toFixed(2)}
                     </td>
                   </tr>
                 </tbody>

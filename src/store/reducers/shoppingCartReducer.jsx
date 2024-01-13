@@ -2,6 +2,9 @@ const cartInitial = {
   cart: [],
   payment: {},
   address: {},
+  total: 0,
+  shippingCost: 29.99,
+  orderTotal: 0,
 };
 
 export const shoppingCartReducer = (state = cartInitial, action) => {
@@ -64,6 +67,14 @@ export const shoppingCartReducer = (state = cartInitial, action) => {
             : item
         ),
       };
+    case "CALCULATE_TOTALS":
+      return {
+        ...state,
+        total: action.payload.total,
+        shippingCost: action.payload.shippingCost,
+        orderTotal: action.payload.orderTotal,
+      };
+
     case "SET_PAYMENT_INFO":
       return { ...state, payment: action.payload };
     case "SET_ADDRESS_INFO":

@@ -1,15 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-export default function OrderSummary({ total, shippingCost, orderTotal }) {
+export default function OrderSummary() {
   const navigate = useNavigate();
+
+  const { total, shippingCost, orderTotal } = useSelector(
+    (state) => state.shoppingCart
+  );
 
   const handleCreateOrderClick = () => {
     const token = localStorage.getItem("token");
     if (!token) {
       navigate("/login");
     } else {
+      navigate("/order");
     }
   };
   return (
@@ -30,7 +36,9 @@ export default function OrderSummary({ total, shippingCost, orderTotal }) {
           <div className="mb-4">
             <div className="flex justify-between mb-2 gap-2">
               <span className="font-bold">Total Products:</span>
-              <span className="font-normal">${total.toFixed(2)}</span>
+              <span className="font-normal">
+                ${parseFloat(total).toFixed(2)}
+              </span>
             </div>
             <div className="flex justify-between mb-2 gap-2">
               <span className="font-bold">Shipping Total:</span>
@@ -48,7 +56,9 @@ export default function OrderSummary({ total, shippingCost, orderTotal }) {
           <div className="border-t border-semiGrey border-solid pt-4">
             <div className="flex justify-between">
               <span className="font-bold ">Total:</span>
-              <span className="font-bold">${orderTotal.toFixed(2)}</span>
+              <span className="font-bold">
+                ${parseFloat(orderTotal).toFixed(2)}
+              </span>
             </div>
           </div>
           <button

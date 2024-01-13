@@ -47,6 +47,26 @@ export const toggleItemCheck = (productId) => {
     payload: productId,
   };
 };
+export const calculateTotals = () => {
+  return (dispatch, getState) => {
+    const cartItems = getState().shoppingCart.cart;
+    const total = cartItems.reduce(
+      (acc, item) => acc + item.count * item.product.price,
+      0
+    );
+    const shippingCost = parseFloat(total) > 300 ? 0 : 29.99;
+    const orderTotal = total + shippingCost;
+
+    dispatch({
+      type: "CALCULATE_TOTALS",
+      payload: {
+        total,
+        shippingCost,
+        orderTotal,
+      },
+    });
+  };
+};
 export const setPaymentInfo = (paymentInfo) => {
   return {
     type: "SET_PAYMENT_INFO",
