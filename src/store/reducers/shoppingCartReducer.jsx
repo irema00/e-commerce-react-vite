@@ -55,6 +55,15 @@ export const shoppingCartReducer = (state = cartInitial, action) => {
             : item
         ),
       };
+    case "TOGGLE_ITEM_CHECK":
+      return {
+        ...state,
+        cart: state.cart.map((item) =>
+          item.product.id === action.payload
+            ? { ...item, checked: !item.checked }
+            : item
+        ),
+      };
     case "SET_PAYMENT_INFO":
       return { ...state, payment: action.payload };
     case "SET_ADDRESS_INFO":

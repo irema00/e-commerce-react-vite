@@ -41,6 +41,12 @@ export const decreaseItemCount = (productId) => {
   };
 };
 
+export const toggleItemCheck = (productId) => {
+  return {
+    type: "TOGGLE_ITEM_CHECK",
+    payload: productId,
+  };
+};
 export const setPaymentInfo = (paymentInfo) => {
   return {
     type: "SET_PAYMENT_INFO",
