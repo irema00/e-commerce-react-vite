@@ -7,7 +7,6 @@ import {
   increaseItemCount,
   removeFromCart,
 } from "../../store/actions/shoppingCartActions";
-import { calculateTotals } from "../../store/actions/shoppingCartActions";
 
 function CartDropdown({ onClose }) {
   const cartItems = useSelector((state) => state.shoppingCart.cart);
@@ -21,9 +20,7 @@ function CartDropdown({ onClose }) {
     onClose();
   };
 
-  const { total, shippingCost, orderTotal } = useSelector(
-    (state) => state.shoppingCart
-  );
+  const { total } = useSelector((state) => state.shoppingCart);
   const handleCreateOrderClick = () => {
     navigate("/order");
   };
