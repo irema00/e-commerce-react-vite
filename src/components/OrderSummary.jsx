@@ -1,7 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function OrderSummary({ total, shippingCost, orderTotal }) {
+  const navigate = useNavigate();
+
+  const handleCreateOrderClick = () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login");
+    } else {
+    }
+  };
   return (
     <div className="bg-ltGrey rounded-xl border border-solid border-semiGrey p-4 w-full lg:w-[400px] h-full justify-between flex flex-col bg-white">
       <h3 className="text-2xl font-bold mb-4 text-center">Order Summary</h3>
@@ -44,8 +54,9 @@ export default function OrderSummary({ total, shippingCost, orderTotal }) {
           <button
             className="mt-4 w-full bg-prBlue text-white font-bold py-2 px-4 rounded-xl hover:bg-blue-300 transition duration-300 ease-in-out place-self-end"
             disabled={total === 0}
+            onClick={handleCreateOrderClick}
           >
-            Complete Order
+            Create Order
           </button>
         </div>
       )}
