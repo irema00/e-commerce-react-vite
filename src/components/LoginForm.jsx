@@ -35,7 +35,12 @@ const LoginForm = () => {
             })
           );
           toast.success("Logged in successfully!");
-          navigate("/");
+          const cartItems = localStorage.getItem("cart");
+          if (cartItems) {
+            navigate("/cart");
+          } else {
+            navigate("/");
+          }
         } else {
           throw new Error("Login failed: No token received");
         }

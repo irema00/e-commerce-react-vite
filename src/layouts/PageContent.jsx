@@ -9,6 +9,8 @@ import AboutPage from "../pages/AboutPage";
 import SignUpPage from "../pages/SignUpPage";
 import LoginPage from "../pages/LoginPage";
 import ShoppingCartPage from "../pages/ShoppingCartPage";
+import CreateOrderPage from "../pages/CreateOrderPage";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 export default function PageContent() {
   return (
@@ -30,6 +32,14 @@ export default function PageContent() {
           element={<ProductPage />}
         />
         <Route path="/cart" element={<ShoppingCartPage />} />
+        <Route
+          path="/order"
+          element={
+            <ProtectedRoute>
+              <CreateOrderPage />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </>
   );
