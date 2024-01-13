@@ -7,6 +7,7 @@ import {
   increaseItemCount,
   removeFromCart,
 } from "../../store/actions/shoppingCartActions";
+import { calculateTotals } from "../../store/actions/shoppingCartActions";
 
 function CartDropdown({ onClose }) {
   const cartItems = useSelector((state) => state.shoppingCart.cart);
@@ -19,14 +20,13 @@ function CartDropdown({ onClose }) {
   const handleClose = () => {
     onClose();
   };
-  const totalCartPrice = cartItems
-    .reduce((total, item) => {
-      return total + item.product.price * item.count;
-    }, 0)
-    .toFixed(2);
-  const totalItemCount = cartItems.reduce((total, item) => {
-    return total + item.count;
-  }, 0);
+
+  const { total, shippingCost, orderTotal } = useSelector(
+    (state) => state.shoppingCart
+  );
+  const handleCreateOrderClick = () => {
+    navigate("/order");
+  };
   return (
     <div className="absolute right-0 left-0 mt-2 pb-2 w-50 px-2 mx-5 bg-white rounded-lg  shadow-xl z-50 lg:w-80">
       <div className="flex text-darkBg items-center justify-end px-5 pt-3 hover:text-semiGrey ">
@@ -37,7 +37,8 @@ function CartDropdown({ onClose }) {
         />
       </div>
       <p className="flex items-center justify-center pb-3 font-bold text-darkBg lg:text-lg text-[18px]">
-        My Cart ({totalItemCount})
+        My Cart ({cartItems.reduce((total, item) => total + item.count, 0)}{" "}
+        Items)
       </p>
       <div className="flex flex-col px-4 py-2  ">
         {cartItems.length > 0 ? (
@@ -104,7 +105,7 @@ function CartDropdown({ onClose }) {
       <div className="flex justify-end item.products-center py-3 px-5 text-darkBg gap-2">
         <p className="font-bold lg:text-[18px] text-[20px]">Total: </p>
         <span className="font-normal lg:text-[18px] text-[20px]">
-          ${totalCartPrice}
+          ${parseFloat(total).toFixed(2)}
         </span>
       </div>
       <div className="flex justify-between items-center py-1 px-4">
@@ -114,8 +115,11 @@ function CartDropdown({ onClose }) {
         >
           Go to Cart
         </Link>
-        <button className="text-sm bg-prBlue hover:bg-blue-300 text-white font-semibold lg:py-2 lg:px-4 py-4 px-7 rounded">
-          Complete Order
+        <button
+          onClick={handleCreateOrderClick}
+          className="text-sm bg-prBlue hover:bg-blue-300 text-white font-semibold lg:py-2 lg:px-4 py-4 px-7 rounded"
+        >
+          Create Order
         </button>
       </div>
     </div>
