@@ -18,7 +18,7 @@ const ShoppingCartLayout = () => {
   };
 
   const total = cartItems.reduce(
-    (acc, item) => acc + item.product.price * item.count,
+    (acc, item) => acc + (item.checked ? item.product.price * item.count : 0),
     0
   );
   const isShippingFree = (totalPrice) => totalPrice >= 300;
