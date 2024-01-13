@@ -63,7 +63,7 @@ const ShoppingCartLayout = () => {
                 </span>
               </div>
             )}
-            <div className="flex flex-col space-y-4  ">
+            <div className="flex flex-col space-y-4  bg-white ">
               {cartItems.map((item) => {
                 const itemTotal = calculateItemTotal(
                   item.count,
