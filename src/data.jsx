@@ -105,9 +105,7 @@ export const headerData = {
     { name: "home", label: "Home", path: "/" },
     { name: "shop", label: "Shop", path: "/shop" },
     { name: "about", label: "About", path: "/about" },
-    { name: "blog", label: "Blog", path: "/blog" },
     { name: "contact", label: "Contact", path: "/contact" },
-    { name: "pages", label: "Pages", path: "/pages" },
   ],
 };
 
