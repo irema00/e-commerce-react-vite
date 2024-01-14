@@ -80,11 +80,74 @@ export default function CreateOrderLayout() {
                 </p>
               </div>
             </div>
-            <div className="mt-4 p-4 bg-white rounded shadow">
-              <h2 className="text-lg font-bold mb-3">Delivery Address</h2>
-              <div className="flex items-center justify-between">
-                <p className="flex-1">Add New Address</p>
-                <button className="p-2 bg-gray-200 rounded">+</button>
+            <div className="flex flex-col mt-4 p-4 gap-3 bg-white rounded shadow ">
+              <div className="flex justify-between w-full ">
+                <h2 className="text-lg font-bold mb-3">Delivery Address</h2>
+                <div className="flex items-center justify-between">
+                  <button
+                    onClick={openAddAddressModal}
+                    className="p-2 bg-gray-200 rounded cursor-pointer hover:bg-gray-300 hover:border hover:border-solid hover:border-gray-100 "
+                  >
+                    <p className="flex text-xs font-bold text-darkBg ">
+                      Add New Address +
+                    </p>
+                  </button>
+                </div>{" "}
+              </div>
+              <div className="flex flex-wrap">
+                {addresses &&
+                  addresses.map((address) => (
+                    <div
+                      key={address.id}
+                      className=" p-4 m-2 border border-solid border-semiGrey rounded shadow-lg w-1/3  "
+                    >
+                      <input
+                        type="radio"
+                        name="selectedAddress"
+                        value={address.id}
+                        onChange={() => {
+                          /* selection */
+                        }}
+                        checked={selectedAddress === address.id}
+                        className="flex float-right shadow-xl "
+                      />
+                      <h3 className="text-md font-bold text-prBlue">
+                        {address.title}
+                      </h3>
+                      <p className="text-xs text-darkBg font-semibold mt-1">
+                        {address.name} {address.surname}
+                      </p>
+                      <p className="text-xs text-darkBg font-normal mt-1">
+                        {address.address}
+                      </p>
+                      <p className="text-xs text-darkBg font-normal mt-1">
+                        {address.neighborhood}, {address.district}
+                      </p>
+                      <p className="text-xs text-darkBg font-normal mt-1">
+                        {address.city}
+                      </p>
+                      <p className="text-xs text-darkBg font-normal mt-1">
+                        {address.phone}
+                      </p>
+                      <div className="flex justify-between mt-4 ">
+                        <div className="flex gap-2">
+                          {" "}
+                          <button
+                            className="flex bg-blue-500
+hover:bg-blue-700 text-white font-bold py-1 px-2 text-xs rounded focus:outline-none focus:shadow-outline"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            className="flex bg-blue-500
+                          hover:bg-blue-700 text-white font-bold py-1 px-2 text-xs rounded focus:outline-none focus:shadow-outline"
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
               </div>
             </div>
           </div>
