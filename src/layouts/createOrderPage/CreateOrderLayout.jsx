@@ -4,13 +4,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { calculateTotals } from "../../store/actions/shoppingCartActions";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
+import AddAddressModal from "./AddAddressModal";
 
 export default function CreateOrderLayout() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { total, shippingCost, orderTotal } = useSelector(
     (state) => state.shoppingCart
-  );
+  const [isAddAddressModalOpen, setIsAddAddressModalOpen] = useState(false);
 
   useEffect(() => {
     dispatch(calculateTotals());
@@ -18,6 +19,14 @@ export default function CreateOrderLayout() {
 
   const handleGoCart = () => {
     navigate("/cart");
+  };
+
+  const openAddAddressModal = () => {
+    setIsAddAddressModalOpen(true);
+  };
+
+  const closeAddAddressModal = () => {
+    setIsAddAddressModalOpen(false);
   };
   return (
     <div className="container mx-auto my-6 p-4 bg-ltGrey rounded-xl flex justify-between gap-10 flex-col">
@@ -159,6 +168,11 @@ hover:bg-blue-700 text-white font-bold py-1 px-2 text-xs rounded focus:outline-n
               orderTotal={orderTotal}
             />
           </div>
+          {isAddAddressModalOpen && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+              <AddAddressModal onClose={closeAddAddressModal} />
+            </div>
+          )}
         </div>
       </div>
     </div>
