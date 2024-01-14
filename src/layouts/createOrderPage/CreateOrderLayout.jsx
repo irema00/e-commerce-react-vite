@@ -163,7 +163,7 @@ hover:bg-blue-700 text-white font-bold py-1 px-2 text-xs rounded focus:outline-n
             </div>
           </div>
 
-          <div>
+          <div className="flex ">
             <OrderSummary
               total={total}
               shippingCost={shippingCost}
