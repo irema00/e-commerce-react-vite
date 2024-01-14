@@ -1,3 +1,4 @@
+import { AxiosInstance } from "../../api/api";
 export const addToCart = (product) => {
   return (dispatch, getState) => {
     dispatch({
@@ -78,5 +79,21 @@ export const setAddressInfo = (addressInfo) => {
   return {
     type: "SET_ADDRESS_INFO",
     payload: addressInfo,
+  };
+};
+
+export const fetchAddresses = () => async (dispatch) => {
+  try {
+    const response = await AxiosInstance.get("/user/address");
+    dispatch({ type: "FETCH_ADDRESSES", payload: response.data });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const selectAddress = (addressId) => {
+  return {
+    type: "SELECT_ADDRESS",
+    payload: addressId,
   };
 };
