@@ -4,7 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { calculateTotals } from "../../store/actions/shoppingCartActions";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
-import { fetchAddresses } from "../../store/actions/shoppingCartActions";
+import {
+  fetchAddresses,
+  selectAddress,
+} from "../../store/actions/shoppingCartActions";
 import AddAddressModal from "./AddAddressModal";
 
 export default function CreateOrderLayout() {
@@ -13,6 +16,9 @@ export default function CreateOrderLayout() {
   const { total, shippingCost, orderTotal, addresses, selectedAddress } =
     useSelector((state) => state.shoppingCart);
   const [isAddAddressModalOpen, setIsAddAddressModalOpen] = useState(false);
+  const selectedAddressDetails = addresses.find(
+    (addr) => addr.id === selectedAddress
+  );
 
   useEffect(() => {
     dispatch(calculateTotals());
@@ -29,6 +35,9 @@ export default function CreateOrderLayout() {
 
   const closeAddAddressModal = () => {
     setIsAddAddressModalOpen(false);
+  };
+  const handleSelectAddress = (addressId) => {
+    dispatch(selectAddress(addressId));
   };
   return (
     <div className="container mx-auto my-6 p-4 bg-ltGrey rounded-xl flex justify-between gap-10 flex-col">
@@ -57,17 +66,32 @@ export default function CreateOrderLayout() {
                   </h2>
                   <h1 className="text-2xl font-bold text-successGreen">1</h1>
                 </div>
-
-                <div className="flex flex-col items-start justify-between">
-                  <p className="flex text-prBlue font-bold ">Home</p>
-                  <span className="text-gray-600 text-sm">Ahmet Akyürek</span>
-                  <span className="text-gray-600 text-sm">
-                    Üniversiteler Mh.
-                  </span>
-                  <span className="text-gray-600 text-sm">
-                    06800- Ankara/Çankaya
-                  </span>
-                </div>
+                {selectedAddressDetails && (
+                  <div className="flex flex-col items-start justify-between">
+                    <p className="flex text-prBlue font-bold ">
+                      {selectedAddressDetails.title}
+                    </p>
+                    <span className="text-gray-600 text-sm">
+                      {selectedAddressDetails.name}{" "}
+                      {selectedAddressDetails.surname}
+                    </span>
+                    <span className="text-gray-600 text-sm">
+                      {selectedAddressDetails.address}
+                    </span>
+                    <span className="text-gray-600 text-sm">
+                      <p>
+                        {selectedAddressDetails.neighborhood},{" "}
+                        {selectedAddressDetails.district}
+                      </p>
+                    </span>
+                    <span className="text-gray-600 text-sm">
+                      {selectedAddressDetails.city}
+                    </span>
+                    <span className="text-gray-600 text-sm">
+                      {selectedAddressDetails.phone}
+                    </span>
+                  </div>
+                )}
               </div>
               <div className="p-4 mb-4 bg-white rounded shadow w-1/2">
                 <div className="flex justify-between gap-2">
@@ -116,9 +140,7 @@ export default function CreateOrderLayout() {
                         type="radio"
                         name="selectedAddress"
                         value={address.id}
-                        onChange={() => {
-                          /* selection */
-                        }}
+                        onChange={() => handleSelectAddress(address.id)}
                         checked={selectedAddress === address.id}
                         className="flex float-right shadow-xl "
                       />
