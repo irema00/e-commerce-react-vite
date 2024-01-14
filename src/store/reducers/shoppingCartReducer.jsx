@@ -1,7 +1,8 @@
 const cartInitial = {
   cart: [],
   payment: {},
-  address: {},
+  addresses: [],
+  selectedAddress: null,
   total: 0,
   shippingCost: 29.99,
   orderTotal: 0,
@@ -74,7 +75,10 @@ export const shoppingCartReducer = (state = cartInitial, action) => {
         shippingCost: action.payload.shippingCost,
         orderTotal: action.payload.orderTotal,
       };
-
+    case "FETCH_ADDRESSES":
+      return { ...state, addresses: action.payload };
+    case "SELECT_ADDRESS":
+      return { ...state, selectedAddress: action.payload };
     case "SET_PAYMENT_INFO":
       return { ...state, payment: action.payload };
     case "SET_ADDRESS_INFO":
