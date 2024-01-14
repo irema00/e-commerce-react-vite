@@ -9,8 +9,8 @@ import AddAddressModal from "./AddAddressModal";
 export default function CreateOrderLayout() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { total, shippingCost, orderTotal } = useSelector(
-    (state) => state.shoppingCart
+  const { total, shippingCost, orderTotal, addresses, selectedAddress } =
+    useSelector((state) => state.shoppingCart);
   const [isAddAddressModalOpen, setIsAddAddressModalOpen] = useState(false);
 
   useEffect(() => {
