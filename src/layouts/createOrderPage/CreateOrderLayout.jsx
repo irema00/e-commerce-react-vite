@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import OrderSummary from "../../components/OrderSummary";
 import { useSelector, useDispatch } from "react-redux";
 import { calculateTotals } from "../../store/actions/shoppingCartActions";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
+import { fetchAddresses } from "../../store/actions/shoppingCartActions";
 import AddAddressModal from "./AddAddressModal";
 
 export default function CreateOrderLayout() {
@@ -15,6 +16,7 @@ export default function CreateOrderLayout() {
 
   useEffect(() => {
     dispatch(calculateTotals());
+    dispatch(fetchAddresses());
   }, [dispatch]);
 
   const handleGoCart = () => {
