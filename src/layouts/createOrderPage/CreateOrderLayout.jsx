@@ -67,27 +67,30 @@ export default function CreateOrderLayout() {
                   <h1 className="text-2xl font-bold text-successGreen">1</h1>
                 </div>
                 {selectedAddressDetails && (
-                  <div className="flex flex-col items-start justify-between">
-                    <p className="flex text-prBlue font-bold ">
+                  <div className="flex flex-col border border-solid border-semiGrey rounded-lg p-3 shadow-lg ">
+                    <p className="flex  text-prBlue font-bold ">
                       {selectedAddressDetails.title}
                     </p>
-                    <span className="text-gray-600 text-sm">
+                    <span className="text-darkBg text-xs font-semibold mt-1 ">
                       {selectedAddressDetails.name}{" "}
                       {selectedAddressDetails.surname}
                     </span>
-                    <span className="text-gray-600 text-sm">
-                      {selectedAddressDetails.address}
-                    </span>
-                    <span className="text-gray-600 text-sm">
-                      <p>
-                        {selectedAddressDetails.neighborhood},{" "}
-                        {selectedAddressDetails.district}
-                      </p>
-                    </span>
-                    <span className="text-gray-600 text-sm">
-                      {selectedAddressDetails.city}
-                    </span>
-                    <span className="text-gray-600 text-sm">
+                    <div className="flex gap-1 mt-1 mb-1 lg:flex-row flex-col">
+                      <span className="text-gray-600 text-xs">
+                        {selectedAddressDetails.address}
+                      </span>
+                      <span className="text-gray-600 text-xs">
+                        <p>
+                          {selectedAddressDetails.neighborhood},{" "}
+                          {selectedAddressDetails.district},
+                        </p>
+                      </span>
+                      <span className="text-gray-600 text-xs font-semibold">
+                        {selectedAddressDetails.city}
+                      </span>
+                    </div>
+
+                    <span className="text-gray-600 text-xs">
                       {selectedAddressDetails.phone}
                     </span>
                   </div>
@@ -129,7 +132,7 @@ export default function CreateOrderLayout() {
                   </button>
                 </div>{" "}
               </div>
-              <div className="flex flex-wrap">
+              <div className="flex flex-wrap ">
                 {addresses &&
                   addresses.map((address) => (
                     <div
@@ -185,7 +188,7 @@ hover:bg-blue-700 text-white font-bold py-1 px-2 text-xs rounded focus:outline-n
             </div>
           </div>
 
-          <div className="flex ">
+          <div className="flex h-[350px] ">
             <OrderSummary
               total={total}
               shippingCost={shippingCost}

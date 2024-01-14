@@ -95,7 +95,7 @@ export default function AddAdressModal({ onClose }) {
             />{" "}
             {errors.title && <p>{errors.title.message}</p>}
           </div>
-          <div className="flex">
+          <div className="flex gap-2">
             <div>
               <label
                 htmlFor="name"
@@ -112,7 +112,7 @@ export default function AddAdressModal({ onClose }) {
                     message: "name must be at least 3 characters",
                   },
                 })}
-                name="name"
+                name="Name"
                 type="text"
                 placeholder="name"
                 required
@@ -125,7 +125,7 @@ export default function AddAdressModal({ onClose }) {
                 htmlFor="surname"
                 className="block text-sm font-bold text-hdGrey"
               >
-                Name:
+                Surname:
               </label>
               <input
                 id="surname"
@@ -138,7 +138,7 @@ export default function AddAdressModal({ onClose }) {
                 })}
                 name="surname"
                 type="text"
-                placeholder="surname"
+                placeholder="Surname"
                 required
                 className="w-full px-2 py-1 border  border-solid border-semiGrey rounded text-sm md:text-lg"
               />{" "}
