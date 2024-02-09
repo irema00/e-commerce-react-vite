@@ -116,3 +116,23 @@ export const fetchCards = () => async (dispatch) => {
     dispatch({ type: "FETCH_CARDS_FAILURE", error });
   }
 };
+
+export const addCard = (cardData) => async (dispatch) => {
+  dispatch({ type: "ADD_CARD_REQUEST" });
+  try {
+    const response = await AxiosInstance.post("/user/card", cardData);
+    dispatch({ type: "ADD_CARD_SUCCESS", payload: response.data });
+    dispatch(fetchCards());
+  } catch (error) {
+    dispatch({ type: "ADD_CARD_FAILURE", error });
+  }
+};
+export const updateCard = (cardData) => async (dispatch) => {
+  try {
+    await AxiosInstance.put("/user/card", cardData);
+    dispatch({ type: "UPDATE_CARD_SUCCESS", payload: cardData });
+    dispatch(fetchCards());
+  } catch (error) {
+    console.error("Card update failed:", error);
+  }
+};

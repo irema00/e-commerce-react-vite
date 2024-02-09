@@ -107,6 +107,33 @@ export const shoppingCartReducer = (state = cartInitial, action) => {
     case "FETCH_CARDS_FAILURE":
       console.error("Error fetching cards:", action.error);
       return state;
+    case "ADD_CARD_REQUEST":
+      return {
+        ...state,
+        loading: true,
+        error: null,
+        cardAdded: false,
+      };
+    case "ADD_CARD_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        cardAdded: true,
+      };
+    case "ADD_CARD_FAILURE":
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+        cardAdded: false,
+      };
+    case "UPDATE_CARD_SUCCESS":
+      const updatedCards = state.cards.map((card) =>
+        card.id === action.payload.id ? action.payload : card
+      );
+      return { ...state, cards: updatedCards };
+
     default:
       return state;
   }
