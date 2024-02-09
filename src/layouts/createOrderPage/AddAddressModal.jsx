@@ -32,8 +32,6 @@ export default function AddAdressModal({ onClose }) {
   });
 
   const onSubmit = async (data) => {
-    console.log("adres submit çalıştı");
-
     const addressFormData = {
       title: data.title,
       name: data.name,
@@ -106,13 +104,13 @@ export default function AddAdressModal({ onClose }) {
               <input
                 id="name"
                 {...register("name", {
-                  required: "name is required",
+                  required: "Name is required",
                   minLength: {
                     value: 3,
-                    message: "name must be at least 3 characters",
+                    message: "Name must be at least 3 characters",
                   },
                 })}
-                name="Name"
+                name="name"
                 type="text"
                 placeholder="name"
                 required
@@ -130,7 +128,7 @@ export default function AddAdressModal({ onClose }) {
               <input
                 id="surname"
                 {...register("surname", {
-                  required: "Lurname is required",
+                  required: "Surname is required",
                   minLength: {
                     value: 2,
                     message: "Surname must be at least 2 characters",
@@ -183,9 +181,7 @@ export default function AddAdressModal({ onClose }) {
               required
               className="w-1/2 px-2 py-1.5 border border-solid border-semiGrey rounded text-sm md:text-lg"
             >
-              <option value="" disabled selected>
-                Select a city
-              </option>
+              <option value="">Select a city</option>
               <option value="izmir">Izmir</option>
             </select>
             {errors.city && <p>{errors.city.message}</p>}
