@@ -91,6 +91,17 @@ export const shoppingCartReducer = (state = cartInitial, action) => {
           address.id === action.payload.id ? action.payload : address
         ),
       };
+    case "DELETE_ADDRESS":
+      return {
+        ...state,
+        addresses: state.addresses.filter(
+          (address) => address.id !== action.payload
+        ),
+        selectedAddress:
+          state.selectedAddress === action.payload
+            ? null
+            : state.selectedAddress,
+      };
     default:
       return state;
   }

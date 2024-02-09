@@ -103,3 +103,8 @@ export const editAddress = (address) => ({
   payload: address,
 });
 
+export const deleteAddress = (addressId) => ({
+  type: "DELETE_ADDRESS",
+  payload: addressId,
+});
+
