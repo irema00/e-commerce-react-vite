@@ -6,6 +6,7 @@ const cartInitial = {
   total: 0,
   shippingCost: 29.99,
   orderTotal: 0,
+  cards: [],
 };
 
 export const shoppingCartReducer = (state = cartInitial, action) => {
