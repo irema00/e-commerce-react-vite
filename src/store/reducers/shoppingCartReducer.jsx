@@ -84,6 +84,13 @@ export const shoppingCartReducer = (state = cartInitial, action) => {
       return { ...state, payment: action.payload };
     case "SET_ADDRESS_INFO":
       return { ...state, address: action.payload };
+    case "EDIT_ADDRESS":
+      return {
+        ...state,
+        addresses: state.addresses.map((address) =>
+          address.id === action.payload.id ? action.payload : address
+        ),
+      };
     default:
       return state;
   }

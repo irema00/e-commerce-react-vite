@@ -97,3 +97,9 @@ export const selectAddress = (addressId) => {
     payload: addressId,
   };
 };
+
+export const editAddress = (address) => ({
+  type: "EDIT_ADDRESS",
+  payload: address,
+});
+
