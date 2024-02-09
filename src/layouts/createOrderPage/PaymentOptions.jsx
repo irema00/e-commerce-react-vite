@@ -1,6 +1,12 @@
+import {
+  selectCard,
+} from "../../store/actions/shoppingCartActions";
 export default function PaymentOptions() {
   const handleGoCart = () => {
     navigate("/cart");
+  };
+  const handleCardSelection = (cardId) => {
+    dispatch(selectCard(cardId));
   };
   return (
     <div className="container mx-auto my-6 p-4 bg-ltGrey rounded-xl flex justify-between gap-10 flex-col">
@@ -93,7 +99,7 @@ export default function PaymentOptions() {
                       Add New Credit Card +
                     </p>
                   </button>
-                </div>{" "}
+                </div>
               </div>
               <div className="flex flex-wrap w-full ">
                 {cards && cards.length > 0 ? (

@@ -127,6 +127,12 @@ export const addCard = (cardData) => async (dispatch) => {
     dispatch({ type: "ADD_CARD_FAILURE", error });
   }
 };
+export const selectCard = (cardId) => {
+  return {
+    type: "SELECT_CARD",
+    payload: cardId,
+  };
+};
 export const updateCard = (cardData) => async (dispatch) => {
   try {
     await AxiosInstance.put("/user/card", cardData);

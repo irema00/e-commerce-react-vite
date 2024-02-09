@@ -128,6 +128,11 @@ export const shoppingCartReducer = (state = cartInitial, action) => {
         error: action.error,
         cardAdded: false,
       };
+    case "SELECT_CARD":
+      return {
+        ...state,
+        selectedCard: action.payload,
+      };
     case "UPDATE_CARD_SUCCESS":
       const updatedCards = state.cards.map((card) =>
         card.id === action.payload.id ? action.payload : card
