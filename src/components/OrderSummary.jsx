@@ -13,6 +13,7 @@ export default function OrderSummary({ context }) {
   const handleCreateOrderClick = () => {
     navigate("/order");
   };
+  const handleSaveAndContinue = () => navigate("/payment");
   return (
     <div className="bg-ltGrey rounded-xl border border-solid border-semiGrey p-4 w-full lg:w-[400px] h-full justify-between flex flex-col bg-white">
       <h3 className="text-2xl font-bold mb-4 text-center">Order Summary</h3>
