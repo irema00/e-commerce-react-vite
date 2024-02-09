@@ -108,3 +108,11 @@ export const deleteAddress = (addressId) => ({
   payload: addressId,
 });
 
+export const fetchCards = () => async (dispatch) => {
+  try {
+    const response = await AxiosInstance.get("/user/card");
+    dispatch({ type: "FETCH_CARDS_SUCCESS", payload: response.data });
+  } catch (error) {
+    dispatch({ type: "FETCH_CARDS_FAILURE", error });
+  }
+};

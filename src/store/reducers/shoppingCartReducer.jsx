@@ -102,6 +102,11 @@ export const shoppingCartReducer = (state = cartInitial, action) => {
             ? null
             : state.selectedAddress,
       };
+    case "FETCH_CARDS_SUCCESS":
+      return { ...state, cards: action.payload };
+    case "FETCH_CARDS_FAILURE":
+      console.error("Error fetching cards:", action.error);
+      return state;
     default:
       return state;
   }
