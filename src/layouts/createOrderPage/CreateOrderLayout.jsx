@@ -58,8 +58,8 @@ export default function CreateOrderLayout() {
       <div className="flex w-full">
         <div className="flex flex-col md:flex-row gap-4 p-4">
           <div className="flex flex-col ">
-            <div className="flex gap-2 ">
-              <div className="mb-4 p-4 bg-white rounded shadow w-1/2">
+            <div className="flex gap-2 flex-col sm:flex-row">
+              <div className=" border-solid border-b-4 border-prBlue mb-4 p-4 bg-white rounded shadow sm:w-1/2">
                 <div className="flex justify-between gap-2">
                   <h2 className="text-lg font-bold mb-3 ">
                     Address Information
@@ -96,9 +96,9 @@ export default function CreateOrderLayout() {
                   </div>
                 )}
               </div>
-              <div className="p-4 mb-4 bg-white rounded shadow w-1/2">
+              <div className="p-4 mb-4 bg-white rounded shadow  sm:w-1/2">
                 <div className="flex justify-between gap-2">
-                  <h2 className="text-lg font-bold mb-3 w-1/2">
+                  <h2 className="text-lg font-bold mb-3w-1/2">
                     Payment Options
                   </h2>
                   <h1 className="text-2xl font-bold text-successGreen">2</h1>
@@ -132,12 +132,12 @@ export default function CreateOrderLayout() {
                   </button>
                 </div>{" "}
               </div>
-              <div className="flex flex-wrap ">
+              <div className="flex flex-wrap">
                 {addresses &&
                   addresses.map((address) => (
                     <div
                       key={address.id}
-                      className=" p-4 m-2 border border-solid border-semiGrey rounded shadow-lg w-1/3  "
+                      className=" p-4 m-2 border border-solid border-semiGrey rounded shadow-lg  w-[250px] "
                     >
                       <input
                         type="radio"
