@@ -169,6 +169,7 @@ const ShoppingCartLayout = () => {
         total={total}
         shippingCost={shippingCost}
         orderTotal={orderTotal}
+        context="shoppingCart"
       />
     </div>
   );

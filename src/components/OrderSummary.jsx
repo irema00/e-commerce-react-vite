@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-export default function OrderSummary() {
+export default function OrderSummary({ context }) {
   const navigate = useNavigate();
 
   const { total, shippingCost, orderTotal } = useSelector(
@@ -56,13 +56,32 @@ export default function OrderSummary() {
               </span>
             </div>
           </div>
-          <button
-            className="mt-4 w-full bg-prBlue text-white font-bold py-2 px-4 rounded-xl hover:bg-blue-300 transition duration-300 ease-in-out place-self-end"
-            disabled={total === 0}
-            onClick={handleCreateOrderClick}
-          >
-            Create Order
-          </button>
+          {context === "shoppingCart" && (
+            <button
+              className="mt-4 w-full bg-prBlue text-white font-bold py-2 px-4 rounded-xl hover:bg-blue-300 transition duration-300 ease-in-out place-self-end"
+              disabled={total === 0}
+              onClick={handleCreateOrderClick}
+            >
+              Create Order
+            </button>
+          )}
+          {context === "createOrder" && (
+            <button
+              className="mt-4 w-full bg-prBlue text-white font-bold py-2 px-4 rounded-xl hover:bg-blue-300 transition duration-300 ease-in-out place-self-end"
+              disabled={total === 0}
+              onClick={handleSaveAndContinue}
+            >
+              Save and Continue
+            </button>
+          )}
+          {context === "paymentOptions" && (
+            <button
+              className="mt-4 w-full bg-prBlue text-white font-bold py-2 px-4 rounded-xl hover:bg-blue-300 transition duration-300 ease-in-out place-self-end"
+              disabled={total === 0}
+            >
+              Complete Order
+            </button>
+          )}
         </div>
       )}
     </div>
