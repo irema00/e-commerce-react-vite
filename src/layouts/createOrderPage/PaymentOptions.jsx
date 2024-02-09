@@ -1,12 +1,45 @@
-import {
+import React, { useEffect, useState } from "react";
+import OrderSummary from "../../components/OrderSummary";
+import { useSelector, useDispatch } from "react-redux";
+import { Icon } from "@iconify/react";
+import { useNavigate } from "react-router-dom";
+import {  calculateTotals,
+  fetchCards,
   selectCard,
 } from "../../store/actions/shoppingCartActions";
+import PaymentForm from "./PaymentForm";
+import Cards from "react-credit-cards-2";
+import "react-credit-cards-2/dist/es/styles-compiled.css";
+
 export default function PaymentOptions() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [isAddCardModalOpen, setIsAddCardModalOpen] = useState(false);
+  const [selectedCardForEdit, setSelectedCardForEdit] = useState(null);
+  const { cards, selectedCard } = useSelector((state) => state.shoppingCart);
+
+  useEffect(() => {
+    dispatch(fetchCards());
+  }, [dispatch]);
+
   const handleGoCart = () => {
     navigate("/cart");
   };
+
+  const openAddCardModal = () => {
+    setIsAddCardModalOpen(true);
+  };
+
+  const closeAddCardModal = () => {
+    setIsAddCardModalOpen(false);
+  };
+
   const handleCardSelection = (cardId) => {
     dispatch(selectCard(cardId));
+  };
+  const openEditCardModal = (card) => {
+    setSelectedCardForEdit(card);
+    setIsAddCardModalOpen(true);
   };
   return (
     <div className="container mx-auto my-6 p-4 bg-ltGrey rounded-xl flex justify-between gap-10 flex-col">
