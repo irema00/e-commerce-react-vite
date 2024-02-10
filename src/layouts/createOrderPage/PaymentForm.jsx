@@ -6,12 +6,14 @@ import { addCard, updateCard } from "../../store/actions/shoppingCartActions";
 import { useDispatch } from "react-redux";
 
 const PaymentForm = ({ onClose, card }) => {
+  const initialExpiry = card
+    ? `${card.expire_month.toString().padStart(2, "0")}/${card.expire_year
+        .toString()
+        .substr(-2)}`
+    : "";
   const [state, setState] = useState({
     number: card?.card_no || "",
-    expiry:
-      `${card?.expire_month.toString().padStart(2, "0")}/${
-        card?.expire_year
-      }` || "",
+    expiry: initialExpiry,
     cvc: "",
     name: card?.name_on_card || "",
     focus: "",
@@ -21,7 +23,19 @@ const PaymentForm = ({ onClose, card }) => {
   const handleInputChange = (evt) => {
     const { name, value } = evt.target;
 
-    setState((prev) => ({ ...prev, [name]: value }));
+    if (name === "expiry") {
+      const onlyNums = value.replace(/[^\d]/g, "");
+      if (onlyNums.length <= 2) {
+        setState((prev) => ({ ...prev, [name]: onlyNums }));
+      } else if (onlyNums.length > 2 && onlyNums.length <= 4) {
+        setState((prev) => ({
+          ...prev,
+          [name]: `${onlyNums.slice(0, 2)}/${onlyNums.slice(2, 4)}`,
+        }));
+      }
+    } else {
+      setState((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleInputFocus = (evt) => {
