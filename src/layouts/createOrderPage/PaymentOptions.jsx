@@ -15,6 +15,8 @@ import "react-credit-cards-2/dist/es/styles-compiled.css";
 export default function PaymentOptions() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { total, shippingCost, orderTotal, addresses, selectedAddress } =
+    useSelector((state) => state.shoppingCart);
   const [isAddCardModalOpen, setIsAddCardModalOpen] = useState(false);
   const [selectedCardForEdit, setSelectedCardForEdit] = useState(null);
   const selectedAddressDetails = addresses?.find(
@@ -23,6 +25,7 @@ export default function PaymentOptions() {
   const { cards, selectedCard } = useSelector((state) => state.shoppingCart);
 
   useEffect(() => {
+    dispatch(calculateTotals());
     dispatch(fetchAddresses());
     dispatch(fetchCards());
   }, [dispatch]);
