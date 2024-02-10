@@ -3,7 +3,8 @@ import OrderSummary from "../../components/OrderSummary";
 import { useSelector, useDispatch } from "react-redux";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
-import {  calculateTotals,
+import {
+  calculateTotals,
   fetchCards,
   fetchAddresses,
   selectCard,
@@ -23,7 +24,7 @@ export default function PaymentOptions() {
     (addr) => addr.id === selectedAddress
   );
   const { cards, selectedCard } = useSelector((state) => state.shoppingCart);
-
+  const installmentOptions = [2, 3, 4];
   useEffect(() => {
     dispatch(calculateTotals());
     dispatch(fetchAddresses());
@@ -143,6 +144,7 @@ export default function PaymentOptions() {
                   </button>
                 </div>
               </div>
+              <div className="flex">
                 <div className="flex flex-wrap w-full ">
                   {cards && cards.length > 0 ? (
                     cards.map((card) => (
@@ -196,13 +198,36 @@ export default function PaymentOptions() {
             </div>
           </div>
 
-          <div className="flex h-[350px] ">
+          <div className="flex flex-col  gap-5 ">
             <OrderSummary
               total={total}
               shippingCost={shippingCost}
               orderTotal={orderTotal}
               context="paymentOptions"
             />
+            <div className="bg-ltGrey rounded-xl border border-solid border-semiGrey p-4 w-full lg:w-[400px] h-full justify-between flex flex-col bg-white">
+              <label
+                htmlFor="installments"
+                className="text-xl font-bold mb-4 text-center "
+              >
+                Installment Options:
+              </label>
+              <select
+                id="installments"
+                name="installments"
+                className="mt-1 block pl-3 pr-10 py-2 text-base border border-solid border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                defaultValue=""
+              >
+                <option disabled value="">
+                  Select
+                </option>
+                {installmentOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option} installments
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
           {isAddCardModalOpen && (
             <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
