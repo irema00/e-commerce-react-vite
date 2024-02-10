@@ -35,6 +35,7 @@ export default function PaymentOptions() {
   };
 
   const openAddCardModal = () => {
+    setSelectedCardForEdit(null);
     setIsAddCardModalOpen(true);
   };
 
