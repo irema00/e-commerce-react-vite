@@ -13,7 +13,14 @@ export default function OrderSummary({ context, selectedAddress }) {
   const handleCreateOrderClick = () => {
     navigate("/order");
   };
-  const handleSaveAndContinue = () => navigate("/payment");
+  const handleSaveAndContinue = () => {
+    if (!selectedAddress) {
+      alert("Please select an address.");
+      return;
+    }
+
+    navigate("/payment");
+  };
   return (
     <div className="bg-ltGrey rounded-xl border border-solid border-semiGrey p-4 w-full lg:w-[400px] h-full justify-between flex flex-col bg-white">
       <h3 className="text-2xl font-bold mb-4 text-center">Order Summary</h3>
