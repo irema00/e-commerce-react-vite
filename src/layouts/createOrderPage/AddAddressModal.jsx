@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
-import { AxiosInstance } from "../../api/api";
 import {
   addAddress,
   setAddressInfo,
@@ -12,9 +10,8 @@ import { useDispatch, useSelector } from "react-redux";
 useSelector;
 
 export default function AddAdressModal({ onClose }) {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(false);
+  const [setIsLoading] = useState(false);
   const address = useSelector((state) => state.shoppingCart);
   console.log(address);
   const [provinces, setProvinces] = useState([]);
