@@ -1,18 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { AxiosInstance } from "../../api/api";
-import { setAddressInfo } from "../../store/actions/shoppingCartActions";
-import { useSelector } from "react-redux";
+import {
+  addAddress,
+  setAddressInfo,
+} from "../../store/actions/shoppingCartActions";
+import { useDispatch, useSelector } from "react-redux";
 useSelector;
 
 export default function AddAdressModal({ onClose }) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const address = useSelector((state) => state.shoppingCart);
   console.log(address);
+  const [provinces, setProvinces] = useState([]);
+  const [districts, setDistricts] = useState([]);
+  const [selectedProvince, setSelectedProvince] = useState("");
+  const [selectedProvinceName, setSelectedProvinceName] = useState("");
+  const [selectedDistrictName, setSelectedDistrictName] = useState("");
   const {
     register,
     handleSubmit,
@@ -37,30 +46,62 @@ export default function AddAdressModal({ onClose }) {
       name: data.name,
       surname: data.surname,
       phone: data.phone,
-      city: data.city,
-      district: data.district,
+      city: selectedProvinceName,
+      district: selectedDistrictName,
       neighborhood: data.neighborhood,
       address: data.address,
     };
     setIsLoading(true);
-    try {
-      const response = await AxiosInstance.post(
-        "/user/address",
-        addressFormData
-      );
-      console.log("New address added successfully", response.data);
-      toast.success("Address added successfully!");
-    } catch (error) {
-      console.error("Address adding failed!", error);
-
-      toast.error("Error adding address!");
-    } finally {
-      setIsLoading(false);
-
-      onClose();
-    }
+    await dispatch(addAddress(addressFormData));
+    setIsLoading(false);
+    onClose();
   };
 
+  useEffect(() => {
+    fetch("https://turkiyeapi.dev/api/v1/provinces")
+      .then((response) => response.json())
+      .then((data) => setProvinces(data.data))
+      .catch((error) => console.error("Error fetching provinces:", error));
+  }, []);
+
+  useEffect(() => {
+    if (selectedProvince) {
+      fetch(`https://turkiyeapi.dev/api/v1/districts`)
+        .then((response) => response.json())
+        .then((data) => {
+          const selectedProvinceDistricts = data.data.filter(
+            (district) => district.province === selectedProvinceName
+          );
+          setDistricts(selectedProvinceDistricts);
+          console.log("DISTRICTLER", selectedProvinceDistricts);
+          console.log("SEÇİLEN ŞEHİR DOĞRU MU", selectedProvinceName);
+        })
+        .catch((error) => console.error("Error fetching districts:", error));
+    }
+  }, [selectedProvince, selectedProvinceName]);
+
+  const handleProvinceChange = (event) => {
+    const selectedProvinceId = event.target.value;
+    const selectedProvinceObj = provinces.find(
+      (province) => province.id.toString() === selectedProvinceId
+    );
+
+    setSelectedProvince(selectedProvinceId);
+    setSelectedProvinceName(selectedProvinceObj?.name);
+    console.log("Selected City:", selectedProvinceName);
+    setDistricts([]);
+  };
+  const handleDistrictChange = (event) => {
+    const selectedDistrictId = event.target.value;
+    const selectedDistrictObj = districts.find(
+      (district) => district.id.toString() === selectedDistrictId
+    );
+
+    setSelectedDistrictName(selectedDistrictObj?.name);
+  };
+  useEffect(() => {
+    console.log("Selected District:", selectedDistrictName);
+  }, [selectedDistrictName]);
   return (
     <div className="flex inset-0 bg-black bg-opacity-50 justify-center items-center z-50 ">
       <div className="bg-white p-4 rounded max-w-lg w-full ">
@@ -180,9 +221,15 @@ export default function AddAdressModal({ onClose }) {
               name="city"
               required
               className="w-1/2 px-2 py-1.5 border border-solid border-semiGrey rounded text-sm md:text-lg"
+              onChange={handleProvinceChange}
+              value={selectedProvince}
             >
-              <option value="">Select a city</option>
-              <option value="izmir">Izmir</option>
+              <option value="">Select a province</option>
+              {provinces.map((province) => (
+                <option key={province.id} value={province.id}>
+                  {province.name}
+                </option>
+              ))}
             </select>
             {errors.city && <p>{errors.city.message}</p>}
           </div>
@@ -199,11 +246,15 @@ export default function AddAdressModal({ onClose }) {
               name="district"
               required
               className="w-1/2 px-2 py-1.5 border border-solid border-semiGrey rounded text-sm md:text-lg"
+              onChange={handleDistrictChange}
             >
-              <option value="" disabled selected>
-                Select a district
-              </option>
-              <option value="izmir">Izmir</option>
+              <option value="">Select a district</option>
+              {districts &&
+                districts.map((district) => (
+                  <option key={district.id} value={district.id}>
+                    {district.name}
+                  </option>
+                ))}
             </select>
           </div>
           <div>
@@ -213,20 +264,18 @@ export default function AddAdressModal({ onClose }) {
             >
               Neighborhood:
             </label>
-            <select
+            <input
               id="neighborhood"
               {...register("neighborhood", {
-                required: "neighborhood is required",
+                required: "Neighborhood is required",
               })}
               name="neighborhood"
+              type="text"
+              placeholder="Enter your neighborhood"
               required
-              className="w-full px-2 py-1.5 border border-solid border-semiGrey rounded text-sm md:text-lg"
-            >
-              <option value="" disabled selected>
-                Select a neighborhood
-              </option>
-              <option value="izmir">Izmir</option>
-            </select>
+              className="w-full px-2 py-1 border border-solid border-semiGrey rounded text-sm md:text-lg"
+            />
+            {errors.neighborhood && <p>{errors.neighborhood.message}</p>}
           </div>
           <div>
             <label
