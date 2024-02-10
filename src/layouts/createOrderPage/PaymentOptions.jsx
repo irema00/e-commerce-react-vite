@@ -5,6 +5,7 @@ import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 import {  calculateTotals,
   fetchCards,
+  fetchAddresses,
   selectCard,
 } from "../../store/actions/shoppingCartActions";
 import PaymentForm from "./PaymentForm";
@@ -16,9 +17,13 @@ export default function PaymentOptions() {
   const navigate = useNavigate();
   const [isAddCardModalOpen, setIsAddCardModalOpen] = useState(false);
   const [selectedCardForEdit, setSelectedCardForEdit] = useState(null);
+  const selectedAddressDetails = addresses?.find(
+    (addr) => addr.id === selectedAddress
+  );
   const { cards, selectedCard } = useSelector((state) => state.shoppingCart);
 
   useEffect(() => {
+    dispatch(fetchAddresses());
     dispatch(fetchCards());
   }, [dispatch]);
 
