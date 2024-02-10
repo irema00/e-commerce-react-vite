@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-export default function OrderSummary({ context }) {
+export default function OrderSummary({ context, selectedAddress }) {
   const navigate = useNavigate();
 
   const { total, shippingCost, orderTotal } = useSelector(

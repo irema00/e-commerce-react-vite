@@ -193,6 +193,7 @@ hover:bg-blue-700 text-white font-bold py-1 px-2 text-xs rounded focus:outline-n
               total={total}
               shippingCost={shippingCost}
               orderTotal={orderTotal}
+              selectedAddress={selectedAddress}
               context="createOrder"
             />
           </div>
