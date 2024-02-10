@@ -143,54 +143,55 @@ export default function PaymentOptions() {
                   </button>
                 </div>
               </div>
-              <div className="flex flex-wrap w-full ">
-                {cards && cards.length > 0 ? (
-                  cards.map((card) => (
-                    <div
-                      key={card.id}
-                      className="p-5 flex items-center flex-col"
-                    >
-                      <input
-                        type="radio"
-                        name="selectedCard"
-                        value={card.id}
-                        onChange={() => handleCardSelection(card.id)}
-                        checked={selectedCard === card.id}
-                        className="self-start mb-4"
-                      />
-                      <Cards
-                        number={card.card_no}
-                        name={card.name_on_card}
-                        expiry={`${
-                          card.expire_month &&
-                          card.expire_month.toString().padStart(2, "0")
-                        }/${
-                          card.expire_year &&
-                          card.expire_year.toString().substr(-2)
-                        }`}
-                        cvc={"***"}
-                        focused="number"
-                        preview={true}
-                      />
-                      <div className="flex m-1 gap-1">
-                        <button
-                          onClick={() => openEditCardModal(card)}
-                          className=" text-bgDark border border-solid border-semiGrey font-bold  text-sm rounded p-1 px-2  focus:outline-none focus:shadow-outline"
-                        >
-                          Edit Card
-                        </button>
-                        {/* <button
+                <div className="flex flex-wrap w-full ">
+                  {cards && cards.length > 0 ? (
+                    cards.map((card) => (
+                      <div
+                        key={card.id}
+                        className="p-5 flex items-center flex-col"
+                      >
+                        <input
+                          type="radio"
+                          name="selectedCard"
+                          value={card.id}
+                          onChange={() => handleCardSelection(card.id)}
+                          checked={selectedCard === card.id}
+                          className="self-start mb-4"
+                        />
+                        <Cards
+                          number={card.card_no}
+                          name={card.name_on_card}
+                          expiry={`${
+                            card.expire_month &&
+                            card.expire_month.toString().padStart(2, "0")
+                          }/${
+                            card.expire_year &&
+                            card.expire_year.toString().substr(-2)
+                          }`}
+                          cvc={"***"}
+                          focused="number"
+                          preview={true}
+                        />
+                        <div className="flex m-1 gap-1">
+                          <button
+                            onClick={() => openEditCardModal(card)}
+                            className=" text-bgDark border border-solid border-semiGrey font-bold  text-sm rounded p-1 px-2  focus:outline-none focus:shadow-outline"
+                          >
+                            Edit Card
+                          </button>
+                          {/* <button
                           onClick={() => deleteCard(card.id)}
                           className=" bg-prBlue text-white border border-solid border-prBlue font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline text-sm"
                         >
                           Delete
                         </button> */}
+                        </div>
                       </div>
-                    </div>
-                  ))
-                ) : (
-                  <p>No cards available. Please add a new card.</p>
-                )}
+                    ))
+                  ) : (
+                    <p>No cards available. Please add a new card.</p>
+                  )}
+                </div>
               </div>
             </div>
           </div>
