@@ -66,7 +66,7 @@ export default function CreateOrderLayout() {
                   </h2>
                   <h1 className="text-2xl font-bold text-successGreen">1</h1>
                 </div>
-                {selectedAddressDetails && (
+                {addresses && selectedAddressDetails && (
                   <div className="flex flex-col border border-solid border-semiGrey rounded-lg p-3 shadow-lg ">
                     <p className="flex  text-prBlue font-bold ">
                       {selectedAddressDetails.title}
