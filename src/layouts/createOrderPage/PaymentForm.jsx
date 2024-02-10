@@ -43,7 +43,11 @@ const PaymentForm = ({ onClose, card }) => {
   };
 
   const submitCard = async (cardData) => {
-    dispatch(addCard(cardData));
+    if (card) {
+      dispatch(updateCard({ ...cardData, id: card.id }));
+    } else {
+      dispatch(addCard(cardData));
+    }
   };
   const handleFormSubmit = (evt) => {
     evt.preventDefault();
