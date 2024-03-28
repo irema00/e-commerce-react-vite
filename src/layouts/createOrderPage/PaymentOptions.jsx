@@ -205,7 +205,7 @@ export default function PaymentOptions() {
               orderTotal={orderTotal}
               context="paymentOptions"
             />
-            <div className="bg-ltGrey rounded-xl border border-solid border-semiGrey p-4 w-full lg:w-[400px] h-full justify-between flex flex-col bg-white">
+            <div className="bg-ltGrey rounded-xl border border-solid border-semiGrey p-4 w-full lg:w-[400px] h-full  flex flex-col bg-white">
               <label
                 htmlFor="installments"
                 className="text-xl font-bold mb-4 text-center "
