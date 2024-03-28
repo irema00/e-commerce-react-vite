@@ -1,11 +1,12 @@
 import { AxiosInstance } from "../../api/api";
+
 export const addToCart = (product) => {
   return (dispatch, getState) => {
     dispatch({
       type: "ADD_TO_CART",
       payload: product,
     });
-
+    dispatch(calculateTotals());
     localStorage.setItem("cart", JSON.stringify(getState().shoppingCart.cart));
   };
 };
@@ -16,7 +17,7 @@ export const removeFromCart = (productId) => {
       type: "REMOVE_FROM_CART",
       payload: productId,
     });
-
+    dispatch(calculateTotals());
     localStorage.setItem("cart", JSON.stringify(getState().shoppingCart.cart));
   };
 };
@@ -27,7 +28,7 @@ export const increaseItemCount = (productId) => {
       type: "INCREASE_ITEM_COUNT",
       payload: productId,
     });
-
+    dispatch(calculateTotals());
     localStorage.setItem("cart", JSON.stringify(getState().shoppingCart.cart));
   };
 };
@@ -38,6 +39,7 @@ export const decreaseItemCount = (productId) => {
       type: "DECREASE_ITEM_COUNT",
       payload: productId,
     });
+    dispatch(calculateTotals());
     localStorage.setItem("cart", JSON.stringify(getState().shoppingCart.cart));
   };
 };
