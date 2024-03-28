@@ -16,7 +16,7 @@ export default function CreateOrderLayout() {
   const { total, shippingCost, orderTotal, addresses, selectedAddress } =
     useSelector((state) => state.shoppingCart);
   const [isAddAddressModalOpen, setIsAddAddressModalOpen] = useState(false);
-  const selectedAddressDetails = addresses.find(
+  const selectedAddressDetails = addresses?.find(
     (addr) => addr.id === selectedAddress
   );
 
@@ -137,7 +137,7 @@ export default function CreateOrderLayout() {
                   addresses.map((address) => (
                     <div
                       key={address.id}
-                      className=" p-4 m-2 border border-solid border-semiGrey rounded shadow-lg  w-[250px] "
+                      className=" p-4 m-2 border border-solid border-semiGrey rounded shadow-lg  w-[250px]    "
                     >
                       <input
                         type="radio"
@@ -145,22 +145,22 @@ export default function CreateOrderLayout() {
                         value={address.id}
                         onChange={() => handleSelectAddress(address.id)}
                         checked={selectedAddress === address.id}
-                        className="flex float-right shadow-xl "
+                        className="flex float-right shadow-xl"
                       />
-                      <h3 className="text-md font-bold text-prBlue">
+                      <h3 className="text-md font-bold text-prBlue ">
                         {address.title}
                       </h3>
                       <p className="text-xs text-darkBg font-semibold mt-1">
                         {address.name} {address.surname}
                       </p>
+                      <p className="text-xs text-darkBg font-normal mt-1  ">
+                        {address.city}
+                      </p>
+                      <p className="text-xs text-darkBg font-normal mt-1">
+                        {address.district} , {address.neighborhood}
+                      </p>
                       <p className="text-xs text-darkBg font-normal mt-1">
                         {address.address}
-                      </p>
-                      <p className="text-xs text-darkBg font-normal mt-1">
-                        {address.neighborhood}, {address.district}
-                      </p>
-                      <p className="text-xs text-darkBg font-normal mt-1">
-                        {address.city}
                       </p>
                       <p className="text-xs text-darkBg font-normal mt-1">
                         {address.phone}

@@ -7,6 +7,7 @@ const cartInitial = {
   shippingCost: 29.99,
   orderTotal: 0,
   cards: [],
+  orders: [],
 };
 
 export const shoppingCartReducer = (state = cartInitial, action) => {
@@ -138,6 +139,18 @@ export const shoppingCartReducer = (state = cartInitial, action) => {
         card.id === action.payload.id ? action.payload : card
       );
       return { ...state, cards: updatedCards };
+    case "ADD_ADDRESS":
+      const newAddress = action.payload;
+      return {
+        ...state,
+        addresses: [...state.addresses, newAddress],
+      };
+    case "ORDER_COMPLETE_SUCCESS":
+      const newOrder = action.payload;
+      return {
+        ...state,
+        orders: [...state.orders, newOrder],
+      };
 
     default:
       return state;

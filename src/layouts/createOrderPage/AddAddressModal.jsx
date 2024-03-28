@@ -19,6 +19,7 @@ export default function AddAdressModal({ onClose }) {
   const [selectedProvince, setSelectedProvince] = useState("");
   const [selectedProvinceName, setSelectedProvinceName] = useState("");
   const [selectedDistrictName, setSelectedDistrictName] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -48,9 +49,9 @@ export default function AddAdressModal({ onClose }) {
       neighborhood: data.neighborhood,
       address: data.address,
     };
-    setIsLoading(true);
-    await dispatch(addAddress(addressFormData));
-    setIsLoading(false);
+
+    dispatch(addAddress(addressFormData));
+
     onClose();
   };
 
