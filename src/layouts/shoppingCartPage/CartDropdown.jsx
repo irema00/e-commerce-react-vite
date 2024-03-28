@@ -7,10 +7,12 @@ import {
   increaseItemCount,
   removeFromCart,
 } from "../../store/actions/shoppingCartActions";
+import { useNavigate } from "react-router-dom";
 
 function CartDropdown({ onClose }) {
   const cartItems = useSelector((state) => state.shoppingCart.cart);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleRemove = (productId) => {
     dispatch(removeFromCart(productId));
