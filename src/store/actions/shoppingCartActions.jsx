@@ -157,10 +157,10 @@ export const addAddress = (addressData) => async (dispatch) => {
 
 export const completeOrder = (orderData) => async (dispatch) => {
   try {
-    await AxiosInstance.post("/order", orderData);
+    const response = await AxiosInstance.post("/order", orderData);
+    console.log("Order Response:", response.data);
     dispatch({ type: "ORDER_COMPLETE_SUCCESS", payload: orderData });
-    dispatch({ type: "CLEAR_CART" });
   } catch (error) {
-    console.error("Order complete failed, error");
+    console.error("Order complete failed", error);
   }
 };
