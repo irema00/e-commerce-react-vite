@@ -1,26 +1,63 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { completeOrder } from "../store/actions/shoppingCartActions";
 
 export default function OrderSummary({ context, selectedAddress }) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const { total, shippingCost, orderTotal } = useSelector(
-    (state) => state.shoppingCart
-  );
-
+  const { total, shippingCost, orderTotal, cartItems, selectedCard } =
+    useSelector((state) => state.shoppingCart);
+  console.log("ADRES", selectedAddress);
   const handleCreateOrderClick = () => {
     navigate("/order");
+    console.log("SEPET", cartItems);
   };
   const handleSaveAndContinue = () => {
     if (!selectedAddress) {
       alert("Please select an address.");
       return;
     }
-
+    console.log(cartItems);
     navigate("/payment");
   };
+  const handleCompleteOrderClick = async () => {
+    if (!selectedAddress || !selectedCard) {
+      alert("Please select an address and a payment method.");
+      return;
+    }
+
+    const orderData = {
+      address_id: selectedAddress.id,
+      order_date: new Date().toISOString(),
+      card_no: selectedCard.card_no,
+      card_name: selectedCard.card_name,
+      card_expire_month: selectedCard.card_expire_month,
+      card_expire_year: selectedCard.card_expire_year,
+      card_ccv: selectedCard.card_ccv,
+      price: orderTotal,
+      products: (cartItems || []).map((item) => ({
+        product_id: item.id,
+        product_count: item.count,
+        product_name: item.name,
+      })),
+    };
+
+    try {
+      await dispatch(completeOrder(orderData));
+      console.log(orderData);
+      toast.success(
+        "Congratulations! Your order has been successfully created."
+      );
+    } catch (error) {
+      console.error("HATA order complete edilmedi");
+      toast.error("Failed to complete the order. Please try again.");
+    }
+  };
+
   return (
     <div className="bg-ltGrey rounded-xl border border-solid border-semiGrey p-4 w-full lg:w-[400px] h-full justify-between flex flex-col bg-white">
       <h3 className="text-2xl font-bold mb-4 text-center">Order Summary</h3>
@@ -86,6 +123,7 @@ export default function OrderSummary({ context, selectedAddress }) {
             <button
               className="mt-4 w-full bg-prBlue text-white font-bold py-2 px-4 rounded-xl hover:bg-blue-300 transition duration-300 ease-in-out place-self-end"
               disabled={total === 0}
+              onClick={handleCompleteOrderClick}
             >
               Complete Order
             </button>
