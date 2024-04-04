@@ -23,6 +23,10 @@ export default function CreateOrderLayout() {
   useEffect(() => {
     dispatch(calculateTotals());
     dispatch(fetchAddresses());
+    const savedAddressId = localStorage.getItem("selectedAddressId");
+    if (savedAddressId) {
+      dispatch(selectAddress(savedAddressId));
+    }
   }, [dispatch]);
 
   const handleGoCart = () => {
