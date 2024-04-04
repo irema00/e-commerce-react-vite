@@ -26,6 +26,7 @@ function App() {
         const gravatar = getGravatar(user.email);
         dispatch(setUser({ ...user, isLoggedIn: true, gravatar: gravatar }));
         renewAxiosInstance();
+        dispatch(fetchAddresses());
       })
       .catch((error) => {
         console.error("Token verification failed", error);
@@ -35,7 +36,7 @@ function App() {
         );
         renewAxiosInstance();
       });
-  }, []);
+  }, [dispatch]);
   return (
     <DataProvider>
       <PageContent />
