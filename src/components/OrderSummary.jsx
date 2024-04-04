@@ -5,56 +5,76 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { completeOrder } from "../store/actions/shoppingCartActions";
 
-export default function OrderSummary({ context, selectedAddress }) {
+export default function OrderSummary({ context }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { total, shippingCost, orderTotal, cartItems, selectedCard } =
-    useSelector((state) => state.shoppingCart);
-  console.log("ADRES", selectedAddress);
+  const {
+    total,
+    shippingCost,
+    orderTotal,
+    cart,
+    selectedCard,
+    selectedAddress,
+    addresses,
+    cards,
+  } = useSelector((state) => state.shoppingCart);
+
+  console.log("Seçilen Adres ID", selectedAddress);
+  console.log("Seçilen Kart ID:", selectedCard);
+  console.log("Mevcut Kartlar:", cards);
+  console.log("Mevcut Adresler", addresses);
+
   const handleCreateOrderClick = () => {
     navigate("/order");
-    console.log("SEPET", cartItems);
+    console.log("SEPET", cart);
   };
   const handleSaveAndContinue = () => {
     if (!selectedAddress) {
       alert("Please select an address.");
       return;
     }
-    console.log(cartItems);
+    console.log(cart);
     navigate("/payment");
   };
+
   const handleCompleteOrderClick = async () => {
-    if (!selectedAddress || !selectedCard) {
-      alert("Please select an address and a payment method.");
-      return;
-    }
+    const addressId = localStorage.getItem("selectedAddressId");
+    console.log("ADRESİMİZİN IDSİ", addressId);
+    const selectedCardDetails = cards.find((card) => card.id === selectedCard);
+    console.log("KART BİLGİLERİ", selectedCardDetails);
+    console.log("SEÇİLEN ÜRÜNLER", cart);
+    if (!selectedAddress) {
+      alert("Please select an address. ");
+    } else if (!selectedCard) {
+      alert("Please select a payment method.");
+    } else {
+      const orderData = {
+        address_id: addressId,
+        order_date: new Date().toISOString(),
+        card_no: selectedCardDetails.card_no,
+        card_name: selectedCardDetails.name_on_card,
+        card_expire_month: selectedCardDetails.expire_month,
+        card_expire_year: selectedCardDetails.expire_year,
+        card_ccv: selectedCardDetails.card_ccv,
+        price: orderTotal,
+        products: (cart || []).map((item) => ({
+          product_id: item.product.id,
+          product_count: item.count,
+          product_name: item.product.name,
+        })),
+      };
 
-    const orderData = {
-      address_id: selectedAddress.id,
-      order_date: new Date().toISOString(),
-      card_no: selectedCard.card_no,
-      card_name: selectedCard.card_name,
-      card_expire_month: selectedCard.card_expire_month,
-      card_expire_year: selectedCard.card_expire_year,
-      card_ccv: selectedCard.card_ccv,
-      price: orderTotal,
-      products: (cartItems || []).map((item) => ({
-        product_id: item.id,
-        product_count: item.count,
-        product_name: item.name,
-      })),
-    };
-
-    try {
-      await dispatch(completeOrder(orderData));
-      console.log(orderData);
-      toast.success(
-        "Congratulations! Your order has been successfully created."
-      );
-    } catch (error) {
-      console.error("HATA order complete edilmedi");
-      toast.error("Failed to complete the order. Please try again.");
+      try {
+        await dispatch(completeOrder(orderData));
+        console.log("SİPARİŞ ÖZETİ", orderData);
+        toast.success(
+          "Congratulations! Your order has been successfully created."
+        );
+      } catch (error) {
+        console.error("HATA order complete edilmedi");
+        toast.error("Failed to complete the order. Please try again.");
+      }
     }
   };
 

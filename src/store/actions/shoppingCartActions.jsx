@@ -84,6 +84,15 @@ export const setAddressInfo = (addressInfo) => {
   };
 };
 
+export const addAddress = (addressData) => async (dispatch) => {
+  try {
+    await AxiosInstance.post("/user/address", addressData);
+    dispatch(fetchAddresses());
+  } catch (error) {
+    console.error("Address adding failed!", error);
+  }
+};
+
 export const fetchAddresses = () => async (dispatch) => {
   try {
     const response = await AxiosInstance.get("/user/address");
@@ -144,14 +153,6 @@ export const updateCard = (cardData) => async (dispatch) => {
     dispatch(fetchCards());
   } catch (error) {
     console.error("Card update failed:", error);
-  }
-};
-export const addAddress = (addressData) => async (dispatch) => {
-  try {
-    await AxiosInstance.post("/user/address", addressData);
-    dispatch(fetchAddresses());
-  } catch (error) {
-    console.error("Address adding failed!", error);
   }
 };
 
