@@ -56,7 +56,8 @@ export default function OrderSummary({ context }) {
         card_name: selectedCardDetails.name_on_card,
         card_expire_month: selectedCardDetails.expire_month,
         card_expire_year: selectedCardDetails.expire_year,
-        card_ccv: selectedCardDetails.card_ccv,
+        //TODO: edit cvv
+        card_ccv: 123,
         price: orderTotal,
         products: (cart || []).map((item) => ({
           product_id: item.product.id,
