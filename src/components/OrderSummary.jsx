@@ -39,8 +39,6 @@ export default function OrderSummary({ context }) {
   };
 
   const handleCompleteOrderClick = async () => {
-    const addressId = localStorage.getItem("selectedAddressId");
-    console.log("ADRESİMİZİN IDSİ", addressId);
     const selectedCardDetails = cards.find((card) => card.id === selectedCard);
     console.log("KART BİLGİLERİ", selectedCardDetails);
     console.log("SEÇİLEN ÜRÜNLER", cart);
@@ -50,7 +48,7 @@ export default function OrderSummary({ context }) {
       alert("Please select a payment method.");
     } else {
       const orderData = {
-        address_id: addressId,
+        address_id: selectedAddress,
         order_date: new Date().toISOString().split(".")[0],
         card_no: selectedCardDetails.card_no,
         card_name: selectedCardDetails.name_on_card,
