@@ -57,10 +57,10 @@ export default function OrderSummary({ context }) {
         //TODO: edit cvv
         card_ccv: 123,
         price: orderTotal,
-        products: (cart || []).map((item) => ({
+        products: cart.map((item) => ({
           product_id: item.product.id,
-          product_count: item.count,
-          product_name: item.product.name,
+          count: item.count,
+          detail: item.product.name,
         })),
       };
 
