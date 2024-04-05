@@ -51,7 +51,7 @@ export default function OrderSummary({ context }) {
     } else {
       const orderData = {
         address_id: addressId,
-        order_date: new Date().toISOString(),
+        order_date: new Date().toISOString().split(".")[0],
         card_no: selectedCardDetails.card_no,
         card_name: selectedCardDetails.name_on_card,
         card_expire_month: selectedCardDetails.expire_month,
