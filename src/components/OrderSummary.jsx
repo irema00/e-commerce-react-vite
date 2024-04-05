@@ -72,6 +72,7 @@ export default function OrderSummary({ context }) {
         toast.success(
           "Congratulations! Your order has been successfully created."
         );
+        navigate("/");
       } catch (error) {
         console.error("HATA order complete edilmedi");
         toast.error("Failed to complete the order. Please try again.");
