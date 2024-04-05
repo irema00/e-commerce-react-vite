@@ -42,6 +42,9 @@ export const shoppingCartReducer = (state = cartInitial, action) => {
       return {
         ...state,
         cart: [],
+        total: 0,
+        shippingCost: 29.99,
+        orderTotal: 0,
       };
 
     case "INCREASE_ITEM_COUNT":
