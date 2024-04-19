@@ -7,6 +7,7 @@ import { setUser } from "./store/actions/userActions";
 import { useDispatch } from "react-redux";
 import { AxiosInstance, renewAxiosInstance } from "./api/api";
 import { fetchCategories } from "./store/actions/globalActions";
+import { fetchAddresses } from "./store/actions/shoppingCartActions";
 
 import gravatar from "gravatar";
 function App() {
