@@ -150,10 +150,9 @@ export const shoppingCartReducer = (state = cartInitial, action) => {
         addresses: [...state.addresses, newAddress],
       };
     case "ORDER_COMPLETE_SUCCESS":
-      const newOrder = action.payload;
       return {
         ...state,
-        orders: [...state.orders, newOrder],
+        orders: [...state.orders, action.payload],
         cart: [],
       };
 
