@@ -9,6 +9,7 @@ import { globalReducer } from "./reducers/globalReducer";
 import { userReducer } from "./reducers/userReducer";
 import { bestsellerReducer, productReducer } from "./reducers/productReducer";
 import { shoppingCartReducer } from "./reducers/shoppingCartReducer";
+import { ordersReducer } from "./reducers/ordersReducer";
 
 export const reducers = combineReducers({
   global: globalReducer,
@@ -16,6 +17,7 @@ export const reducers = combineReducers({
   products: productReducer,
   shoppingCart: shoppingCartReducer,
   bestseller: bestsellerReducer,
+  orders: ordersReducer,
 });
 
 const loadFromLocalStorage = () => {
