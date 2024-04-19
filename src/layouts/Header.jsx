@@ -87,6 +87,11 @@ export default function Header() {
     setCartDropdownVisible((prevVisible) => !prevVisible);
   };
 
+  const goToPreviousOrders = () => {
+    navigate("/previous-orders");
+    setShowUserMenu(false);
+  };
+
   return (
     <div className="w-full flex-wrap ">
       <div className="bg-darkBg lg:flex hidden text-whiteText justify-between items-center flex-wrap gap-2 font-montserrat font-semibold text-sm px-10 py-4 ">
@@ -321,14 +326,27 @@ export default function Header() {
         <div className="lg:flex hidden flex-row  flex-wrap items-center gap-4  ">
           <div className="text-prBlue  flex-row flex items-center gap-2 text-sm font-bold font-monserrat ">
             {isLoggedIn && user.userGravatar && (
-              <div className="flex items-center justify-center text-center text-sm font-bold italic gap-3 mr-5">
-                <span className="text-darkBg">Hi, {user.userName}!</span>{" "}
-                <img
-                  src={user.userGravatar}
-                  alt="User Gravatar"
-                  className="w-6 h-6 rounded-full"
-                />
-              </div>
+              <Menu>
+                <MenuHandler>
+                  <div className="flex items-center justify-center text-center text-sm font-bold italic gap-3 mr-5">
+                    <span className="text-darkBg">Hi, {user.userName}!</span>{" "}
+                    <img
+                      src={user.userGravatar}
+                      alt="User Gravatar"
+                      className="w-6 h-6 rounded-full"
+                    />
+                    <Icon icon="bi:chevron-down" className="text-prBlue" />
+                  </div>
+                </MenuHandler>{" "}
+                <MenuList className="bg-white shadow-xl rounded-md">
+                  <MenuItem
+                    onClick={goToPreviousOrders}
+                    className="hover:bg-gray-100 text-hdGrey font-bold py-2 px-4"
+                  >
+                    Previous Orders
+                  </MenuItem>
+                </MenuList>
+              </Menu>
             )}
             {!isLoggedIn && (
               <Icon
