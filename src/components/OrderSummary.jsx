@@ -71,6 +71,8 @@ export default function OrderSummary({ context }) {
           "Congratulations! Your order has been successfully created."
         );
         navigate("/");
+        dispatch({ type: "CLEAR_CART" });
+        localStorage.removeItem("cart");
       } catch (error) {
         console.error("HATA order complete edilmedi");
         toast.error("Failed to complete the order. Please try again.");
