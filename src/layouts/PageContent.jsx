@@ -12,6 +12,7 @@ import ShoppingCartPage from "../pages/ShoppingCartPage";
 import CreateOrderPage from "../pages/CreateOrderPage";
 import ProtectedRoute from "../components/ProtectedRoute";
 import PaymentPage from "../pages/PaymentPage";
+import PreviousOrdersPage from "../pages/PreviousOrderPage";
 
 export default function PageContent() {
   return (
@@ -46,6 +47,14 @@ export default function PageContent() {
           element={
             <ProtectedRoute>
               <PaymentPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/previous-orders"
+          element={
+            <ProtectedRoute>
+              <PreviousOrdersPage />
             </ProtectedRoute>
           }
         />
